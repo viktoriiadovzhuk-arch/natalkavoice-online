@@ -1,0 +1,3445 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Голос на мільйон — курс Наталки Денисенко</title>
+<meta name="description" content="Найбільший курс по голосу в Україні. 7 модулів + 30 днів щоденної практики. Старт уже сьогодні.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Onest:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Vishuddha palette */
+  --azure:        #1E5FE0;
+  --azure-deep:   #0F3FA8;
+  --azure-soft:   #5B8DEF;
+  --azure-glow:   rgba(30, 95, 224, 0.18);
+  --sky:          #DCE9FB;
+  --sky-mist:     #EEF4FD;
+  --midnight:     #0A1F4A;
+  --ink:          #1B2840;
+  --whisper:      #6B7794;
+  --breath:       #F8FAFD;
+  --silence:      #FFFFFF;
+  --line:         #E2EAF6;
+  --gold:         #E8B547;
+  --gold-deep:    #B8862A;
+  --rose:         #F4D7D7;
+
+  --serif:     'Playfair Display', Georgia, serif;
+  --serif-alt: 'Cormorant Garamond', Georgia, serif;
+  --sans:      'Onest', -apple-system, system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--breath);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+a { color: var(--azure); text-decoration: none; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; position: relative; }
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+   ───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(20px, -30px) rotate(8deg); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-15px, 25px) scale(1.05); }
+}
+@keyframes pulseBlur {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%      { opacity: 0.7; transform: scale(1.1); }
+}
+@keyframes wave {
+  0%, 100% { d: path("M0 50 Q 50 20, 100 50 T 200 50 T 300 50 T 400 50 T 500 50"); }
+  50%      { d: path("M0 50 Q 50 80, 100 50 T 200 50 T 300 50 T 400 50 T 500 50"); }
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+@keyframes floatYReverse {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(18px); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes spinReverse {
+  to { transform: rotate(-360deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes ringPulse {
+  0%   { transform: scale(0.9); opacity: 0.6; }
+  70%  { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+@keyframes drift1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%      { transform: translate(40px, -30px) rotate(120deg); }
+  66%      { transform: translate(-20px, 30px) rotate(240deg); }
+}
+@keyframes drift2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(-30px, -40px) rotate(180deg); }
+}
+@keyframes wavePath {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-50px); }
+}
+@keyframes dotMove {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(20px, 20px); }
+}
+@keyframes lineGrow {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50%      { transform: scaleX(1.1); opacity: 1; }
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+
+/* ─────────────────────────────────────────────
+   GLOBAL DECORATIVE ELEMENTS
+   ───────────────────────────────────────────── */
+
+/* Sound wave SVG that floats decoratively */
+.deco-wave {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+}
+.deco-wave svg { width: 100%; height: 100%; }
+
+/* Concentric circles (chakra ornament) */
+.deco-chakra {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.deco-chakra svg { width: 100%; height: 100%; }
+
+/* Dot pattern grid */
+.deco-dots {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle at 1px 1px, var(--azure) 1.2px, transparent 0);
+  background-size: 22px 22px;
+  opacity: 0.18;
+}
+
+/* Diagonal line ornament */
+.deco-lines {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Big colorful blob — visible, not subtle */
+.deco-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.deco-blob.azure { background: radial-gradient(circle, #1E5FE0 0%, transparent 65%); opacity: 0.32; }
+.deco-blob.soft  { background: radial-gradient(circle, #5B8DEF 0%, transparent 65%); opacity: 0.28; }
+.deco-blob.gold  { background: radial-gradient(circle, #E8B547 0%, transparent 65%); opacity: 0.18; }
+.deco-blob.rose  { background: radial-gradient(circle, #F4D7D7 0%, transparent 65%); opacity: 0.4; }
+
+/* Animated mesh-gradient overlay for backgrounds */
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(at 20% 20%, rgba(30, 95, 224, 0.16) 0%, transparent 50%),
+    radial-gradient(at 80% 30%, rgba(91, 141, 239, 0.14) 0%, transparent 50%),
+    radial-gradient(at 60% 80%, rgba(220, 233, 251, 0.5) 0%, transparent 50%),
+    radial-gradient(at 10% 70%, rgba(232, 181, 71, 0.08) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: gradientShift 22s ease-in-out infinite;
+}
+
+/* Section anchor — small ornament between sections */
+.section-anchor {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 5;
+  pointer-events: none;
+}
+.section-anchor svg {
+  color: var(--azure);
+  opacity: 0.8;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal-stagger.in > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.in > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.in > *:nth-child(2) { transition-delay: 0.12s; }
+.reveal-stagger.in > *:nth-child(3) { transition-delay: 0.19s; }
+.reveal-stagger.in > *:nth-child(4) { transition-delay: 0.26s; }
+.reveal-stagger.in > *:nth-child(5) { transition-delay: 0.33s; }
+.reveal-stagger.in > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-stagger.in > *:nth-child(7) { transition-delay: 0.47s; }
+.reveal-stagger.in > *:nth-child(8) { transition-delay: 0.54s; }
+
+/* ─────────────────────────────────────────────
+   NAVBAR
+   ───────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  background: rgba(248, 250, 253, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom-color: var(--line);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1240px; margin: 0 auto; padding: 0 40px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--midnight);
+  letter-spacing: 0.005em;
+}
+.brand-mark {
+  width: 28px; height: 28px; color: var(--azure);
+}
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--midnight);
+  color: var(--silence);
+  padding: 12px 22px;
+  border-radius: 100px;
+  font-size: 13px; font-weight: 600;
+  border: none;
+  transition: all 0.3s var(--ease);
+}
+.nav-cta:hover {
+  background: var(--azure);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px var(--azure-glow);
+}
+
+/* ─────────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: 160px 0 120px;
+  background:
+    linear-gradient(180deg, #F4F8FE 0%, #EAF1FC 50%, #F8FAFD 100%);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Big visible blobs */
+.hero .deco-blob.b-hero-1 {
+  width: 700px; height: 700px;
+  top: -150px; right: -200px;
+  animation: drift1 24s ease-in-out infinite;
+}
+.hero .deco-blob.b-hero-2 {
+  width: 550px; height: 550px;
+  bottom: -100px; left: -100px;
+  animation: drift2 28s ease-in-out infinite;
+}
+.hero .deco-blob.b-hero-3 {
+  width: 400px; height: 400px;
+  top: 40%; left: 35%;
+  animation: drift1 32s ease-in-out infinite -8s;
+}
+
+/* Visible dot grid */
+.hero .deco-dots.dots-hero {
+  inset: 0;
+  mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%);
+}
+
+/* Sound wave SVG decoration top */
+.hero .deco-wave.wave-top {
+  top: 80px; left: 0; right: 0;
+  height: 80px;
+  opacity: 0.25;
+}
+.hero .deco-wave.wave-bottom {
+  bottom: 60px; left: 0; right: 0;
+  height: 60px;
+  opacity: 0.18;
+}
+
+/* Big chakra ornament */
+.hero .deco-chakra.ch-hero {
+  width: 600px; height: 600px;
+  bottom: -250px; right: -150px;
+  opacity: 0.15;
+  animation: spin 90s linear infinite;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.22em; color: var(--azure);
+  font-weight: 600; margin-bottom: 36px;
+  animation: fadeIn 0.8s var(--ease-out);
+}
+.hero-eyebrow::before {
+  content: ''; width: 32px; height: 1px; background: var(--azure);
+}
+.hero-eyebrow .pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--azure);
+  position: relative;
+  margin-right: 4px;
+}
+.hero-eyebrow .pulse::after {
+  content: '';
+  position: absolute; inset: -3px;
+  border-radius: 50%;
+  background: var(--azure);
+  opacity: 0.3;
+  animation: pulseBlur 2s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(48px, 6.4vw, 92px);
+  line-height: 0.96;
+  font-weight: 500;
+  color: var(--midnight);
+  margin: 0 0 32px;
+  letter-spacing: -0.022em;
+  animation: fadeUp 1s var(--ease-out) 0.1s both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--azure);
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+}
+.hero h1 em::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0.05em;
+  height: 0.18em;
+  background: var(--sky);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.hero-sub {
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--whisper);
+  max-width: 540px;
+  line-height: 1.5;
+  margin: 0 0 44px;
+  animation: fadeUp 1s var(--ease-out) 0.25s both;
+}
+
+.hero-offer {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 1s var(--ease-out) 0.4s both;
+}
+.hero-price-row {
+  display: flex; align-items: baseline; gap: 16px;
+}
+.hero-price {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 600;
+  color: var(--midnight);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.hero-price .currency { font-size: 28px; vertical-align: top; margin-left: 4px; color: var(--azure); }
+.hero-price-old {
+  font-size: 22px;
+  color: var(--whisper);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.hero-discount-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--gold);
+  color: var(--midnight);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn-cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: linear-gradient(120deg, var(--azure) 0%, #2D72ED 35%, var(--azure-deep) 70%, var(--azure) 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  color: var(--silence);
+  padding: 22px 36px;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  letter-spacing: 0.005em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease), background-position 0.8s var(--ease);
+  box-shadow: 0 12px 32px -8px var(--azure-glow), 0 4px 12px -4px var(--azure-glow);
+}
+.btn-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease);
+}
+.btn-cta:hover {
+  background-position: 100% 50%;
+  transform: translateY(-2px);
+  box-shadow: 0 24px 56px -10px rgba(30, 95, 224, 0.45), 0 10px 20px -4px var(--azure-glow);
+}
+.btn-cta:hover::before { transform: translateX(100%); }
+.btn-cta .arrow {
+  display: inline-block;
+  transition: transform 0.4s var(--ease);
+}
+.btn-cta:hover .arrow { transform: translateX(6px); }
+
+.hero-bonus {
+  margin-top: 28px;
+  display: flex; align-items: flex-start; gap: 14px;
+  max-width: 480px;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.55;
+  animation: fadeUp 1s var(--ease-out) 0.55s both;
+}
+.hero-bonus-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--sky);
+  color: var(--azure);
+  display: grid; place-items: center;
+}
+.hero-bonus b { color: var(--midnight); }
+
+/* Hero photo */
+.hero-photo {
+  position: relative;
+  animation: fadeUp 1.2s var(--ease-out) 0.3s both;
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Animated gradient backdrop behind the photo */
+.photo-backdrop {
+  position: absolute;
+  inset: -10% -8%;
+  border-radius: 50% / 45%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #1E5FE0 0deg,
+    #5B8DEF 90deg,
+    #DCE9FB 180deg,
+    #1E5FE0 270deg,
+    #1E5FE0 360deg
+  );
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: spin 30s linear infinite;
+  z-index: 0;
+}
+.photo-backdrop-2 {
+  position: absolute;
+  inset: 5% 0% 0% 0%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, var(--azure-glow) 0%, transparent 60%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+/* Decorative orbiting rings */
+.photo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--azure);
+  pointer-events: none;
+  z-index: 1;
+}
+.photo-ring.r1 {
+  width: 92%; height: 78%;
+  bottom: 0; left: 4%;
+  border-style: dashed;
+  opacity: 0.35;
+  animation: spin 60s linear infinite;
+}
+.photo-ring.r2 {
+  width: 110%; height: 92%;
+  bottom: -5%; left: -5%;
+  opacity: 0.18;
+  animation: spinReverse 80s linear infinite;
+}
+.photo-ring.r3 {
+  width: 70%; height: 56%;
+  bottom: 12%; left: 15%;
+  opacity: 0.22;
+  border-color: var(--azure-soft);
+  animation: spin 45s linear infinite;
+}
+
+/* Soft glow under the figure (chakra-like) */
+.photo-glow {
+  position: absolute;
+  width: 90%;
+  height: 30%;
+  bottom: -5%;
+  left: 5%;
+  background: radial-gradient(ellipse at center,
+    rgba(30, 95, 224, 0.4) 0%,
+    rgba(91, 141, 239, 0.2) 30%,
+    transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+/* The actual photo */
+.photo-img {
+  position: relative;
+  z-index: 2;
+  width: 95%;
+  height: auto;
+  filter: drop-shadow(0 30px 60px rgba(10, 31, 74, 0.25))
+          drop-shadow(0 12px 30px rgba(30, 95, 224, 0.18));
+  animation: floatY 6s ease-in-out infinite;
+}
+
+/* Photo placeholder shared style */
+.photo-placeholder {
+  width: 88% !important;
+  aspect-ratio: 4/5;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FE 100%);
+  border: 1px solid var(--line);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 50px 100px -40px rgba(10,31,74,0.3),
+    0 30px 60px -30px rgba(30, 95, 224, 0.25),
+    inset 0 0 80px rgba(30, 95, 224, 0.04);
+  overflow: hidden;
+}
+.photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(30, 95, 224, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 30% 80%, rgba(91, 141, 239, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.photo-placeholder svg {
+  width: 60%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+.photo-placeholder .ph-name {
+  position: absolute;
+  bottom: 8%;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--midnight);
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Photo decorative tags */
+.photo-tag {
+  position: absolute;
+  background: var(--silence);
+  padding: 14px 20px;
+  border-radius: 100px;
+  box-shadow: 0 24px 50px -16px rgba(10,31,74,0.22), 0 8px 16px -6px rgba(30,95,224,0.15);
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px;
+  color: var(--midnight);
+  font-weight: 500;
+  border: 1px solid var(--line);
+  z-index: 4;
+  backdrop-filter: blur(8px);
+}
+.photo-tag b { color: var(--azure); font-family: var(--serif); font-size: 18px; }
+.photo-tag.t1 {
+  top: 14%; left: -8%;
+  animation: floatY 7s ease-in-out infinite;
+}
+.photo-tag.t2 {
+  bottom: 26%; right: -6%;
+  animation: floatYReverse 8s ease-in-out infinite;
+}
+.photo-tag.t3 {
+  bottom: 6%; left: 0%;
+  animation: floatY 9s ease-in-out infinite -3s;
+}
+
+/* Floating sparkles around the photo */
+.spark {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--azure);
+  z-index: 1;
+  box-shadow: 0 0 20px var(--azure);
+}
+.spark::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: var(--azure);
+  opacity: 0.4;
+  animation: ringPulse 3s ease-out infinite;
+}
+.spark.s1 { top: 18%; right: 8%; animation: drift1 12s ease-in-out infinite; }
+.spark.s2 { bottom: 30%; left: 4%; background: var(--azure-soft); box-shadow: 0 0 16px var(--azure-soft); animation: drift2 14s ease-in-out infinite; }
+.spark.s3 { top: 38%; left: -2%; width: 6px; height: 6px; animation: drift1 16s ease-in-out infinite -4s; }
+
+/* ─────────────────────────────────────────────
+   SECTION BASE
+   ───────────────────────────────────────────── */
+section {
+  position: relative;
+  padding: 130px 0;
+}
+section.alt { background: var(--sky-mist); }
+section.dark {
+  background: var(--midnight);
+  color: var(--sky);
+}
+.sec-label {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--azure);
+  margin-bottom: 22px;
+}
+.sec-label::before {
+  content: ''; width: 28px; height: 1px; background: var(--azure);
+}
+.sec-title {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4.8vw, 60px);
+  line-height: 1.05;
+  font-weight: 500;
+  color: var(--midnight);
+  margin: 0 0 28px;
+  letter-spacing: -0.018em;
+  max-width: 880px;
+}
+.sec-title em { color: var(--azure); font-style: italic; font-weight: 400; }
+section.dark .sec-title { color: var(--silence); }
+
+/* ─────────────────────────────────────────────
+   PAIN POINTS (Screen 2)
+   ───────────────────────────────────────────── */
+.pain-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #F8FAFD 0%, #EEF4FD 100%);
+}
+.pain-section .deco-blob.bp1 {
+  width: 700px; height: 700px;
+  top: -150px; right: -250px;
+  animation: drift1 26s ease-in-out infinite;
+}
+.pain-section .deco-blob.bp2 {
+  width: 500px; height: 500px;
+  bottom: -100px; left: -150px;
+  animation: drift2 30s ease-in-out infinite;
+}
+.pain-section .deco-blob.bp3 {
+  width: 350px; height: 350px;
+  top: 50%; left: 60%;
+  animation: drift1 22s ease-in-out infinite -10s;
+}
+.pain-section .deco-dots.dots-pain {
+  width: 280px; height: 280px;
+  top: 60px; right: 60px;
+  opacity: 0.22;
+}
+.pain-section .deco-chakra.ch-pain {
+  width: 380px; height: 380px;
+  bottom: 8%; left: -100px;
+  opacity: 0.18;
+  animation: spin 80s linear infinite reverse;
+}
+.pain-section .wrap { position: relative; z-index: 1; }
+.pain-decor, .pain-decor-2 { display: none; }
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 80px;
+}
+.pain-card {
+  position: relative;
+  background: var(--silence);
+  padding: 40px 36px 44px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  transition: all 0.4s var(--ease);
+  overflow: hidden;
+}
+.pain-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--azure), var(--azure-soft), var(--sky));
+  background-size: 200% 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+.pain-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--sky-mist) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.pain-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--azure);
+  box-shadow: 0 30px 60px -20px var(--azure-glow), 0 10px 24px -8px var(--azure-glow);
+}
+.pain-card:hover::before { transform: scaleX(1); }
+.pain-card:hover::after { opacity: 1; }
+.pain-card > * { position: relative; z-index: 1; }
+.pain-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--azure);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.pain-text {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--midnight);
+  font-weight: 500;
+  margin: 0;
+}
+
+.pain-conclusion {
+  margin-top: 80px;
+  padding: 56px 60px;
+  background: var(--silence);
+  border-radius: 8px;
+  border-left: 4px solid var(--azure);
+  box-shadow: 0 30px 60px -30px rgba(10,31,74,0.15);
+  position: relative;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pain-conclusion::before {
+  content: '"';
+  position: absolute;
+  top: -20px; left: 30px;
+  font-family: var(--serif);
+  font-size: 120px;
+  color: var(--sky);
+  line-height: 1;
+}
+.pain-conclusion p {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.35;
+  color: var(--midnight);
+  margin: 0;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+.pain-conclusion em { color: var(--azure); font-style: italic; }
+
+/* ─────────────────────────────────────────────
+   PROMISE (Screen 3)
+   ───────────────────────────────────────────── */
+.promise-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #EEF4FD 0%, #DCE9FB 50%, #EEF4FD 100%);
+}
+.promise-section .deco-blob.bpr1 {
+  width: 600px; height: 600px;
+  top: -100px; left: -200px;
+  animation: drift1 28s ease-in-out infinite;
+}
+.promise-section .deco-blob.bpr2 {
+  width: 500px; height: 500px;
+  bottom: -150px; right: -150px;
+  animation: drift2 32s ease-in-out infinite;
+}
+.promise-section .deco-blob.bpr3 {
+  width: 320px; height: 320px;
+  top: 30%; right: 20%;
+  animation: drift1 24s ease-in-out infinite -6s;
+}
+.promise-section .wrap { position: relative; z-index: 1; }
+.promise-wave {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 240px;
+  pointer-events: none;
+  opacity: 0.22;
+  z-index: 0;
+}
+.promise-wave svg { width: 100%; height: 100%; }
+.promise-wave-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 0;
+}
+.promise-wave-top svg { width: 100%; height: 100%; }
+.promise-section .deco-dots.dots-promise {
+  width: 240px; height: 240px;
+  top: 80px; left: 60px;
+  opacity: 0.25;
+}
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 70px;
+}
+.promise-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 32px 36px;
+  background: var(--silence);
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  transition: all 0.4s var(--ease);
+}
+.promise-item:hover {
+  border-color: var(--azure);
+  transform: translateX(6px);
+  box-shadow: 0 16px 36px -16px var(--azure-glow);
+}
+.promise-check {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--sky);
+  color: var(--azure);
+  display: grid; place-items: center;
+  transition: all 0.4s var(--ease);
+}
+.promise-item:hover .promise-check {
+  background: var(--azure);
+  color: var(--silence);
+  transform: scale(1.08);
+}
+.promise-text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--midnight);
+  font-weight: 400;
+}
+.promise-final {
+  margin-top: 80px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 32px;
+  line-height: 1.3;
+  color: var(--midnight);
+  font-weight: 500;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.promise-final em { color: var(--azure); font-style: italic; }
+
+/* ─────────────────────────────────────────────
+   PROGRAM (Screen 4)
+   ───────────────────────────────────────────── */
+.program-section { background: var(--breath); }
+.program-decor {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--azure-glow) 0%, transparent 65%);
+  filter: blur(60px);
+  pointer-events: none;
+  top: 10%; left: -150px;
+}
+
+.modules {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.module {
+  background: var(--silence);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.4s var(--ease);
+}
+.module:hover { border-color: var(--azure-soft); }
+.module.open {
+  border-color: var(--azure);
+  box-shadow: 0 24px 60px -24px var(--azure-glow);
+}
+.module-head {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 40px;
+  cursor: pointer;
+  user-select: none;
+}
+.module-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 36px;
+  color: var(--azure);
+  font-weight: 500;
+  line-height: 1;
+}
+.module-num span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--whisper);
+  font-style: normal;
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.module-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--midnight);
+  margin: 0;
+  line-height: 1.2;
+}
+.module-toggle {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid; place-items: center;
+  color: var(--azure);
+  transition: all 0.4s var(--ease);
+}
+.module.open .module-toggle {
+  background: var(--azure);
+  color: var(--silence);
+  border-color: var(--azure);
+  transform: rotate(180deg);
+}
+.module-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease);
+}
+.module.open .module-body { max-height: 400px; }
+.module-body-inner {
+  padding: 0 40px 40px 144px;
+  border-top: 1px solid var(--line);
+  margin-top: 0;
+}
+.module-body-inner p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 24px 0 0;
+  position: relative;
+  padding-left: 20px;
+}
+.module-body-inner p::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--azure);
+  font-weight: 700;
+}
+.module-body-inner p + p { margin-top: 14px; }
+
+/* Daily practice subsection */
+.practice-block {
+  margin-top: 100px;
+  padding: 80px 70px;
+  background: linear-gradient(135deg, var(--midnight) 0%, #0F2A5C 100%);
+  border-radius: 12px;
+  color: var(--sky);
+  position: relative;
+  overflow: hidden;
+}
+.practice-block::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.practice-block::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--azure) 0%, transparent 65%);
+  filter: blur(80px);
+  opacity: 0.4;
+  top: -200px; right: -200px;
+  pointer-events: none;
+}
+.practice-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--azure-soft);
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+.practice-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--azure-soft); }
+.practice-block h3 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.05;
+  color: var(--silence);
+  margin: 0 0 24px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+.practice-block h3 em { color: var(--azure-soft); font-style: italic; }
+.practice-block .lede {
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 22px;
+  color: rgba(220, 233, 251, 0.7);
+  max-width: 640px;
+  line-height: 1.5;
+  margin: 0 0 60px;
+  position: relative;
+  z-index: 1;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.practice-cell {
+  background: rgba(15, 42, 92, 0.6);
+  padding: 32px 24px;
+  backdrop-filter: blur(10px);
+}
+.practice-cell h4 {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--silence);
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+.practice-cell p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(220, 233, 251, 0.65);
+  margin: 0;
+}
+.practice-result {
+  margin-top: 60px;
+  padding-top: 50px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+.practice-result h4 {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--silence);
+  margin: 0 0 24px;
+  font-weight: 500;
+}
+.practice-result h4 em { color: var(--azure-soft); font-style: italic; }
+.practice-result ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.practice-result li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 15px;
+  color: rgba(220, 233, 251, 0.85);
+  display: flex; align-items: center; gap: 12px;
+}
+.practice-result li::before {
+  content: ''; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--azure-soft);
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   OBJECTIONS (Screen 5)
+   ───────────────────────────────────────────── */
+.objections-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #F8FAFD 0%, #EAF1FC 50%, #F8FAFD 100%);
+}
+.objections-section::before, .objections-section::after { display: none; }
+.objections-section .deco-blob.bo1 {
+  width: 700px; height: 700px;
+  top: -100px; left: -250px;
+  animation: drift1 30s ease-in-out infinite;
+}
+.objections-section .deco-blob.bo2 {
+  width: 600px; height: 600px;
+  bottom: -150px; right: -200px;
+  animation: drift2 26s ease-in-out infinite;
+}
+.objections-section .deco-blob.bo3 {
+  width: 350px; height: 350px;
+  top: 30%; right: 10%;
+  animation: drift1 24s ease-in-out infinite -8s;
+}
+.objections-section .deco-chakra.ch-obj {
+  width: 460px; height: 460px;
+  top: 50%; right: -150px;
+  opacity: 0.18;
+  animation: spin 100s linear infinite;
+}
+.objections-section .deco-dots.dots-obj {
+  width: 220px; height: 220px;
+  top: 100px; left: 80px;
+  opacity: 0.22;
+}
+.objections-section .wrap { position: relative; z-index: 1; }
+.objections-grid {
+  margin-top: 70px;
+  display: grid;
+  gap: 16px;
+}
+.objection {
+  display: grid;
+  grid-template-columns: 60px 1fr 1.4fr;
+  gap: 32px;
+  padding: 36px 44px;
+  background: var(--silence);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  align-items: start;
+  transition: all 0.4s var(--ease);
+}
+.objection:hover {
+  border-color: var(--azure);
+  transform: translateX(6px);
+  box-shadow: 0 20px 40px -20px var(--azure-glow);
+}
+.obj-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  color: var(--azure);
+  font-weight: 500;
+  line-height: 1;
+}
+.obj-q {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--midnight);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.25;
+}
+.obj-a {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0;
+}
+.objections-final {
+  margin-top: 70px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--midnight);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   ABOUT NATALKA (Screen 6)
+   ───────────────────────────────────────────── */
+.about-section {
+  background: linear-gradient(180deg, #EEF4FD 0%, #DCE9FB 50%, #EEF4FD 100%);
+  position: relative;
+  overflow: hidden;
+}
+.about-section .deco-blob.ba1 {
+  width: 700px; height: 700px;
+  top: -150px; left: -200px;
+  animation: drift1 30s ease-in-out infinite;
+}
+.about-section .deco-blob.ba2 {
+  width: 600px; height: 600px;
+  bottom: -150px; right: -200px;
+  animation: drift2 28s ease-in-out infinite;
+}
+.about-section .deco-blob.ba3 {
+  width: 350px; height: 350px;
+  top: 50%; right: 30%;
+  animation: drift1 24s ease-in-out infinite -10s;
+}
+.about-section .deco-dots.dots-about {
+  width: 240px; height: 240px;
+  top: 80px; right: 80px;
+  opacity: 0.2;
+}
+.about-decor { display: none; }
+.about-section .wrap { position: relative; z-index: 1; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.1fr;
+  gap: 100px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.about-photo {
+  position: relative;
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.about-photo-backdrop {
+  position: absolute;
+  inset: -8% -6%;
+  border-radius: 50% / 45%;
+  background: conic-gradient(
+    from 90deg at 50% 50%,
+    #1E5FE0 0deg,
+    #DCE9FB 120deg,
+    #5B8DEF 240deg,
+    #1E5FE0 360deg
+  );
+  filter: blur(70px);
+  opacity: 0.32;
+  animation: spinReverse 35s linear infinite;
+  z-index: 0;
+}
+.about-photo-glow {
+  position: absolute;
+  width: 95%;
+  height: 30%;
+  bottom: -3%;
+  left: 2.5%;
+  background: radial-gradient(ellipse at center,
+    rgba(30, 95, 224, 0.4) 0%,
+    rgba(91, 141, 239, 0.2) 30%,
+    transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+}
+.about-photo-ring-deco {
+  position: absolute;
+  width: 110%; height: 88%;
+  bottom: -4%; left: -5%;
+  border: 1px dashed var(--azure);
+  border-radius: 50%;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+  animation: spin 60s linear infinite;
+}
+.about-photo-ring-deco::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border: 1px solid var(--azure-soft);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.about-photo-img {
+  position: relative;
+  z-index: 2;
+  width: 96%;
+  height: auto;
+  filter: drop-shadow(0 40px 80px rgba(10, 31, 74, 0.3))
+          drop-shadow(0 16px 30px rgba(30, 95, 224, 0.2));
+  animation: floatY 7s ease-in-out infinite;
+}
+.about-quote-tag {
+  position: absolute;
+  top: 58%; right: -30px;
+  background: var(--silence);
+  padding: 22px 26px;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px -20px rgba(10,31,74,0.25), 0 12px 24px -10px rgba(30,95,224,0.15);
+  max-width: 220px;
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--midnight);
+  line-height: 1.4;
+  border: 1px solid var(--line);
+  z-index: 4;
+  animation: floatYReverse 8s ease-in-out infinite;
+}
+.about-quote-tag::before {
+  content: '"';
+  position: absolute;
+  top: -14px; left: 18px;
+  font-family: var(--serif);
+  font-size: 60px;
+  color: var(--azure);
+  line-height: 1;
+}
+
+.about-content .sec-label { color: var(--azure); }
+.about-h {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.05;
+  color: var(--midnight);
+  font-weight: 500;
+  margin: 0 0 32px;
+  letter-spacing: -0.015em;
+}
+.about-h em { color: var(--azure); font-style: italic; }
+.about-content > p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.about-roles {
+  margin: 32px 0 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.about-roles .label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--azure);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.about-roles .role {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--midnight);
+  margin: 6px 0;
+  font-weight: 500;
+}
+.about-roles .role span { color: var(--whisper); font-style: italic; font-family: var(--serif-alt); font-weight: 400; }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+.about-stat {
+  text-align: left;
+}
+.about-stat .num {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--azure) 0%, var(--azure-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.about-stat .num span { font-size: 28px; -webkit-text-fill-color: var(--midnight); color: var(--midnight); }
+.about-stat .label {
+  font-size: 13px;
+  color: var(--whisper);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.about-credits {
+  margin-top: 44px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--whisper);
+}
+
+/* ─────────────────────────────────────────────
+   OUTCOMES (Screen 7)
+   ───────────────────────────────────────────── */
+.outcomes-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #F8FAFD 0%, #EEF4FD 100%);
+}
+.outcomes-section::before { display: none; }
+.outcomes-section .deco-blob.bou1 {
+  width: 700px; height: 700px;
+  top: -100px; right: -250px;
+  animation: drift1 28s ease-in-out infinite;
+}
+.outcomes-section .deco-blob.bou2 {
+  width: 500px; height: 500px;
+  bottom: -100px; left: -150px;
+  animation: drift2 32s ease-in-out infinite;
+}
+.outcomes-section .deco-dots.dots-out {
+  width: 280px; height: 280px;
+  top: 80px; left: 60px;
+  opacity: 0.22;
+}
+.outcomes-section .deco-chakra.ch-out {
+  width: 480px; height: 480px;
+  bottom: -100px; right: -100px;
+  opacity: 0.16;
+  animation: spin 90s linear infinite reverse;
+}
+.outcomes-section .wrap { position: relative; z-index: 1; }
+.outcomes-grid {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.outcome {
+  background: var(--silence);
+  padding: 44px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.outcome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--sky-mist) 0%, var(--silence) 100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  z-index: 0;
+}
+.outcome > * { position: relative; z-index: 1; }
+.outcome:hover::before { opacity: 1; }
+.outcome:hover .outcome-icon {
+  color: var(--azure-deep);
+  transform: scale(1.1);
+}
+.outcome-icon {
+  width: 48px; height: 48px;
+  color: var(--azure);
+  transition: all 0.4s var(--ease);
+}
+.outcome p {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--midnight);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   TESTIMONIALS — SLIDER (Screen 8)
+   ───────────────────────────────────────────── */
+.test-section {
+  background: linear-gradient(180deg, #EEF4FD 0%, #DCE9FB 50%, #EEF4FD 100%);
+  position: relative;
+  overflow: hidden;
+}
+.test-section .deco-blob.bt1 {
+  width: 700px; height: 700px;
+  top: -150px; left: -250px;
+  animation: drift1 30s ease-in-out infinite;
+}
+.test-section .deco-blob.bt2 {
+  width: 600px; height: 600px;
+  bottom: -150px; right: -200px;
+  animation: drift2 26s ease-in-out infinite;
+}
+.test-section .deco-blob.bt3 {
+  width: 320px; height: 320px;
+  top: 50%; left: 40%;
+  animation: drift1 22s ease-in-out infinite -10s;
+}
+.test-section .deco-dots.dots-test {
+  width: 240px; height: 240px;
+  top: 100px; right: 80px;
+  opacity: 0.22;
+}
+.test-section .wrap { position: relative; z-index: 1; }
+
+.test-slider-wrap {
+  margin-top: 70px;
+  position: relative;
+}
+
+/* Header row with arrows */
+.test-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  gap: 24px;
+}
+.test-controls-info {
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--whisper);
+}
+.test-controls-info b { color: var(--midnight); font-style: normal; font-weight: 600; }
+.test-arrows {
+  display: flex;
+  gap: 12px;
+}
+.test-arrow {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--silence);
+  border: 1px solid var(--line);
+  color: var(--azure);
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  box-shadow: 0 12px 24px -10px rgba(10,31,74,0.1);
+}
+.test-arrow:hover {
+  background: var(--azure);
+  color: var(--silence);
+  border-color: var(--azure);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -10px var(--azure-glow);
+}
+.test-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+  background: var(--silence);
+  color: var(--azure);
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+/* Slider track */
+.test-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 8px 0 30px;
+  margin: 0 -40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.test-slider::-webkit-scrollbar { display: none; }
+
+/* Slide card */
+.test-slide {
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+  background: var(--silence);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s var(--ease);
+  box-shadow: 0 24px 50px -28px rgba(10,31,74,0.15);
+}
+.test-slide:hover {
+  transform: translateY(-6px);
+  border-color: var(--azure);
+  box-shadow: 0 32px 60px -20px var(--azure-glow), 0 12px 24px -10px var(--azure-glow);
+}
+
+/* Image placeholder area */
+.test-slide-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.test-slide-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.test-slide-img::before { display: none; }
+.test-slide-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(30, 95, 224, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(91, 141, 239, 0.1) 0%, transparent 55%);
+  pointer-events: none;
+}
+.test-slide-img svg {
+  width: 64px; height: 64px;
+  color: var(--azure);
+  opacity: 0.55;
+  position: relative;
+  z-index: 1;
+}
+.test-slide-img .ph-tag {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--azure);
+  font-weight: 600;
+  background: var(--silence);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+}
+.test-slide-img .ph-num {
+  position: absolute;
+  top: 20px; right: 22px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--azure);
+  opacity: 0.6;
+}
+
+/* Caption block */
+.test-slide-body {
+  padding: 28px 28px 30px;
+}
+.test-slide-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--midnight);
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+.test-slide-role {
+  font-size: 13px;
+  color: var(--whisper);
+  margin: 0 0 16px;
+}
+.test-slide-quote {
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.55;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+/* Pagination dots */
+.test-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+.test-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  border: none;
+  padding: 0;
+}
+.test-dot.active {
+  background: var(--azure);
+  width: 28px;
+  border-radius: 4px;
+}
+
+.test-placeholder-note {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--whisper);
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   FINAL OFFER (Screen 9)
+   ───────────────────────────────────────────── */
+.offer-section {
+  background: var(--midnight);
+  color: var(--sky);
+  position: relative;
+  overflow: hidden;
+}
+.offer-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+.offer-blob1 {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--azure) 0%, transparent 60%);
+  filter: blur(100px);
+  opacity: 0.3;
+  top: -200px; right: -200px;
+  animation: floatSlow 22s ease-in-out infinite;
+}
+.offer-blob2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--azure-soft) 0%, transparent 60%);
+  filter: blur(80px);
+  opacity: 0.25;
+  bottom: -100px; left: -150px;
+  animation: float 18s ease-in-out infinite;
+}
+.offer-section .sec-label { color: var(--azure-soft); }
+.offer-section .sec-label::before { background: var(--azure-soft); }
+.offer-section .sec-title { color: var(--silence); }
+.offer-section .sec-title em { color: var(--azure-soft); }
+
+.offer-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 60px;
+  align-items: start;
+}
+
+.offer-list {
+  background: rgba(255,255,255,0.04);
+  padding: 50px 50px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+}
+.offer-list h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--silence);
+  margin: 0 0 28px;
+  font-weight: 500;
+}
+.offer-list ul { list-style: none; padding: 0; margin: 0; }
+.offer-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 15px;
+  color: rgba(220, 233, 251, 0.9);
+  display: flex; align-items: flex-start; gap: 14px;
+  line-height: 1.5;
+}
+.offer-list li:last-child { border-bottom: none; }
+.offer-list li svg { flex-shrink: 0; color: var(--azure-soft); margin-top: 2px; }
+.offer-list li b { color: var(--silence); font-weight: 600; }
+
+.offer-cta-block {
+  position: sticky;
+  top: 100px;
+}
+.offer-timer {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px;
+  padding: 14px 20px;
+  background: rgba(232, 181, 71, 0.1);
+  border: 1px solid rgba(232, 181, 71, 0.3);
+  border-radius: 100px;
+  width: fit-content;
+}
+.offer-timer .label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  font-weight: 600;
+}
+.offer-timer .clock {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--silence);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.offer-price-row {
+  display: flex; align-items: baseline; gap: 18px;
+  margin-bottom: 8px;
+}
+.offer-price {
+  font-family: var(--serif);
+  font-size: 88px;
+  font-weight: 600;
+  color: var(--silence);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.offer-price .currency { font-size: 36px; color: var(--azure-soft); margin-left: 6px; }
+.offer-price-old {
+  font-size: 26px;
+  color: rgba(220, 233, 251, 0.5);
+  text-decoration: line-through;
+}
+.offer-discount {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gold);
+  color: var(--midnight);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+}
+.btn-cta-light {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--silence);
+  color: var(--midnight);
+  padding: 24px 38px;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  justify-content: center;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.btn-cta-light::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(30,95,224,0.08), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease);
+}
+.btn-cta-light:hover {
+  background: var(--gold);
+  color: var(--midnight);
+  transform: translateY(-2px);
+  box-shadow: 0 24px 50px -10px rgba(232, 181, 71, 0.4);
+}
+.btn-cta-light:hover::before { transform: translateX(100%); }
+.btn-cta-light .arrow { transition: transform 0.4s var(--ease); }
+.btn-cta-light:hover .arrow { transform: translateX(6px); }
+
+.offer-disclaimer {
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(220, 233, 251, 0.55);
+  line-height: 1.7;
+}
+
+/* Guarantee block */
+.guarantee {
+  margin-top: 60px;
+  padding: 50px 60px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.guarantee-icon {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--azure), var(--azure-deep));
+  display: grid; place-items: center;
+  color: var(--silence);
+}
+.guarantee h4 {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--silence);
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+.guarantee p {
+  font-size: 15px;
+  color: rgba(220, 233, 251, 0.7);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────
+   HOW IT WORKS (Screen 10)
+   ───────────────────────────────────────────── */
+.how-section {
+  background: linear-gradient(180deg, #F8FAFD 0%, #EAF1FC 100%);
+  position: relative;
+  overflow: hidden;
+}
+.how-section::before, .how-section::after { display: none; }
+.how-section .deco-blob.bh1 {
+  width: 700px; height: 700px;
+  top: -200px; right: -250px;
+  animation: drift1 30s ease-in-out infinite;
+}
+.how-section .deco-blob.bh2 {
+  width: 500px; height: 500px;
+  bottom: -100px; left: -150px;
+  animation: drift2 26s ease-in-out infinite;
+}
+.how-section .deco-blob.bh3 {
+  width: 300px; height: 300px;
+  top: 50%; left: 40%;
+  animation: drift1 24s ease-in-out infinite -8s;
+}
+.how-section .deco-dots.dots-how {
+  width: 240px; height: 240px;
+  top: 100px; right: 80px;
+  opacity: 0.22;
+}
+.how-section .wrap { position: relative; z-index: 1; }
+.how-grid {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.how-card {
+  background: var(--silence);
+  padding: 44px 36px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  transition: all 0.4s var(--ease);
+}
+.how-card:hover {
+  border-color: var(--azure);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px var(--azure-glow);
+}
+.how-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: var(--sky-mist);
+  color: var(--azure);
+  display: grid; place-items: center;
+  margin-bottom: 24px;
+  transition: all 0.4s var(--ease);
+}
+.how-card:hover .how-icon {
+  background: var(--azure);
+  color: var(--silence);
+  transform: scale(1.08);
+}
+.how-card h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--midnight);
+  margin: 0 0 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.how-card p {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   FAQ (Screen 11)
+   ───────────────────────────────────────────── */
+.faq-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #EEF4FD 0%, #DCE9FB 50%, #EEF4FD 100%);
+}
+.faq-section::before, .faq-section::after { display: none; }
+.faq-section .deco-blob.bf1 {
+  width: 700px; height: 700px;
+  top: -100px; left: -250px;
+  animation: drift1 30s ease-in-out infinite;
+}
+.faq-section .deco-blob.bf2 {
+  width: 600px; height: 600px;
+  bottom: -150px; right: -200px;
+  animation: drift2 28s ease-in-out infinite;
+}
+.faq-section .deco-blob.bf3 {
+  width: 320px; height: 320px;
+  top: 50%; right: 30%;
+  animation: drift1 22s ease-in-out infinite -10s;
+}
+.faq-section .deco-dots.dots-faq {
+  width: 240px; height: 240px;
+  bottom: 100px; left: 80px;
+  opacity: 0.22;
+}
+.faq-section .deco-chakra.ch-faq {
+  width: 420px; height: 420px;
+  top: 5%; right: -100px;
+  opacity: 0.16;
+  animation: spin 110s linear infinite;
+}
+.faq-section .wrap { position: relative; z-index: 1; }
+.faq-container {
+  margin-top: 60px;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: 1fr 32px;
+  gap: 24px;
+  align-items: center;
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--midnight);
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+.faq-q:hover { color: var(--azure); }
+.faq-toggle {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid; place-items: center;
+  color: var(--azure);
+  transition: all 0.4s var(--ease);
+}
+.faq-item.open .faq-toggle {
+  background: var(--azure);
+  color: var(--silence);
+  border-color: var(--azure);
+  transform: rotate(45deg);
+}
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease);
+}
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-a-inner {
+  padding: 0 0 30px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 760px;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+   ───────────────────────────────────────────── */
+footer {
+  background: var(--midnight);
+  color: rgba(220, 233, 251, 0.7);
+  padding: 80px 0 60px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+footer .wrap > * + * { margin-top: 40px; }
+.foot-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.foot-brand {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--silence);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.foot-brand-mark { color: var(--azure-soft); }
+.foot-support h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--azure-soft);
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+.foot-support a {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--silence);
+  font-size: 15px;
+  margin-top: 8px;
+}
+.foot-support a:hover { color: var(--azure-soft); }
+.foot-legal {
+  font-size: 12px;
+  color: rgba(220, 233, 251, 0.4);
+  line-height: 1.7;
+}
+.foot-legal p { margin: 12px 0; }
+
+/* ─────────────────────────────────────────────
+   STICKY CTA
+   ───────────────────────────────────────────── */
+.sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 99;
+  background: var(--silence);
+  border-radius: 100px;
+  padding: 14px 14px 14px 28px;
+  display: flex; align-items: center; gap: 24px;
+  box-shadow: 0 30px 60px -20px rgba(10,31,74,0.35), 0 12px 24px -12px var(--azure-glow);
+  border: 1px solid var(--line);
+  transition: transform 0.5s var(--ease-out);
+  max-width: calc(100% - 48px);
+}
+.sticky-cta.visible { transform: translateX(-50%) translateY(0); }
+.sticky-cta-text {
+  font-size: 14px;
+  color: var(--midnight);
+}
+.sticky-cta-text b { font-family: var(--serif); font-size: 18px; }
+.sticky-cta-text span { color: var(--whisper); text-decoration: line-through; margin-left: 6px; }
+.sticky-cta-btn {
+  background: var(--azure);
+  color: var(--silence);
+  border: none;
+  padding: 14px 26px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.3s var(--ease);
+  white-space: nowrap;
+}
+.sticky-cta-btn:hover {
+  background: var(--azure-deep);
+  transform: translateY(-1px);
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .offer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .offer-cta-block { position: static; }
+  .pain-grid { grid-template-columns: repeat(2, 1fr); }
+  .promise-grid { grid-template-columns: 1fr; }
+  .practice-grid { grid-template-columns: repeat(2, 1fr); }
+  .practice-result { grid-template-columns: 1fr; gap: 30px; }
+  .outcomes-grid { grid-template-columns: repeat(2, 1fr); }
+  .test-grid { grid-template-columns: 1fr 1fr; }
+  .test-card:nth-child(2), .test-card:nth-child(5) { transform: none; }
+  .how-grid { grid-template-columns: 1fr; }
+  .photo-tag.t1 { left: 0; }
+  .photo-tag.t2 { right: 0; }
+  .about-quote-tag { right: 0; }
+}
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 24px; }
+  .nav-inner { padding: 0 24px; }
+  .nav-cta { padding: 10px 18px; font-size: 12px; }
+  .hero { padding: 130px 0 80px; }
+  section { padding: 80px 0; }
+  .hero-price { font-size: 44px; }
+  .hero-bonus { max-width: 100%; }
+  .pain-grid, .outcomes-grid, .test-grid { grid-template-columns: 1fr; }
+  .objection { grid-template-columns: 1fr; gap: 16px; padding: 28px; }
+  .objection .obj-num { font-size: 24px; }
+  .module-head { grid-template-columns: 60px 1fr 36px; padding: 24px 28px; gap: 18px; }
+  .module-num { font-size: 28px; }
+  .module-title { font-size: 19px; }
+  .module-body-inner { padding: 0 28px 32px 106px; }
+  .practice-block { padding: 50px 32px; }
+  .practice-grid { grid-template-columns: 1fr 1fr; }
+  .offer-list, .guarantee { padding: 32px; }
+  .guarantee { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+  .guarantee-icon { margin: 0 auto; }
+  .offer-price { font-size: 64px; }
+  .foot-top { grid-template-columns: 1fr; }
+  .sticky-cta { padding: 10px 10px 10px 20px; gap: 12px; bottom: 16px; }
+  .sticky-cta-text { font-size: 12px; }
+  .sticky-cta-text b { font-size: 15px; }
+  .sticky-cta-btn { padding: 10px 18px; font-size: 12px; }
+  .pain-conclusion { padding: 40px 32px; }
+  .pain-conclusion p { font-size: 20px; }
+  .promise-final { font-size: 24px; }
+  .practice-block h3 { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .practice-grid { grid-template-columns: 1fr; }
+  .module-body-inner { padding: 0 20px 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M20 8 L26 20 L20 32 L14 20 Z" fill="currentColor" opacity="0.18"/>
+        <path d="M20 14 L23 20 L20 26 L17 20 Z" fill="currentColor"/>
+      </svg>
+      Голос на мільйон
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">
+      Приєднатися →
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="hero-bg">
+    <div class="mesh-bg"></div>
+    <div class="deco-dots dots-hero"></div>
+
+    <div class="deco-blob azure b-hero-1"></div>
+    <div class="deco-blob soft b-hero-2"></div>
+    <div class="deco-blob gold b-hero-3"></div>
+
+    <div class="deco-wave wave-top">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 40 Q 90 5, 180 40 T 360 40 T 540 40 T 720 40 T 900 40 T 1080 40 T 1260 40 T 1440 40" stroke="#1E5FE0" stroke-width="1.5" fill="none"/>
+        <path d="M0 50 Q 90 80, 180 50 T 360 50 T 540 50 T 720 50 T 900 50 T 1080 50 T 1260 50 T 1440 50" stroke="#5B8DEF" stroke-width="1.2" fill="none" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="deco-wave wave-bottom">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 30 Q 120 0, 240 30 T 480 30 T 720 30 T 960 30 T 1200 30 T 1440 30" stroke="#1E5FE0" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+
+    <div class="deco-chakra ch-hero">
+      <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="300" r="280" stroke="#1E5FE0" stroke-width="1"/>
+        <circle cx="300" cy="300" r="220" stroke="#1E5FE0" stroke-width="1" stroke-dasharray="4 6"/>
+        <circle cx="300" cy="300" r="160" stroke="#5B8DEF" stroke-width="1"/>
+        <circle cx="300" cy="300" r="100" stroke="#1E5FE0" stroke-width="1.2" stroke-dasharray="2 8"/>
+        <circle cx="300" cy="300" r="50" stroke="#1E5FE0" stroke-width="1.5"/>
+        <path d="M300 100 L340 300 L300 500 L260 300 Z" stroke="#1E5FE0" stroke-width="1.2" fill="#1E5FE0" fill-opacity="0.05"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <span class="pulse"></span>
+          Старт уже сьогодні · <span id="start-date">17 квітня</span>
+        </div>
+
+        <h1>Голос на<br>мільйон<br>від <em>Наталки</em><br>Денисенко</h1>
+
+        <p class="hero-sub">Найбільший курс по голосу в Україні для тих, хто хоче розмовляти впевнено, переконливо та яскраво. Розкрийте свій сильний голос — і він відкриє вам двері до нових професійних можливостей, визнання та впливу.</p>
+
+        <div class="hero-offer">
+          <div class="hero-price-row">
+            <div class="hero-price">799<span class="currency">₴</span></div>
+            <div class="hero-price-old">2 890 ₴</div>
+          </div>
+
+          <button class="btn-cta" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">
+            Придбати зараз зі знижкою
+            <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <div class="hero-bonus">
+          <div class="hero-bonus-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15 9L22 9.5L17 14.5L18.5 22L12 18L5.5 22L7 14.5L2 9.5L9 9L12 2Z"/></svg>
+          </div>
+          <div><b>Бонус:</b> авторська медитація Наталки Денисенко на розкриття голосу — у подарунок до курсу.</div>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="photo-backdrop"></div>
+        <div class="photo-backdrop-2"></div>
+        <div class="photo-glow"></div>
+        <div class="photo-ring r2"></div>
+        <div class="photo-ring r1"></div>
+        <div class="photo-ring r3"></div>
+
+        <div class="spark s1"></div>
+        <div class="spark s2"></div>
+        <div class="spark s3"></div>
+
+        <div class="photo-img" style="width:88%;aspect-ratio:4/5;border-radius:8px;overflow:hidden;position:relative;box-shadow:0 50px 100px -40px rgba(10,31,74,0.3),0 30px 60px -30px rgba(30,95,224,0.25);">
+          <img src="natalka-1.png" alt="Наталка Денисенко" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        </div>
+
+        <div class="photo-tag t1">
+          <b>60+</b>
+          <div>кінофільмів</div>
+        </div>
+        <div class="photo-tag t2">
+          <b>30K</b>
+          <div>випускниць курсу</div>
+        </div>
+        <div class="photo-tag t3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1E5FE0"><path d="M12 2L15 9L22 9.5L17 14.5L18.5 22L12 18L5.5 22L7 14.5L2 9.5L9 9L12 2Z"/></svg>
+          <div>Голос Мавки</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ 02 PAIN POINTS ═══════════ -->
+<section class="pain-section">
+  <div class="deco-blob azure bp1"></div>
+  <div class="deco-blob soft bp2"></div>
+  <div class="deco-blob gold bp3"></div>
+  <div class="deco-dots dots-pain"></div>
+  <div class="deco-chakra ch-pain">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="180" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="200" cy="200" r="140" stroke="#5B8DEF" stroke-width="1" stroke-dasharray="3 5"/>
+      <circle cx="200" cy="200" r="100" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="200" cy="200" r="60" stroke="#1E5FE0" stroke-width="1.2" stroke-dasharray="2 6"/>
+      <circle cx="200" cy="200" r="20" fill="#1E5FE0" fill-opacity="0.1" stroke="#1E5FE0" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Знайома історія?</div>
+      <h2 class="sec-title">Знайоме відчуття, коли вас<br>ніби <em>чують</em>, але не сприймають?</h2>
+    </div>
+
+    <div class="pain-grid reveal-stagger">
+      <div class="pain-card">
+        <div class="pain-num">i.</div>
+        <p class="pain-text">Ви говорите, але вас перебивають або не дослуховують до кінця</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">ii.</div>
+        <p class="pain-text">Ви губитесь, коли потрібно говорити перед людьми</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">iii.</div>
+        <p class="pain-text">Є що сказати, але в моменті голос «сідає» або звучить невпевнено</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">iv.</div>
+        <p class="pain-text">Ви записуєте відео — і вам не подобається, як ви звучите</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">v.</div>
+        <p class="pain-text">Люди не завжди серйозно сприймають те, що ви говорите</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">vi.</div>
+        <p class="pain-text">Хочеться проявлятись більше — але щось всередині стопорить</p>
+      </div>
+    </div>
+
+    <div class="pain-conclusion reveal">
+      <p>Ця програма допоможе вам говорити так, щоб вас не просто слухали, а <em>сприймали, довіряли і запам'ятовували</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 03 PROMISE ═══════════ -->
+<section class="promise-section alt">
+  <div class="deco-blob azure bpr1"></div>
+  <div class="deco-blob soft bpr2"></div>
+  <div class="deco-blob rose bpr3"></div>
+  <div class="deco-dots dots-promise"></div>
+
+  <div class="promise-wave-top">
+    <svg viewBox="0 0 1440 180" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 90 Q 120 30, 240 90 T 480 90 T 720 90 T 960 90 T 1200 90 T 1440 90" stroke="#1E5FE0" stroke-width="2" fill="none"/>
+      <path d="M0 110 Q 120 50, 240 110 T 480 110 T 720 110 T 960 110 T 1200 110 T 1440 110" stroke="#5B8DEF" stroke-width="1.5" fill="none" opacity="0.7"/>
+      <path d="M0 130 Q 120 70, 240 130 T 480 130 T 720 130 T 960 130 T 1200 130 T 1440 130" stroke="#1E5FE0" stroke-width="1" fill="none" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="promise-wave">
+    <svg viewBox="0 0 1440 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 120 Q 180 40, 360 120 T 720 120 T 1080 120 T 1440 120" stroke="#1E5FE0" stroke-width="2" fill="none"/>
+      <path d="M0 140 Q 180 60, 360 140 T 720 140 T 1080 140 T 1440 140" stroke="#5B8DEF" stroke-width="1.5" fill="none" opacity="0.7"/>
+      <path d="M0 160 Q 180 80, 360 160 T 720 160 T 1080 160 T 1440 160" stroke="#1E5FE0" stroke-width="1" fill="none" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">А тепер уявіть</div>
+      <h2 class="sec-title">Уявіть, як зміниться ваше<br>спілкування, коли ви<br>почнете звучати <em>впевнено</em></h2>
+    </div>
+
+    <div class="promise-grid reveal-stagger">
+      <div class="promise-item">
+        <div class="promise-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="promise-text">Ви говорите — і вас не перебивають, а дослуховують до кінця</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="promise-text">Ваш голос звучить чітко і спокійно, без напруги і зажимів</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="promise-text">Люди починають краще сприймати те, що ви говорите</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="promise-text">Вам не потрібно повторювати або доводити свою думку кілька разів</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="promise-text">Ви спокійно записуєте відео і не соромитесь свого голосу</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="promise-text">Під час розмов і виступів ви не губитесь і тримаєте увагу</p>
+      </div>
+      <div class="promise-item" style="grid-column: 1 / -1; max-width: 680px; margin: 0 auto;">
+        <div class="promise-check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="promise-text">Ви звучите так, що вам починають довіряти</p>
+      </div>
+    </div>
+
+    <p class="promise-final reveal">Ваш голос стає вашим інструментом — у роботі, спілкуванні та в будь-яких ситуаціях, де важливо, <em>як вас чують</em>.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 04 PROGRAM ═══════════ -->
+<section class="program-section">
+  <div class="program-decor"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Програма курсу</div>
+      <h2 class="sec-title">7 модулів, які повертають<br>вам ваш <em>справжній голос</em></h2>
+    </div>
+
+    <div class="modules reveal" id="modules">
+      <div class="module open">
+        <div class="module-head" onclick="toggleModule(this)">
+          <div class="module-num"><span>Модуль</span>01</div>
+          <h3 class="module-title">Голос як інструмент впливу</h3>
+          <div class="module-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-body-inner">
+            <p>Ви починаєте розуміти, як вас сприймають ще до змісту слів.</p>
+            <p>Ваш голос перестає «губитися» — з'являється відчуття опори і контролю.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="module-head" onclick="toggleModule(this)">
+          <div class="module-num"><span>Модуль</span>02</div>
+          <h3 class="module-title">Дихання і опора голосу</h3>
+          <div class="module-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-body-inner">
+            <p>Голос стає стабільним, ви не втомлюєтесь під час розмов і виступів.</p>
+            <p>Зникає напруга, з якою раніше доводилось «виштовхувати» слова.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="module-head" onclick="toggleModule(this)">
+          <div class="module-num"><span>Модуль</span>03</div>
+          <h3 class="module-title">Тембр і звучання голосу</h3>
+          <div class="module-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-body-inner">
+            <p>Голос стає глибшим і об'ємнішим.</p>
+            <p>Замість слабкого звучання — відчуття сили і впевненості.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="module-head" onclick="toggleModule(this)">
+          <div class="module-num"><span>Модуль</span>04</div>
+          <h3 class="module-title">Дикція і чіткість мовлення</h3>
+          <div class="module-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-body-inner">
+            <p>Вашу мову починають розуміти з першого разу.</p>
+            <p>Зникає «ковтання» слів — мова стає чіткою і зібраною.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="module-head" onclick="toggleModule(this)">
+          <div class="module-num"><span>Модуль</span>05</div>
+          <h3 class="module-title">Інтонація і емоційність</h3>
+          <div class="module-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-body-inner">
+            <p>Ви перестаєте звучати монотонно.</p>
+            <p>Голос починає тримати увагу, а слова — викликати інтерес.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="module-head" onclick="toggleModule(this)">
+          <div class="module-num"><span>Модуль</span>06</div>
+          <h3 class="module-title">Енергія голосу і посил</h3>
+          <div class="module-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-body-inner">
+            <p>Ваш голос починає передавати впевненість.</p>
+            <p>Люди починають більше довіряти і серйозніше вас сприймати.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="module-head" onclick="toggleModule(this)">
+          <div class="module-num"><span>Модуль</span>07</div>
+          <h3 class="module-title">Голос у житті і комунікації</h3>
+          <div class="module-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-body-inner">
+            <p>Ви переносите новий голос у реальні ситуації: розмови, відео, виступи.</p>
+            <p>З'являється відчуття: «я говорю — і мене чують».</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily practice block -->
+    <div class="practice-block reveal">
+      <div class="practice-eyebrow">30 днів щоденної практики</div>
+      <h3>Це як спортзал для голосу. Ви не просто розумієте — ви <em>щодня тренуєте</em>.</h3>
+      <p class="lede">Практика — основа цього курсу. Саме вона дає результат. 15–20 хвилин на день, з телефону, у будь-який зручний час.</p>
+
+      <div class="practice-grid">
+        <div class="practice-cell">
+          <h4>Артикуляція</h4>
+          <p>Слова звучать чітко, без «змазування» і ковтання закінчень</p>
+        </div>
+        <div class="practice-cell">
+          <h4>Дихання</h4>
+          <p>Голос не сідає, ви говорите довго і без напруги</p>
+        </div>
+        <div class="practice-cell">
+          <h4>Резонанс і тембр</h4>
+          <p>Голос стає глибшим, об'ємнішим і впевненішим</p>
+        </div>
+        <div class="practice-cell">
+          <h4>Темп і ритм</h4>
+          <p>Вас розуміють з першого разу — не доводиться повторювати</p>
+        </div>
+        <div class="practice-cell">
+          <h4>Скоромовки</h4>
+          <p>Мова стає швидкою, чіткою і повністю контрольованою</p>
+        </div>
+        <div class="practice-cell" style="background:linear-gradient(135deg, rgba(232,181,71,0.12), rgba(232,181,71,0.04)); border-color:rgba(232,181,71,0.3);">
+          <h4 style="color:#C9960A;">🎁 Бонус: 7-денний тренажер дикції</h4>
+          <p>Інтенсивна щоденна програма для швидкого покращення чіткості мовлення</p>
+        </div>
+      </div>
+
+      <div class="practice-result">
+        <div>
+          <h4>За 30 днів ви <em>отримаєте</em>:</h4>
+          <ul>
+            <li>Говорите чітко і зрозуміло</li>
+            <li>Голос звучить глибше і впевненіше</li>
+            <li>Зникає напруга і втома</li>
+            <li>Контролюєте темп і подачу</li>
+            <li>Вам починає подобатись, як ви звучите</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Через 30 днів:</h4>
+          <p style="font-family: var(--serif-alt); font-style: italic; font-size: 21px; color: var(--silence); margin: 0; line-height: 1.5;">Ваш голос — це вже не «як вийде». Ви розумієте, як він працює, і керуєте ним у розмовах, відео і виступах. Ви говорите — і вас реально слухають.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 05 OBJECTIONS ═══════════ -->
+<section class="objections-section">
+  <div class="deco-blob azure bo1"></div>
+  <div class="deco-blob soft bo2"></div>
+  <div class="deco-blob gold bo3"></div>
+  <div class="deco-dots dots-obj"></div>
+  <div class="deco-chakra ch-obj">
+    <svg viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="230" cy="230" r="210" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="230" cy="230" r="160" stroke="#5B8DEF" stroke-width="1" stroke-dasharray="3 6"/>
+      <circle cx="230" cy="230" r="110" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="230" cy="230" r="60" stroke="#1E5FE0" stroke-width="1.2" stroke-dasharray="2 4"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Що зупиняє</div>
+      <h2 class="sec-title">Що вас <em>зупиняє</em>?</h2>
+    </div>
+
+    <div class="objections-grid reveal-stagger">
+      <div class="objection">
+        <div class="obj-num">i.</div>
+        <p class="obj-q">А раптом у мене не вийде?</p>
+        <p class="obj-a">Цей курс підходить для кожного, навіть якщо ви ніколи не працювали з голосом. Ми починаємо з простих вправ і поступово йдемо до великих результатів.</p>
+      </div>
+      <div class="objection">
+        <div class="obj-num">ii.</div>
+        <p class="obj-q">Мені здається, що в мене немає таланту</p>
+        <p class="obj-a">Гарний голос — це не талант, а навичка. Я покажу вам, як зробити свій голос сильним, красивим і впевненим — крок за кроком.</p>
+      </div>
+      <div class="objection">
+        <div class="obj-num">iii.</div>
+        <p class="obj-q">У мене мало часу на навчання</p>
+        <p class="obj-a">На курсі вам потрібно всього 15 хвилин на день. Ви зможете займатися у будь-який зручний час — з телефону, поки чайник кипить чи дитина спить.</p>
+      </div>
+      <div class="objection">
+        <div class="obj-num">iv.</div>
+        <p class="obj-q">Чи справді це допоможе мені?</p>
+        <p class="obj-a">Уже понад 15 тисяч людей пройшли цей курс і змінили своє життя. Перші результати ви помітите вже після кількох уроків.</p>
+      </div>
+      <div class="objection">
+        <div class="obj-num">v.</div>
+        <p class="obj-q">Мені не підходить онлайн-формат</p>
+        <p class="obj-a">Усі уроки доступні з вашого телефону або комп'ютера. Ви можете займатися там, де вам комфортно.</p>
+      </div>
+    </div>
+
+    <p class="objections-final reveal">Не дайте своїм страхам завадити вам стати <em>кращою версією себе</em>.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 06 ABOUT NATALKA ═══════════ -->
+<section class="about-section">
+  <div class="deco-blob azure ba1"></div>
+  <div class="deco-blob soft ba2"></div>
+  <div class="deco-blob rose ba3"></div>
+  <div class="deco-dots dots-about"></div>
+  <div class="about-decor"></div>
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="about-photo reveal">
+        <div class="about-photo-backdrop"></div>
+        <div class="about-photo-glow"></div>
+        <div class="about-photo-ring-deco"></div>
+
+        <div class="about-photo-img" style="border-radius:8px;overflow:hidden;">
+          <img src="natalka-2.png" alt="Наталка Денисенко" style="width:100%;height:auto;display:block;">
+        </div>
+
+        <div class="about-quote-tag">
+          Голос Мавки з мультфільму «Мавка. Лісова пісня»
+        </div>
+      </div>
+
+      <div class="about-content reveal">
+        <div class="sec-label">Ваш тренер</div>
+        <h2 class="about-h">Зірка українського кіно,<br>театру та <em>дубляжу</em></h2>
+
+        <p>Наталка Денисенко — зірка українського кіно, театру, дубляжу та озвучування, яка знає, як створити голос, що запалює серця.</p>
+        <p>За плечима Наталки сотні успішних проєктів, де її голос став ключем до сердець мільйонів слухачів.</p>
+
+        <div class="about-roles">
+          <div class="label">Знайомі голоси Наталки</div>
+          <div class="role">Мавка <span>— мультфільм «Мавка. Лісова пісня»</span></div>
+          <div class="role">Радка <span>— «Думки на виворіт» 1, 2 / Inside Out</span></div>
+        </div>
+
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num">60<span>+</span></div>
+            <div class="label">кінофільмів</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">300<span>+</span></div>
+            <div class="label">озвучених серіалів, фільмів та мультфільмів</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">30<span>K</span></div>
+            <div class="label">випускниць попередньої версії курсу</div>
+          </div>
+        </div>
+
+        <p class="about-credits">Випускниця університету імені Карпенка-Карого, факультет «диктор та ведучий програм телебачення». У 2011–2012 рр. — викладач техніки мови в «Школі гри». Куратор та лектор курсу дикторів з майстерності озвучення дубляжу в школі «Film UA».</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 07 OUTCOMES ═══════════ -->
+<section class="outcomes-section">
+  <div class="deco-blob azure bou1"></div>
+  <div class="deco-blob soft bou2"></div>
+  <div class="deco-dots dots-out"></div>
+  <div class="deco-chakra ch-out">
+    <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="240" cy="240" r="220" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="240" cy="240" r="170" stroke="#5B8DEF" stroke-width="1" stroke-dasharray="3 5"/>
+      <circle cx="240" cy="240" r="120" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="240" cy="240" r="70" stroke="#1E5FE0" stroke-width="1.2" stroke-dasharray="2 6"/>
+      <circle cx="240" cy="240" r="20" fill="#1E5FE0" fill-opacity="0.1" stroke="#1E5FE0" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Все стає можливим</div>
+      <h2 class="sec-title">Все, що ви хочете сказати<br>світу — починається з<br><em>вашого голосу</em></h2>
+    </div>
+
+    <div class="outcomes-grid reveal-stagger">
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="10" width="36" height="22" rx="3"/>
+          <path d="M16 38h16M20 32v6M28 32v6"/>
+        </svg>
+        <p>Виступати перед людьми так, щоб вас слухали з інтересом і не відволікались</p>
+      </div>
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="6"/>
+          <rect x="8" y="14" width="32" height="22" rx="3"/>
+          <circle cx="14" cy="20" r="1.5" fill="currentColor"/>
+        </svg>
+        <p>Записувати свої курси, вебінари або відео — і чути «вас дуже приємно слухати»</p>
+      </div>
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="18" y="8" width="12" height="22" rx="6"/>
+          <path d="M12 24v2c0 6.6 5.4 12 12 12s12-5.4 12-12v-2M24 38v6"/>
+        </svg>
+        <p>Вести блог або подкаст, де голос звучить впевнено і професійно</p>
+      </div>
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M16 8h16l4 4v28a2 2 0 01-2 2H14a2 2 0 01-2-2V12l4-4z"/>
+          <path d="M18 22h12M18 28h12M18 34h8"/>
+        </svg>
+        <p>Під час співбесід і важливих зустрічей звучати так, щоб вас сприймали серйозно</p>
+      </div>
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 6L29 18L42 19L32 28L35 41L24 34L13 41L16 28L6 19L19 18L24 6Z"/>
+        </svg>
+        <p>Говорити так, щоб люди запам'ятовували ваші слова і довіряли тому, що ви кажете</p>
+      </div>
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 24c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12c-2.5 0-4.8-.8-6.7-2L8 38l2-9.3C8.7 26.8 8 25.5 8 24"/>
+        </svg>
+        <p>Спілкуватися без сорому за свій голос і відчувати в ньому силу</p>
+      </div>
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="18" cy="16" r="6"/>
+          <circle cx="32" cy="20" r="5"/>
+          <path d="M6 40c0-6.6 5.4-12 12-12s12 5.4 12 12M30 40c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+        <p>Бути прикладом впевненості для своїх дітей і оточення</p>
+      </div>
+      <div class="outcome">
+        <svg class="outcome-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 24 Q 12 8 20 24 T 36 24 T 44 24"/>
+          <path d="M4 32 Q 12 24 20 32 T 36 32 T 44 32" opacity="0.5"/>
+        </svg>
+        <p>Говорити так, щоб ваші слова залишали слід — і вас хотіли слухати ще</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 08 TESTIMONIALS — SLIDER ═══════════ -->
+<section class="test-section">
+  <div class="deco-blob azure bt1"></div>
+  <div class="deco-blob soft bt2"></div>
+  <div class="deco-blob rose bt3"></div>
+  <div class="deco-dots dots-test"></div>
+
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Відгуки учасниць</div>
+      <h2 class="sec-title">Що говорять учасники, які вже<br>пройшли <em>курс</em></h2>
+    </div>
+
+    <div class="test-slider-wrap reveal">
+      <div class="test-controls">
+        <div class="test-controls-info">
+          <b id="testCurrent">01</b> / <span id="testTotal">31</span> · гортайте вправо
+        </div>
+        <div class="test-arrows">
+          <button class="test-arrow" id="testPrev" aria-label="Попередній">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="test-arrow" id="testNext" aria-label="Наступний">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="test-slider" id="testSlider">
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-01.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-02.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-03.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-04.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-05.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-06.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-07.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-08.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-09.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-10.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-11.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-12.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-13.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-14.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-15.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-16.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-17.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-18.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-19.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-20.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-21.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-22.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-23.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-24.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-25.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-26.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-27.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-28.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-29.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-30.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+        <div class="test-slide"><div class="test-slide-img"><img src="reviews/review-31.jpeg" alt="Відгук учасниці" loading="lazy"></div></div>
+      </div>
+
+      <div class="test-dots" id="testDots"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ 09 FINAL OFFER ═══════════ -->
+<section class="offer-section" id="offer">
+  <div class="offer-blob1"></div>
+  <div class="offer-blob2"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Час діяти</div>
+      <h2 class="sec-title">Приєднуйтесь до<br>наймасштабнішого<br>курсу про <em>голос</em></h2>
+    </div>
+
+    <div class="offer-inner">
+
+      <div class="offer-list reveal">
+        <h4>Що ви отримаєте</h4>
+        <ul>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>7 повноцінних теоретичних модулів</b> від зірки українського кіно Наталки Денисенко</div>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>Артикуляційні вправи</b> для чіткої і виразної мови</div>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>Дихальні техніки</b> — щоб голос не сідав і не втомлювався</div>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>Голосові вправи</b> на резонанс, тембр і силу</div>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>Вправи на темп і ритм</b> — щоб вас розуміли з першого разу</div>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>Скоромовки</b> різного рівня складності</div>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>Бонус: авторська медитація</b> Наталки Денисенко на розкриття голосу</div>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            <div><b>Доступ до курсу 2 місяці</b> + закрита телеграм-група з підтримкою</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="offer-cta-block reveal">
+        <div class="offer-timer">
+          <span class="label">До кінця пропозиції</span>
+          <span class="clock" id="timer">02:59:47</span>
+        </div>
+
+        <div class="offer-price-row">
+          <div class="offer-price">799<span class="currency">₴</span></div>
+          <div class="offer-price-old">2 890 ₴</div>
+        </div>
+        <div class="offer-discount">Придбати зараз зі знижкою</div>
+
+        <button class="btn-cta-light" onclick="window.location.href='/pay'">
+          Долучитися до курсу
+          <span class="arrow">→</span>
+        </button>
+
+        <p class="offer-disclaimer">
+          * Оплата приймається будь-якою картою світу (окрім рф)<br>
+          ** Ви нічим не ризикуєте — якщо курс вам не сподобається, ми повернемо кошти без зайвих запитань протягом 14 днів після покупки
+        </p>
+      </div>
+
+    </div>
+
+    <div class="guarantee reveal">
+      <div class="guarantee-icon">
+        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M24 4 L40 12 V24 C40 33 33 40 24 44 C15 40 8 33 8 24 V12 L24 4 Z"/>
+          <path d="M17 24 L22 29 L32 19" stroke-width="2.5"/>
+        </svg>
+      </div>
+      <div>
+        <h4>14 днів гарантії повернення коштів</h4>
+        <p>Якщо протягом перших 14 днів ви відчуєте, що курс вам не підходить — ми повернемо повну вартість без зайвих питань. Ви нічим не ризикуєте.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 10 HOW IT WORKS ═══════════ -->
+<section class="how-section">
+  <div class="deco-blob azure bh1"></div>
+  <div class="deco-blob soft bh2"></div>
+  <div class="deco-blob gold bh3"></div>
+  <div class="deco-dots dots-how"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Як проходить курс</div>
+      <h2 class="sec-title">Просто. Зручно. У вашому <em>темпі</em>.</h2>
+    </div>
+
+    <div class="how-grid reveal-stagger">
+      <div class="how-card">
+        <div class="how-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4>Доступ одразу після оплати</h4>
+        <p>Зразу після успішної оплати ви отримуєте доступ до зручної онлайн-платформи з усіма уроками.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>2 місяці доступу</h4>
+        <p>Розширений доступ до курсу два місяці — щоб ви могли пройти його у власному темпі та отримати результат.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h4>15–20 хвилин на день</h4>
+        <p>Кожен урок триває 15–20 хвилин. З телефону, в зручний час — поки кип'ятиться чайник чи дитина спить.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h4>Закрита телеграм-група</h4>
+        <p>Підтримка від кураторів і спілкування з іншими учасницями. Ви не залишитесь сам на сам зі своїми питаннями.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <h4>Сертифікат після завершення</h4>
+        <p>Після проходження курсу ви отримаєте офіційний сертифікат — підтвердження ваших нових навичок.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h4>Українською мовою</h4>
+        <p>Весь курс — українською. Жодних перекладів, жодних адаптацій. Голос і мова як одне ціле.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 11 FAQ ═══════════ -->
+<section class="faq-section alt">
+  <div class="deco-blob azure bf1"></div>
+  <div class="deco-blob soft bf2"></div>
+  <div class="deco-blob gold bf3"></div>
+  <div class="deco-dots dots-faq"></div>
+  <div class="deco-chakra ch-faq">
+    <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="210" cy="210" r="195" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="210" cy="210" r="155" stroke="#5B8DEF" stroke-width="1" stroke-dasharray="3 6"/>
+      <circle cx="210" cy="210" r="115" stroke="#1E5FE0" stroke-width="1"/>
+      <circle cx="210" cy="210" r="75" stroke="#1E5FE0" stroke-width="1.2" stroke-dasharray="2 5"/>
+      <circle cx="210" cy="210" r="30" fill="#1E5FE0" fill-opacity="0.08" stroke="#1E5FE0" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Питання — відповіді</div>
+      <h2 class="sec-title">Найчастіші <em>запитання</em></h2>
+    </div>
+
+    <div class="faq-container reveal" id="faq">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи потрібні якісь попередні навички для проходження курсу?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ні, курс розроблений так, щоб підходити як для початківців, так і для тих, хто вже працював із голосом, але хоче його покращити.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Як я отримаю доступ до курсу після оплати?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Відразу після оплати ви отримаєте електронного листа з інструкціями — як зареєструватися та отримати доступ до навчальної платформи.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи є у курсі домашні завдання?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Так, кожен урок включає практичні завдання, які допоможуть закріпити матеріал та покращити навички.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи можу я проходити курс у своєму темпі?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Так. Ви маєте доступ до курсу 60 днів — це дозволяє вам адаптувати навчання під свій графік.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи отримаю я сертифікат після завершення курсу?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Так, після успішного завершення курсу ви отримаєте електронний сертифікат, який підтверджує ваші нові навички та знання.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи є можливість отримати індивідуальні консультації з викладачем?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Так, ви можете використовувати функцію онлайн-чату на платформі для запитань та отримання підтримки.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи можна отримати повернення коштів, якщо курс мені не підійде?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Так, ми гарантуємо повернення коштів протягом перших 14 днів після покупки — якщо курс не відповідає вашим очікуванням.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи є в курсі відео з практичними вправами?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Так, кожен урок містить відео-інструкції з практичними вправами — щоб ви могли не тільки вчити теорію, а й одразу застосовувати знання на практиці.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Чи підійде цей курс, якщо я хочу покращити голос для співу?
+          <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Так. Хоча основний акцент курсу — на розвитку говоріння та публічних виступів, багато технік і вправ будуть корисними також для співаків, бо вони спрямовані на розвиток голосу в цілому.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg class="foot-brand-mark" width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M20 8 L26 20 L20 32 L14 20 Z" fill="currentColor" opacity="0.18"/>
+            <path d="M20 14 L23 20 L20 26 L17 20 Z" fill="currentColor"/>
+          </svg>
+          Голос на мільйон
+        </div>
+        <p>Авторський курс Наталки Денисенко.<br>ФОП Денисенко О.Д. · ЄДРПОУ 1995303258</p>
+      </div>
+  
+      <div class="foot-support">
+        <h5>Виникли труднощі з доступом чи оплатою?</h5>
+        <p>Технічна підтримка працює з 9:00 до 18:00 за київським часом, ПН–ПТ</p>
+        <a href="https://t.me/kodvd_communication" target="_blank">
+          Написати в Telegram
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-legal">
+      <p>Всі права захищені. Будь-яке копіювання матеріалів дозволяється тільки з погодження правовласників.</p>
+      <p><b style="color:rgba(220,233,251,0.7);">ВАЖЛИВО:</b> не вводьте свою контактну інформацію, доки не прочитаєте legal disclaimer. Ми не даємо жодних гарантій, що ви досягнете якихось результатів за допомогою наших інструментів, стратегій або інформації. Всі продукти і сервіси компанії призначені для освітніх цілей. Жодна інформація на цьому сайті не гарантує і не обіцяє отримання результатів. Ви несете відповідальність за свої дії і результати.</p>
+      <p>© All rights reserved 2026</p>
+      <p style="margin-top:12px;">
+        <a href="https://drive.google.com/file/d/1Fu1frfMtYF1arBrRhnQZTsgMpJUMng13/view?usp=drive_link" target="_blank" style="color:rgba(220,233,251,0.6);text-decoration:underline;text-underline-offset:3px;">Політика конфіденційності</a>
+        <span style="color:rgba(220,233,251,0.3);margin:0 8px;">·</span>
+        <a href="https://drive.google.com/file/d/1lfBKxANzT4toTtStBflbZv4gWNFFhoJf/view?usp=sharing" target="_blank" style="color:rgba(220,233,251,0.6);text-decoration:underline;text-underline-offset:3px;">Договір публічної оферти</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ STICKY CTA ═══════════ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text">
+    <b>799 ₴</b>
+  </div>
+  <button class="sticky-cta-btn" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">
+    Долучитися →
+  </button>
+</div>
+
+<script>
+// ═══════════ DYNAMIC START DATE ═══════════
+(function setStartDate() {
+  const months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  const t = new Date();
+  document.getElementById('start-date').textContent = `${t.getDate()} ${months[t.getMonth()]}`;
+})();
+
+// ═══════════ COUNTDOWN TIMER (3 hours rolling) ═══════════
+(function startTimer() {
+  const el = document.getElementById('timer');
+  let seconds = 3 * 60 * 60 - Math.floor(Math.random() * 60);
+  function tick() {
+    if (seconds <= 0) seconds = 3 * 60 * 60;
+    const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+    const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    el.textContent = `${h}:${m}:${s}`;
+    seconds--;
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ═══════════ NAV SCROLL STATE ═══════════
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// ═══════════ STICKY CTA ═══════════
+const stickyCta = document.getElementById('stickyCta');
+window.addEventListener('scroll', () => {
+  stickyCta.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
+});
+
+// ═══════════ SCROLL REVEAL ═══════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+// ═══════════ MODULE ACCORDION ═══════════
+function toggleModule(head) {
+  const module = head.parentElement;
+  const wasOpen = module.classList.contains('open');
+  document.querySelectorAll('.module').forEach(m => m.classList.remove('open'));
+  if (!wasOpen) module.classList.add('open');
+}
+
+// ═══════════ FAQ ACCORDION ═══════════
+function toggleFaq(q) {
+  q.parentElement.classList.toggle('open');
+}
+
+// ═══════════ TESTIMONIALS SLIDER ═══════════
+(function initSlider() {
+  const slider = document.getElementById('testSlider');
+  const prev = document.getElementById('testPrev');
+  const next = document.getElementById('testNext');
+  const dotsWrap = document.getElementById('testDots');
+  const counter = document.getElementById('testCurrent');
+  const totalEl = document.getElementById('testTotal');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.test-slide');
+  const total = slides.length;
+  totalEl.textContent = String(total).padStart(2, '0');
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'test-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `Відгук ${i+1}`);
+    d.addEventListener('click', () => scrollToSlide(i));
+    dotsWrap.appendChild(d);
+  }
+  const dots = dotsWrap.querySelectorAll('.test-dot');
+
+  function getSlideWidth() {
+    const slide = slides[0];
+    const style = getComputedStyle(slider);
+    const gap = parseInt(style.gap) || 24;
+    return slide.offsetWidth + gap;
+  }
+
+  function getCurrentIndex() {
+    return Math.round(slider.scrollLeft / getSlideWidth());
+  }
+
+  function scrollToSlide(i) {
+    const w = getSlideWidth();
+    const max = total - 1;
+    const idx = Math.max(0, Math.min(max, i));
+    slider.scrollTo({ left: idx * w, behavior: 'smooth' });
+  }
+
+  function update() {
+    const i = getCurrentIndex();
+    counter.textContent = String(i + 1).padStart(2, '0');
+    dots.forEach((d, j) => d.classList.toggle('active', j === i));
+    prev.disabled = i === 0;
+    next.disabled = i >= total - 1;
+  }
+
+  prev.addEventListener('click', () => scrollToSlide(getCurrentIndex() - 1));
+  next.addEventListener('click', () => scrollToSlide(getCurrentIndex() + 1));
+
+  let scrollTimeout;
+  slider.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(update, 80);
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

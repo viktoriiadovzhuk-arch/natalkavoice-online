@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>7-денний тренажер дикції · Голос на мільйон</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Onest:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azure:        #1E5FE0;
+    --azure-deep:   #0F3FA8;
+    --azure-soft:   #5B8DEF;
+    --sky:          #DCE9FB;
+    --sky-mist:     #EEF4FD;
+    --midnight:     #0A1F4A;
+    --ink:          #1B2840;
+    --whisper:      #6B7794;
+    --breath:       #F8FAFD;
+    --silence:      #FFFFFF;
+    --line:         #E2EAF6;
+    --gold:         #E8B547;
+    --gold-deep:    #B8862A;
+    --rose:         #F4D7D7;
+    --success:      #10B981;
+
+    --serif:     'Playfair Display', Georgia, serif;
+    --serif-alt: 'Cormorant Garamond', Georgia, serif;
+    --sans:      'Onest', -apple-system, system-ui, sans-serif;
+
+    --shadow-soft: 0 4px 20px rgba(10,31,74,0.08);
+    --shadow-card: 0 8px 32px rgba(10,31,74,0.12);
+    --shadow-deep: 0 20px 60px rgba(10,31,74,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body {
+    font-family: var(--sans);
+    background: var(--breath);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+  /* ───────── Header ───────── */
+  .header {
+    padding: 32px 0;
+    background: var(--silence);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--midnight);
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--azure);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--azure);
+    color: var(--silence);
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .progress-bar {
+    flex: 1;
+    max-width: 300px;
+    margin: 0 40px;
+  }
+  .progress-track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--azure), var(--azure-soft));
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .progress-text {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--whisper);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .day-selector {
+    display: flex;
+    gap: 8px;
+  }
+  .day-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--line);
+    background: var(--silence);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--whisper);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+  }
+  .day-btn:hover {
+    border-color: var(--azure);
+    color: var(--azure);
+  }
+  .day-btn.active {
+    background: var(--azure);
+    border-color: var(--azure);
+    color: var(--silence);
+  }
+  .day-btn.completed {
+    background: var(--success);
+    border-color: var(--success);
+    color: var(--silence);
+  }
+
+  /* ───────── Hero ───────── */
+  .hero {
+    padding: 80px 0;
+    background: 
+      radial-gradient(circle at 20% 20%, var(--sky) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, var(--sky-mist) 0%, transparent 60%),
+      var(--breath);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 1px 1px, rgba(30,95,224,0.04) 1px, transparent 0);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--azure);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 72px);
+    line-height: 1;
+    font-weight: 500;
+    color: var(--midnight);
+    margin: 0 0 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--azure);
+  }
+  .hero-desc {
+    font-family: var(--serif-alt);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--whisper);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat-number {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--midnight);
+    display: block;
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 13px;
+    color: var(--whisper);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+
+  /* ───────── Day Card ───────── */
+  .day-card {
+    background: var(--silence);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    margin: 60px 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .day-header {
+    padding: 40px 50px 30px;
+    background: linear-gradient(135deg, var(--sky-mist) 0%, var(--silence) 100%);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .day-number {
+    position: absolute;
+    top: -20px;
+    right: 40px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 120px;
+    color: var(--line);
+    font-weight: 300;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .day-title {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--midnight);
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+  .day-subtitle {
+    font-family: var(--serif-alt);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--azure);
+    margin: 0 0 20px;
+  }
+  .day-task {
+    font-size: 15px;
+    color: var(--whisper);
+    margin: 0;
+  }
+  .day-task strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .day-content {
+    padding: 40px 50px;
+  }
+
+  .exercise-block {
+    margin-bottom: 40px;
+  }
+  .exercise-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .exercise-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--midnight);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .exercise-number {
+    width: 32px;
+    height: 32px;
+    background: var(--azure);
+    color: var(--silence);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .exercise-items {
+    margin-left: 44px;
+  }
+  .exercise-item {
+    padding: 16px 24px;
+    background: var(--breath);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .exercise-item:hover {
+    background: var(--sky-mist);
+    border-color: var(--azure);
+  }
+  .exercise-item.phrase {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--midnight);
+    font-weight: 400;
+    padding: 20px 24px;
+  }
+  .exercise-item.phrase em {
+    color: var(--azure);
+    font-style: italic;
+  }
+
+  .focus-tip {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+    color: var(--silence);
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    box-shadow: var(--shadow-soft);
+  }
+  .focus-tip::before {
+    content: '👉';
+    font-size: 18px;
+  }
+  .focus-tip strong {
+    font-weight: 600;
+  }
+
+  /* ───────── Speed Controls ───────── */
+  .speed-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    margin-left: 44px;
+  }
+  .speed-btn {
+    padding: 8px 16px;
+    background: var(--silence);
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--whisper);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .speed-btn:hover {
+    border-color: var(--azure);
+    color: var(--azure);
+  }
+  .speed-btn.active {
+    background: var(--azure);
+    border-color: var(--azure);
+    color: var(--silence);
+  }
+
+  /* ───────── Timer ───────── */
+  .timer {
+    position: fixed;
+    top: 100px;
+    right: 40px;
+    background: var(--silence);
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-card);
+    min-width: 200px;
+    text-align: center;
+    z-index: 50;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+  }
+  .timer.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .timer-display {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--midnight);
+    margin-bottom: 12px;
+  }
+  .timer-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--whisper);
+    margin-bottom: 16px;
+  }
+  .timer-controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+  .timer-btn {
+    padding: 8px 16px;
+    background: var(--azure);
+    color: var(--silence);
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .timer-btn:hover {
+    background: var(--azure-deep);
+  }
+  .timer-btn.pause {
+    background: var(--whisper);
+  }
+  .timer-btn.reset {
+    background: var(--line);
+    color: var(--whisper);
+  }
+
+  /* ───────── Results Card ───────── */
+  .results-card {
+    background: linear-gradient(135deg, var(--midnight) 0%, var(--ink) 100%);
+    color: var(--silence);
+    border-radius: 16px;
+    padding: 60px 50px;
+    margin: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .results-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(91,141,239,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .results-content {
+    position: relative;
+    z-index: 1;
+  }
+  .results-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 32px;
+    color: var(--silence);
+  }
+  .results-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .result-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+  }
+  .result-item strong {
+    color: var(--azure-soft);
+    font-weight: 600;
+  }
+
+  /* ───────── Responsive ───────── */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 50px 0; }
+    .hero h1 { font-size: 36px; }
+    .hero-desc { font-size: 17px; }
+    .hero-stats { flex-wrap: wrap; gap: 30px; }
+    .day-card { margin: 30px 0; }
+    .day-header { padding: 24px 20px 20px; }
+    .day-content { padding: 24px 20px; }
+    .day-title { font-size: 24px; }
+    .day-subtitle { font-size: 16px; }
+    .day-number { display: none; }
+    .timer {
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      margin: 20px;
+      width: calc(100% - 40px);
+      opacity: 1 !important;
+      transform: none !important;
+      min-width: auto;
+    }
+    .speed-controls { margin-left: 0; flex-wrap: wrap; }
+    .exercise-items { margin-left: 0; }
+    .exercise-item { padding: 14px 16px; font-size: 14px; }
+    .exercise-item.phrase { font-size: 16px; padding: 16px; }
+    .exercise-title { font-size: 17px; }
+    .focus-tip { font-size: 14px; padding: 16px; flex-direction: column; text-align: center; }
+    .results-card { padding: 40px 24px; margin: 40px 0; }
+    .results-title { font-size: 26px; }
+    .results-list { grid-template-columns: 1fr; }
+    .result-item { padding: 18px; font-size: 14px; }
+    .progress-bar { max-width: 120px; margin: 0 16px; }
+    .progress-text { font-size: 10px; }
+    .day-selector { gap: 4px; }
+    .day-btn { width: 32px; height: 32px; font-size: 12px; }
+    .header-inner { gap: 8px; }
+    .logo span { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .hero h1 { font-size: 28px; }
+    .hero-stats { gap: 20px; }
+    .hero-stat-number { font-size: 28px; }
+    .timer { margin: 16px; width: calc(100% - 32px); }
+    .timer-display { font-size: 28px; }
+    .exercise-block { margin-bottom: 28px; }
+    .day-btn { width: 28px; height: 28px; font-size: 11px; border-width: 1.5px; }
+    .progress-bar { max-width: 80px; margin: 0 10px; }
+  }
+
+  /* ───────── Animations ───────── */
+  .pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .breathing-animation {
+    animation: breathe 4s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────── Header ───────── -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">В</div>
+        <span>Голос на мільйон</span>
+      </a>
+      
+      <div class="progress-bar">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">День 1 з 7</div>
+      </div>
+
+      <div class="day-selector" id="daySelector">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── Hero ───────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Інтерактивний тренажер</div>
+      <h1>7-денний тренажер <em>дикції</em></h1>
+      <p class="hero-desc">10–15 хвилин щодня. Кожну вправу робити повільно → чітко → середній темп → швидко без втрати якості</p>
+      
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">7</span>
+          <div class="hero-stat-label">Днів</div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">10–15</span>
+          <div class="hero-stat-label">Хвилин на день</div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">3</span>
+          <div class="hero-stat-label">Темпи виконання</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Timer ───────── -->
+<div class="timer" id="timer">
+  <div class="timer-display" id="timerDisplay">10:00</div>
+  <div class="timer-label">Час тренування</div>
+  <div class="timer-controls">
+    <button class="timer-btn" id="startBtn">Старт</button>
+    <button class="timer-btn pause" id="pauseBtn">Пауза</button>
+    <button class="timer-btn reset" id="resetBtn">Скинути</button>
+  </div>
+</div>
+
+<!-- ───────── Days Content ───────── -->
+<div class="container">
+  
+  <!-- ДЕНЬ 1 -->
+  <div class="day-card" data-day="1">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <h2 class="day-title">Розігрів і чіткість</h2>
+      <div class="day-subtitle">День 1</div>
+      <p class="day-task"><strong>Задача:</strong> розбудити мовний апарат</p>
+    </div>
+    <div class="day-content">
+      
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">1</span>
+          Артикуляція
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">широко відкривати рот, чітко: І-Е-А-О-У-И</div>
+          <div class="exercise-item">губи вперед / назад</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">2</span>
+          Фрази
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Тихо, чітко, по складах — <em>кожне слово має вагу</em></div>
+          <div class="exercise-item phrase">Слово за словом — <em>рівно і зрозуміло</em></div>
+        </div>
+        <div class="speed-controls">
+          <div class="speed-btn" data-speed="slow">Повільно</div>
+          <div class="speed-btn" data-speed="medium">Середньо</div>
+          <div class="speed-btn" data-speed="fast">Швидко</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">3</span>
+          Скоромовка
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Шумить шовк, <em>шелестить шифон</em></div>
+        </div>
+        <div class="focus-tip">
+          <strong>Фокус:</strong> не швидкість, а чіткість
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ДЕНЬ 2 -->
+  <div class="day-card" data-day="2" style="display: none;">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <h2 class="day-title">Дихання і опора</h2>
+      <div class="day-subtitle">День 2</div>
+      <p class="day-task"><strong>Задача:</strong> щоб голос не «падав»</p>
+    </div>
+    <div class="day-content">
+      
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">1</span>
+          Дихання
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">вдих носом → довгий видих на «ссссс»</div>
+          <div class="exercise-item">потім на «ззззз»</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">2</span>
+          Фрази
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Рівно дихаю — довго говорю — <em>голос не зриваю</em></div>
+          <div class="exercise-item phrase">Довга фраза — рівне дихання — <em>стабільний звук</em></div>
+        </div>
+        <div class="speed-controls">
+          <div class="speed-btn" data-speed="slow">Повільно</div>
+          <div class="speed-btn" data-speed="medium">Середньо</div>
+          <div class="speed-btn" data-speed="fast">Швидко</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">3</span>
+          Скоромовка
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Рано вранці <em>репетирую</em> — розганяю рівень звучання</div>
+        </div>
+        <div class="focus-tip">
+          <strong>Фокус:</strong> не обривати фразу
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ДЕНЬ 3 -->
+  <div class="day-card" data-day="3" style="display: none;">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <h2 class="day-title">Звук «Р»</h2>
+      <div class="day-subtitle">День 3</div>
+      <p class="day-task"><strong>Задача:</strong> чітка вібрація, сила</p>
+    </div>
+    <div class="day-content">
+      
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">1</span>
+          Вправа
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">р-р-р-р (легко, без напруги)</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">2</span>
+          Фрази
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase"><em>Ритмічно</em> розгортаю речення</div>
+          <div class="exercise-item phrase">Рівно рухаю ротом, <em>розкриваю</em> звук</div>
+        </div>
+        <div class="speed-controls">
+          <div class="speed-btn" data-speed="slow">Повільно</div>
+          <div class="speed-btn" data-speed="medium">Середньо</div>
+          <div class="speed-btn" data-speed="fast">Швидко</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">3</span>
+          Скоромовка
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Режисер рівно <em>розставив ролі</em>, розкривши ритм кожного слова</div>
+        </div>
+        <div class="focus-tip">
+          <strong>Фокус:</strong> не ковтати «р»
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ДЕНЬ 4 -->
+  <div class="day-card" data-day="4" style="display: none;">
+    <div class="day-header">
+      <div class="day-number">04</div>
+      <h2 class="day-title">Звук «Ш»</h2>
+      <div class="day-subtitle">День 4</div>
+      <p class="day-task"><strong>Задача:</strong> прибрати шиплячу кашу</p>
+    </div>
+    <div class="day-content">
+      
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">1</span>
+          Вправа
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">ш-ш-ш (на видиху, рівно)</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">2</span>
+          Фрази
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Швидше не значить <em>чіткіше</em></div>
+          <div class="exercise-item phrase">Ширше відкриваю щелепу — <em>звук чистіший</em></div>
+        </div>
+        <div class="speed-controls">
+          <div class="speed-btn" data-speed="slow">Повільно</div>
+          <div class="speed-btn" data-speed="medium">Середньо</div>
+          <div class="speed-btn" data-speed="fast">Швидко</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">3</span>
+          Скоромовка
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Шість <em>шалених шансів</em> звучати чисто</div>
+        </div>
+        <div class="focus-tip">
+          <strong>Фокус:</strong> чіткість, не шепіт
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ДЕНЬ 5 -->
+  <div class="day-card" data-day="5" style="display: none;">
+    <div class="day-header">
+      <div class="day-number">05</div>
+      <h2 class="day-title">Звук «С»</h2>
+      <div class="day-subtitle">День 5</div>
+      <p class="day-task"><strong>Задача:</strong> чистота і ясність</p>
+    </div>
+    <div class="day-content">
+      
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">1</span>
+          Вправа
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">с-с-с (тонкий, направлений звук)</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">2</span>
+          Фрази
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Слова стають <em>сильними</em>, коли звучать усвідомлено</div>
+          <div class="exercise-item phrase">Складні слова — <em>спокійне</em> звучання</div>
+        </div>
+        <div class="speed-controls">
+          <div class="speed-btn" data-speed="slow">Повільно</div>
+          <div class="speed-btn" data-speed="medium">Середньо</div>
+          <div class="speed-btn" data-speed="fast">Швидко</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">3</span>
+          Скоромовка
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Слова <em>сипляться</em>, якщо не слідкуєш за звуком</div>
+        </div>
+        <div class="focus-tip">
+          <strong>Фокус:</strong> не свистіти, а направляти звук
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ДЕНЬ 6 -->
+  <div class="day-card" data-day="6" style="display: none;">
+    <div class="day-header">
+      <div class="day-number">06</div>
+      <h2 class="day-title">Темп і ритм</h2>
+      <div class="day-subtitle">День 6</div>
+      <p class="day-task"><strong>Задача:</strong> контроль швидкості</p>
+    </div>
+    <div class="day-content">
+      
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">1</span>
+          Фраза в 3 темпах
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Говорю чітко, навіть коли <em>пришвидшуюсь</em></div>
+        </div>
+        <div class="speed-controls">
+          <div class="speed-btn" data-speed="slow">Повільно</div>
+          <div class="speed-btn" data-speed="medium">Середньо</div>
+          <div class="speed-btn" data-speed="fast">Швидко</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">2</span>
+          Вправа
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">одна і та ж фраза в 3 темпах</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">3</span>
+          Скоромовка
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Швидко змінюю <em>темп</em>, але не втрачаю чіткість</div>
+        </div>
+        <div class="focus-tip">
+          <strong>Фокус:</strong> швидко ≠ невиразно
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ДЕНЬ 7 -->
+  <div class="day-card" data-day="7" style="display: none;">
+    <div class="day-header">
+      <div class="day-number">07</div>
+      <h2 class="day-title">Інтеграція</h2>
+      <div class="day-subtitle">День 7 · Як у житті</div>
+      <p class="day-task"><strong>Задача:</strong> перенести в реальну мову</p>
+    </div>
+    <div class="day-content">
+      
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">1</span>
+          Запис відео (1 хв)
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">розказати про свій день або тему</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">2</span>
+          Контроль
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item">чи чітко?</div>
+          <div class="exercise-item">чи рівний темп?</div>
+          <div class="exercise-item">чи не ковтаєш слова?</div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">3</span>
+          Фраза
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Я говорю <em>спокійно, чітко і впевнено</em></div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <h3 class="exercise-title">
+          <span class="exercise-number">4</span>
+          Дикторська скоромовка
+        </h3>
+        <div class="exercise-items">
+          <div class="exercise-item phrase">Чітко поєдную <em>звуки</em>, зберігаючи ритм і сенс</div>
+        </div>
+        <div class="focus-tip">
+          <strong>Фокус:</strong> звучати, як у реальному житті
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- РЕЗУЛЬТАТИ -->
+  <div class="results-card">
+    <div class="results-content">
+      <h2 class="results-title">Результат за 7 днів</h2>
+      <div class="results-list">
+        <div class="result-item">
+          <strong>мова стає чіткішою</strong> — кожне слово має вагу
+        </div>
+        <div class="result-item">
+          <strong>зникає «каша»</strong> у словах — звуки розділені
+        </div>
+        <div class="result-item">
+          <strong>голос звучить стабільніше</strong> — без провалів
+        </div>
+        <div class="result-item">
+          <strong>з'являється контроль</strong> — ти керуєш темпом
+        </div>
+        <div class="result-item">
+          <strong>ти починаєш чути себе</strong> по-іншому
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ───────── Timer ───────── 
+let timerInterval;
+let timeRemaining = 10 * 60; // 10 minutes in seconds
+let isRunning = false;
+
+const timerDisplay = document.getElementById('timerDisplay');
+const startBtn = document.getElementById('startBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const resetBtn = document.getElementById('resetBtn');
+const timer = document.getElementById('timer');
+
+function formatTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+function updateTimer() {
+  timerDisplay.textContent = formatTime(timeRemaining);
+  if (timeRemaining <= 0) {
+    clearInterval(timerInterval);
+    isRunning = false;
+    startBtn.textContent = 'Старт';
+    // Show completion message
+    alert('Тренування завершено! Відмінно!');
+  }
+}
+
+startBtn.addEventListener('click', () => {
+  if (!isRunning) {
+    isRunning = true;
+    startBtn.textContent = 'Пауза';
+    timer.classList.add('active');
+    timerInterval = setInterval(() => {
+      timeRemaining--;
+      updateTimer();
+    }, 1000);
+  } else {
+    isRunning = false;
+    startBtn.textContent = 'Старт';
+    clearInterval(timerInterval);
+  }
+});
+
+pauseBtn.addEventListener('click', () => {
+  if (isRunning) {
+    isRunning = false;
+    startBtn.textContent = 'Старт';
+    clearInterval(timerInterval);
+  }
+});
+
+resetBtn.addEventListener('click', () => {
+  clearInterval(timerInterval);
+  isRunning = false;
+  timeRemaining = 10 * 60;
+  startBtn.textContent = 'Старт';
+  timerDisplay.textContent = formatTime(timeRemaining);
+  timer.classList.add('active');
+});
+
+// Initialize timer display
+updateTimer();
+
+// ───────── Day Navigation ───────── 
+let currentDay = 1;
+const totalDays = 7;
+
+function createDayButtons() {
+  const daySelector = document.getElementById('daySelector');
+  for (let i = 1; i <= totalDays; i++) {
+    const btn = document.createElement('div');
+    btn.className = 'day-btn';
+    btn.textContent = i;
+    btn.dataset.day = i;
+    if (i === 1) btn.classList.add('active');
+    
+    btn.addEventListener('click', () => {
+      switchToDay(i);
+    });
+    
+    daySelector.appendChild(btn);
+  }
+}
+
+function switchToDay(day) {
+  console.log(`Switching to day ${day}`); // Debug
+  
+  // Show the day
+  showDay(day);
+  
+  // Update navigation buttons
+  document.querySelectorAll('.day-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  const activeBtn = document.querySelector(`.day-btn[data-day="${day}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+  }
+  
+  // Update current day and progress
+  currentDay = day;
+  updateProgress();
+  
+  // Reset timer
+  if (resetBtn) {
+    resetBtn.click();
+  }
+}
+
+function updateProgress() {
+  const progress = (currentDay / totalDays) * 100;
+  document.getElementById('progressFill').style.width = `${progress}%`;
+  document.getElementById('progressText').textContent = `День ${currentDay} з ${totalDays}`;
+}
+
+// ───────── Speed Controls ───────── 
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('speed-btn')) {
+    // Remove active from siblings
+    e.target.parentElement.querySelectorAll('.speed-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    // Add active to clicked button
+    e.target.classList.add('active');
+    
+    // Visual feedback for different speeds
+    const phrase = e.target.closest('.exercise-block').querySelector('.phrase');
+    if (phrase) {
+      phrase.style.transition = 'all 0.3s ease';
+      
+      switch(e.target.dataset.speed) {
+        case 'slow':
+          phrase.style.fontSize = '16px';
+          phrase.style.letterSpacing = '0.02em';
+          break;
+        case 'medium':
+          phrase.style.fontSize = '18px';
+          phrase.style.letterSpacing = '0em';
+          break;
+        case 'fast':
+          phrase.style.fontSize = '19px';
+          phrase.style.letterSpacing = '-0.01em';
+          break;
+      }
+    }
+  }
+});
+
+// ───────── Exercise Item Interactions ───────── 
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('exercise-item')) {
+    e.target.style.transform = 'scale(1.02)';
+    e.target.style.transition = 'transform 0.2s ease';
+    
+    setTimeout(() => {
+      e.target.style.transform = 'scale(1)';
+    }, 200);
+  }
+});
+
+// ───────── Breathing Animation for Exercises ───────── 
+function addBreathingAnimation() {
+  const exerciseItems = document.querySelectorAll('.exercise-item');
+  exerciseItems.forEach((item, index) => {
+    item.addEventListener('mouseenter', () => {
+      if (item.textContent.includes('вдих') || item.textContent.includes('видих')) {
+        item.classList.add('breathing-animation');
+      }
+    });
+    
+    item.addEventListener('mouseleave', () => {
+      item.classList.remove('breathing-animation');
+    });
+  });
+}
+
+// ───────── Keyboard Navigation ───────── 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft' && currentDay > 1) {
+    switchToDay(currentDay - 1);
+  } else if (e.key === 'ArrowRight' && currentDay < totalDays) {
+    switchToDay(currentDay + 1);
+  } else if (e.key === ' ') {
+    e.preventDefault();
+    startBtn.click();
+  }
+});
+
+// ───────── Initialize ───────── 
+document.addEventListener('DOMContentLoaded', () => {
+  // Create day buttons first
+  createDayButtons();
+  
+  // Show first day by default
+  showDay(1);
+  
+  // Initialize other components
+  updateProgress();
+  addBreathingAnimation();
+  
+  // Show timer after 2 seconds
+  setTimeout(() => {
+    timer.classList.add('active');
+  }, 2000);
+  
+  // Load saved progress after everything is ready
+  setTimeout(() => {
+    loadProgress();
+  }, 100);
+});
+
+// Helper function to show specific day
+function showDay(day) {
+  // Hide all day cards
+  document.querySelectorAll('.day-card').forEach(card => {
+    card.style.display = 'none';
+  });
+  
+  // Show selected day card
+  const selectedCard = document.querySelector(`.day-card[data-day="${day}"]`);
+  if (selectedCard) {
+    selectedCard.style.display = 'block';
+    selectedCard.style.animationDelay = '0s';
+  }
+  
+  console.log(`Showing day ${day}`, selectedCard); // Debug
+}
+
+// ───────── Local Storage for Progress ───────── 
+function saveProgress() {
+  localStorage.setItem('dictionTrainerDay', currentDay.toString());
+  const completedDays = JSON.parse(localStorage.getItem('dictionTrainerCompleted') || '[]');
+  if (!completedDays.includes(currentDay)) {
+    completedDays.push(currentDay);
+    localStorage.setItem('dictionTrainerCompleted', JSON.stringify(completedDays));
+  }
+}
+
+function loadProgress() {
+  const savedDay = localStorage.getItem('dictionTrainerDay');
+  const completedDays = JSON.parse(localStorage.getItem('dictionTrainerCompleted') || '[]');
+  
+  // Mark completed days
+  completedDays.forEach(day => {
+    const btn = document.querySelector(`.day-btn[data-day="${day}"]`);
+    if (btn) btn.classList.add('completed');
+  });
+  
+  // Switch to saved day if exists, otherwise stay on day 1
+  if (savedDay && parseInt(savedDay) !== 1) {
+    switchToDay(parseInt(savedDay));
+  }
+}
+
+// Save progress when switching days
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('day-btn')) {
+    setTimeout(saveProgress, 100);
+  }
+});
+</script>
+
+</body>
+</html>

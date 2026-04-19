@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Результат оплати — Голос на мільйон</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Onest', sans-serif;
+      background: #F8FAFD;
+      color: #0A1F4A;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 440px;
+      width: 90%;
+      box-shadow: 0 8px 40px rgba(10, 31, 74, 0.08);
+      text-align: center;
+    }
+
+    .icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+    }
+
+    .icon.success { background: #e8f5e9; }
+    .icon.failure { background: #ffebee; }
+    .icon.processing { background: #e3f2fd; }
+    .icon.unknown { background: #f5f5f5; }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .status-text {
+      font-size: 15px;
+      color: #6b7b99;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .details {
+      background: #F8FAFD;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .details .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 14px;
+    }
+
+    .details .row .label { color: #6b7b99; }
+    .details .row .value { font-weight: 500; }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: #1E5FE0;
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Onest', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0F3FA8;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(30, 95, 224, 0.35);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: #1E5FE0;
+      border: 1.5px solid #1E5FE0;
+    }
+
+    .btn.secondary:hover {
+      background: #1E5FE0;
+      color: #fff;
+    }
+
+    .loading-spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid #DCE9FB;
+      border-top-color: #1E5FE0;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 24px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <!-- Loading state -->
+  <div id="stateLoading">
+    <div class="loading-spinner"></div>
+    <h1>Перевіряємо оплату…</h1>
+    <p class="status-text">Зачекайте кілька секунд</p>
+  </div>
+
+  <!-- Success state -->
+  <div id="stateSuccess" class="hidden">
+    <div class="icon success">✓</div>
+    <h1>Оплата пройшла успішно!</h1>
+    <p class="status-text">Дякуємо! Лист із доступом до курсу вже летить на вашу пошту.</p>
+    <div class="details" id="detailsSuccess"></div>
+    <a href="https://nfgry.weblium.site/" class="btn">Повернутися на сайт</a>
+  </div>
+
+  <!-- Failure state -->
+  <div id="stateFailure" class="hidden">
+    <div class="icon failure">✕</div>
+    <h1>Оплата не пройшла</h1>
+    <p class="status-text" id="failureReason">Спробуйте ще раз або оберіть інший спосіб оплати.</p>
+    <a href="/pay" class="btn">Спробувати ще раз</a>
+  </div>
+
+  <!-- Processing state -->
+  <div id="stateProcessing" class="hidden">
+    <div class="icon processing">⏳</div>
+    <h1>Оплата обробляється</h1>
+    <p class="status-text">Платіж ще обробляється банком. Зазвичай це займає кілька хвилин.</p>
+    <button class="btn secondary" onclick="checkStatus()">Перевірити ще раз</button>
+  </div>
+
+  <!-- No invoice state -->
+  <div id="stateNoInvoice" class="hidden">
+    <div class="icon unknown">?</div>
+    <h1>Платіж не знайдено</h1>
+    <p class="status-text">Ми не знайшли інформацію про ваш платіж. Можливо, ви ще не оплачували.</p>
+    <a href="/pay" class="btn">Перейти до оплати</a>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  //  ПЕРЕВІРКА СТАТУСУ ПЛАТЕЖУ
+  // ============================================================
+
+  // Отримуємо invoiceId з URL-параметра або localStorage
+  function getInvoiceId() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("invoiceId") || localStorage.getItem("mono_invoiceId");
+  }
+
+  function showState(stateId) {
+    document.querySelectorAll("[id^='state']").forEach(el => el.classList.add("hidden"));
+    document.getElementById(stateId).classList.remove("hidden");
+  }
+
+  function formatAmount(kopecks) {
+    return (kopecks / 100).toFixed(2) + " ₴";
+  }
+
+  async function checkStatus() {
+    const invoiceId = getInvoiceId();
+
+    if (!invoiceId) {
+      showState("stateNoInvoice");
+      return;
+    }
+
+    showState("stateLoading");
+
+    try {
+      const res = await fetch(`/.netlify/functions/check-status?invoiceId=${encodeURIComponent(invoiceId)}`);
+      const data = await res.json();
+
+      if (!res.ok) {
+        showState("stateFailure");
+        return;
+      }
+
+      switch (data.status) {
+        case "success":
+          showState("stateSuccess");
+          document.getElementById("detailsSuccess").innerHTML = `
+            <div class="row"><span class="label">Сума</span><span class="value">${formatAmount(data.finalAmount || data.amount)}</span></div>
+            <div class="row"><span class="label">Статус</span><span class="value" style="color:#2e7d32">Оплачено</span></div>
+            <div class="row"><span class="label">ID платежу</span><span class="value">${data.invoiceId}</span></div>
+          `;
+          // Очищаємо invoiceId з localStorage
+          localStorage.removeItem("mono_invoiceId");
+          break;
+
+        case "processing":
+        case "hold":
+        case "created":
+          showState("stateProcessing");
+          break;
+
+        case "failure":
+          showState("stateFailure");
+          if (data.failureReason) {
+            document.getElementById("failureReason").textContent = data.failureReason;
+          }
+          localStorage.removeItem("mono_invoiceId");
+          break;
+
+        case "reversed":
+          showState("stateFailure");
+          document.getElementById("failureReason").textContent = "Платіж був скасований.";
+          localStorage.removeItem("mono_invoiceId");
+          break;
+
+        case "expired":
+          showState("stateFailure");
+          document.getElementById("failureReason").textContent = "Час оплати вичерпано. Спробуйте ще раз.";
+          localStorage.removeItem("mono_invoiceId");
+          break;
+
+        default:
+          showState("stateProcessing");
+      }
+
+    } catch (err) {
+      showState("stateFailure");
+    }
+  }
+
+  // Запускаємо перевірку при завантаженні сторінки
+  checkStatus();
+</script>
+
+</body>
+</html>
