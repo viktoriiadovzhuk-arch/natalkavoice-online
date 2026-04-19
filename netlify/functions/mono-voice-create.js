@@ -6,7 +6,7 @@
 
 // Тарифи визначаються ТУТ (на бекенді), щоб клієнт не міг підробити ціну.
 const TIERS = {
-  solo: { name: 'Solo',  amount: 250000,    description: 'Голос Жінки — тариф Solo' },
+  solo: { name: 'Solo',  amount: 250000,  description: 'Голос Жінки — тариф Solo' },
   pro:  { name: 'Pro',   amount: 350000,  description: 'Голос Жінки — тариф Pro'  },
   vip:  { name: 'VIP',   amount: 3500000, description: 'Голос Жінки — тариф VIP'  },
 };
