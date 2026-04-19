@@ -7,6 +7,7 @@ exports.handler = async (event) => {
   }
 
   const MONO_TOKEN = process.env.MONO_TOKEN || "mmxgPCuhuk3xWuKoPwJK7OA";
+  const MONO_TOKEN_KOMPLEKSNYJ = process.env.MONO_TOKEN_KOMPLEKSNYJ || "m3w_nXlpEsN3aoDL5eoQGnA";
 
   // Визначаємо базовий URL сайту для вебхуку
   const siteUrl = process.env.URL || "https://golosnamillion.netlify.app";
@@ -28,17 +29,25 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: "email is required" }) };
   }
 
-  // Вибираємо вебхук залежно від продукту
-  const webhookFunction = product === "pro"
-    ? "mono-webhook-pro"
-    : "mono-webhook";
+  // Вибираємо вебхук і токен залежно від продукту
+  let webhookFunction, activeToken;
+  if (product === "kompleksnyj") {
+    webhookFunction = "mono-webhook-kompleksnyj";
+    activeToken = MONO_TOKEN_KOMPLEKSNYJ;
+  } else if (product === "pro") {
+    webhookFunction = "mono-webhook-pro";
+    activeToken = MONO_TOKEN;
+  } else {
+    webhookFunction = "mono-webhook";
+    activeToken = MONO_TOKEN;
+  }
 
   try {
     const response = await fetch("https://api.monobank.ua/api/merchant/invoice/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Token": MONO_TOKEN,
+        "X-Token": activeToken,
       },
       body: JSON.stringify({
         amount: amount,
