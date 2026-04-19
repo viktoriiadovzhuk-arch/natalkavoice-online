@@ -50,17 +50,17 @@
     /* ===== THANK YOU SECTION ===== */
     .thanks {
       text-align: center;
-      padding: 60px 20px 48px;
+      padding: 32px 20px 24px;
       background: linear-gradient(180deg, #fff 0%, var(--breath) 100%);
     }
 
     .thanks .icon-check {
-      width: 72px; height: 72px;
+      width: 52px; height: 52px;
       background: #e8f5e9;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 32px;
+      margin: 0 auto 12px;
+      font-size: 24px;
       animation: popIn 0.5s ease;
     }
 
@@ -72,15 +72,15 @@
 
     .thanks h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 32px;
+      font-size: 24px;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
     .thanks .sub {
-      font-size: 16px;
+      font-size: 14px;
       color: var(--body-text);
-      margin-bottom: 28px;
+      margin-bottom: 16px;
     }
 
     .email-notice {
@@ -88,13 +88,13 @@
       margin: 0 auto;
       background: #fff;
       border: 1.5px solid var(--line);
-      border-radius: 16px;
-      padding: 24px 28px;
+      border-radius: 12px;
+      padding: 16px 20px;
       text-align: left;
     }
 
     .email-notice strong { color: var(--midnight); }
-    .email-notice p { font-size: 14px; color: var(--body-text); margin-bottom: 10px; }
+    .email-notice p { font-size: 13px; color: var(--body-text); margin-bottom: 6px; }
     .email-notice p:last-child { margin-bottom: 0; }
 
     .email-notice .folders {
@@ -120,13 +120,13 @@
     /* ===== DIVIDER ===== */
     .divider {
       text-align: center;
-      padding: 36px 20px 12px;
+      padding: 20px 20px 8px;
     }
 
     .divider .line {
       width: 48px; height: 2px;
       background: var(--gold);
-      margin: 0 auto 16px;
+      margin: 0 auto 10px;
       border-radius: 2px;
     }
 
@@ -142,23 +142,33 @@
     .oto {
       max-width: 600px;
       margin: 0 auto;
-      padding: 12px 20px 60px;
+      padding: 8px 20px 60px;
     }
 
     .oto-card {
       background: #fff;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 12px 48px rgba(10, 31, 74, 0.1);
+      box-shadow: 
+        0 12px 48px rgba(10, 31, 74, 0.12),
+        0 0 0 2px var(--gold),
+        0 0 24px rgba(232, 181, 71, 0.15);
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 12px 48px rgba(10, 31, 74, 0.12), 0 0 0 2px var(--gold), 0 0 24px rgba(232, 181, 71, 0.15); }
+      50% { box-shadow: 0 12px 48px rgba(10, 31, 74, 0.12), 0 0 0 2px var(--gold), 0 0 40px rgba(232, 181, 71, 0.3); }
     }
 
     /* Timer bar */
     .timer-bar {
-      background: var(--midnight);
+      background: linear-gradient(135deg, var(--midnight) 0%, #142d5e 100%);
       color: #fff;
       text-align: center;
       padding: 14px 20px;
       font-size: 14px;
+      border-bottom: 3px solid var(--gold);
     }
 
     .timer-bar .timer-label { opacity: 0.7; margin-right: 8px; }
@@ -414,12 +424,15 @@
 
     /* Responsive */
     @media (max-width: 480px) {
-      .thanks { padding: 44px 16px 36px; }
-      .thanks h1 { font-size: 26px; }
+      .thanks { padding: 24px 16px 18px; }
+      .thanks h1 { font-size: 20px; }
+      .thanks .icon-check { width: 44px; height: 44px; font-size: 20px; margin-bottom: 8px; }
+      .thanks .sub { font-size: 13px; margin-bottom: 12px; }
+      .email-notice { padding: 14px 16px; }
+      .email-notice p { font-size: 12px; }
       .oto-body { padding: 28px 20px; }
       .oto-body h2 { font-size: 22px; }
       .price-new { font-size: 36px; }
-      .email-notice { padding: 20px; }
     }
   </style>
 </head>
