@@ -1,23 +1,7 @@
-# ============================================================
-# natalkavoice.online — об'єднана конфігурація Netlify
-# ============================================================
-# / ............................... "Жінка на мільйон" (index.html)
-# /womanvoice ..................... "Голос жінки" (womanvoice/index.html)
-#
-# Два окремі платіжні флоу Monobank:
-#   • Жінка на мільйон → /.netlify/functions/create-invoice + mono-webhook(-pro)
-#     env: MONO_TOKEN + хардкодні SendPulse event URLs у функціях
-#   • Голос жінки     → /api/mono-voice/* (нижче)
-#     env: MONO_TOKEN_VOICE, SITE_URL, TEST_MODE
-# ============================================================
-
 [build]
   functions = "netlify/functions"
 
-# ----------------------------------------------------------------
-# "Жінка на мільйон" — редіректи з існуючого сайту (не чіпаємо)
-# ----------------------------------------------------------------
-
+# Redirect /pay → payment page
 [[redirects]]
   from = "/pay"
   to = "/pay.html"
@@ -43,38 +27,18 @@
   to = "/trenazher-dykcii.html"
   status = 200
 
-# ----------------------------------------------------------------
-# "Голос жінки" — нові редіректи
-# ----------------------------------------------------------------
-
-# Красиві URL: і /womanvoice, і /womanvoice/ ведуть на сторінку
+# Комплексний курс
 [[redirects]]
-  from = "/womanvoice"
-  to = "/womanvoice/index.html"
+  from = "/kompleksnyj"
+  to = "/kompleksnyj.html"
   status = 200
 
 [[redirects]]
-  from = "/womanvoice/thankswoman"
-  to = "/womanvoice/thankswoman.html"
-  status = 200
-
-# API для створення рахунку Monobank (окремий неймспейс /api/mono-voice/*)
-[[redirects]]
-  from = "/api/mono-voice/create"
-  to = "/.netlify/functions/mono-voice-create"
+  from = "/pay-pro"
+  to = "/pay-pro.html"
   status = 200
 
 [[redirects]]
-  from = "/api/mono-voice/status"
-  to = "/.netlify/functions/mono-voice-status"
-  status = 200
-
-[[redirects]]
-  from = "/api/mono-voice/webhook"
-  to = "/.netlify/functions/mono-voice-webhook"
-  status = 200
-
-[[redirects]]
-  from = "/api/mono-voice/health"
-  to = "/.netlify/functions/mono-voice-health"
+  from = "/thank-you-kompleksnyj"
+  to = "/thank-you-kompleksnyj.html"
   status = 200
