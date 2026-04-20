@@ -4,24 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Дякую за покупку — Голос на мільйон</title>
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel + CAPI: Purchase -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1627093104828121');
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2104850950366655');
   fbq('track', 'PageView');
-  fbq('track', 'Purchase', {value: 799.00, currency: 'UAH'});
+  var evId='pur_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
+  fbq('track', 'Purchase', {value: 799.00, currency: 'UAH'}, {eventID: evId});
+  function getCk(n){var m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
+  var em=localStorage.getItem('mono_email')||'';
+  fetch('/.netlify/functions/meta-capi',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({event_name:'Purchase',event_id:evId,email:em,value:799,currency:'UAH',source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
+  }).catch(function(){});
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1627093104828121&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2104850950366655&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel + CAPI -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Onest:wght@300;400;500;600;700&display=swap');
 
@@ -435,22 +436,6 @@
       .price-new { font-size: 36px; }
     }
   </style>
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2104850950366655');
-fbq('track', 'PageView');
-fbq('track', 'Purchase', {value: 799.00, currency: 'UAH'});
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2104850950366655&ev=PageView&noscript=1"
-/></noscript>
 </head>
 <body>
 
