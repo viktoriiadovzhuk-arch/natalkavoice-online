@@ -4,6 +4,23 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Голос на мільйон — курс Наталки Денисенко</title>
+  <!-- Meta Pixel + CAPI: PageView -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2104850950366655');
+  var evId='pv_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
+  fbq('track', 'PageView', {}, {eventID: evId});
+  function getCk(n){var m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
+  fetch('/.netlify/functions/meta-capi',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({event_name:'PageView',event_id:evId,source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
+  }).catch(function(){});
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2104850950366655&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel + CAPI -->
 <meta name="description" content="Найбільший курс по голосу в Україні. 7 модулів + 30 днів щоденної практики. Старт уже сьогодні.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2333,21 +2350,6 @@ footer .wrap > * + * { margin-top: 40px; }
   .module-body-inner { padding: 0 20px 28px 20px; }
 }
 </style>
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2104850950366655');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2104850950366655&ev=PageView&noscript=1"
-/></noscript>
 </head>
 <body>
 
