@@ -86,7 +86,7 @@ exports.handler = async (event) => {
     if (value) eventData.custom_data.value = String(value);
   }
  
-  const payload = { data: [eventData], test_event_code: "TEST61120" };
+  const payload = { data: [eventData] };
  
   console.log("Meta CAPI sending:", JSON.stringify(payload));
  
