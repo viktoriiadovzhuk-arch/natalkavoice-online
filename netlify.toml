@@ -1,43 +1,56 @@
 [build]
   functions = "netlify/functions"
-
+ 
+# Головна = комплексний курс
+[[redirects]]
+  from = "/"
+  to = "/kompleksnyj.html"
+  status = 200
+  force = true
+ 
+# Базовий курс (для реклами)
+[[redirects]]
+  from = "/ads"
+  to = "/index.html"
+  status = 200
+ 
 # Redirect /pay → payment page
 [[redirects]]
   from = "/pay"
   to = "/pay.html"
   status = 200
-
+ 
 [[redirects]]
   from = "/payment-result"
   to = "/payment-result.html"
   status = 200
-
+ 
 [[redirects]]
   from = "/thank-you"
   to = "/thank-you.html"
   status = 200
-
+ 
 [[redirects]]
   from = "/thank-you-pro"
   to = "/thank-you-pro.html"
   status = 200
-
+ 
 [[redirects]]
   from = "/trenazher-dykcii"
   to = "/trenazher-dykcii.html"
   status = 200
-
+ 
 # Комплексний курс
 [[redirects]]
   from = "/kompleksnyj"
   to = "/kompleksnyj.html"
   status = 200
-
+ 
 [[redirects]]
   from = "/pay-pro"
   to = "/pay-pro.html"
   status = 200
-
+ 
 [[redirects]]
   from = "/thank-you-kompleksnyj"
   to = "/thank-you-kompleksnyj.html"
