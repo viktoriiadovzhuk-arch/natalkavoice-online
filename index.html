@@ -12,10 +12,14 @@
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '2104850950366655');
+  fbq('init', '1280801630257821');
   var evId='pv_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
   fbq('track', 'PageView', {}, {eventID: evId});
   function getCk(n){var m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
   fetch('/.netlify/functions/meta-capi',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({event_name:'PageView',event_id:evId,source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
+  }).catch(function(){});
+  fetch('/.netlify/functions/meta-capi-2',{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({event_name:'PageView',event_id:evId,source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
   }).catch(function(){});
   </script>
