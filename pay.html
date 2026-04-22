@@ -3,8 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дякую за покупку — Голос на мільйон</title>
-  <!-- Meta Pixel + CAPI: Purchase -->
+  <title>Оплата — Голос на мільйон</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Onest', sans-serif;
+      background: #F8FAFD;
+      color: #0A1F4A;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 44px 36px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(10, 31, 74, 0.08);
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1E5FE0;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #6b7b99;
+      margin-bottom: 24px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .price-old {
+      font-size: 20px;
+      color: #a0aec0;
+      text-decoration: line-through;
+    }
+
+    .price {
+      font-size: 40px;
+      font-weight: 600;
+      color: #1E5FE0;
+    }
+
+    .price-currency {
+      font-size: 20px;
+      font-weight: 400;
+      color: #1E5FE0;
+    }
+
+    /* Email field */
+    .email-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .email-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #3a4d6e;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .email-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #DCE9FB;
+      border-radius: 12px;
+      font-size: 16px;
+      font-family: 'Onest', sans-serif;
+      color: #0A1F4A;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-input:focus {
+      border-color: #1E5FE0;
+      box-shadow: 0 0 0 3px rgba(30, 95, 224, 0.1);
+    }
+
+    .email-input::placeholder { color: #a0b4d4; }
+
+    .email-input.invalid {
+      border-color: #e53e3e;
+      box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+    }
+
+    .email-hint {
+      font-size: 12px;
+      color: #6b7b99;
+      margin-top: 6px;
+    }
+
+    .email-error {
+      font-size: 12px;
+      color: #e53e3e;
+      margin-top: 6px;
+      display: none;
+    }
+
+    /* Button */
+    .pay-btn {
+      display: block;
+      width: 100%;
+      padding: 18px 32px;
+      background: #1E5FE0;
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      font-size: 17px;
+      font-weight: 600;
+      font-family: 'Onest', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pay-btn:hover {
+      background: #0F3FA8;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(30, 95, 224, 0.35);
+    }
+
+    .pay-btn:active { transform: translateY(0); }
+
+    .pay-btn:disabled {
+      background: #a0b4d4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .pay-btn .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin: 0 auto;
+    }
+
+    .pay-btn.loading .btn-text { display: none; }
+    .pay-btn.loading .spinner { display: block; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-msg {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #fff0f0;
+      border: 1px solid #ffcdd2;
+      border-radius: 10px;
+      color: #c62828;
+      font-size: 14px;
+      display: none;
+    }
+
+    .secure {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #8a9ab5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .secure svg { width: 14px; height: 14px; fill: #8a9ab5; }
+
+    .guarantee {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #8a9ab5;
+      line-height: 1.5;
+    }
+  </style>
+  <!-- Meta Pixel + CAPI: InitiateCheckout -->
   <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -14,615 +217,103 @@
   fbq('init', '2104850950366655');
   fbq('init', '1280801630257821');
   fbq('track', 'PageView');
-  var evId='pur_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
-  fbq('track', 'Purchase', {value: 799.00, currency: 'UAH'}, {eventID: evId});
+  var evId='ic_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
+  fbq('track', 'InitiateCheckout', {value: 799, currency: 'UAH'}, {eventID: evId});
   function getCk(n){var m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
-  var em=localStorage.getItem('mono_email')||'';
   fetch('/.netlify/functions/meta-capi',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({event_name:'Purchase',event_id:evId,email:em,value:799,currency:'UAH',source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
+    body:JSON.stringify({event_name:'InitiateCheckout',event_id:evId,value:799,currency:'UAH',source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
   }).catch(function(){});
   fetch('/.netlify/functions/meta-capi-2',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({event_name:'Purchase',event_id:evId,email:em,value:799,currency:'UAH',source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
+    body:JSON.stringify({event_name:'InitiateCheckout',event_id:evId,value:799,currency:'UAH',source_url:location.href,user_agent:navigator.userAgent,fbc:getCk('_fbc'),fbp:getCk('_fbp')})
   }).catch(function(){});
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2104850950366655&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel + CAPI -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Onest:wght@300;400;500;600;700&display=swap');
-
-    :root {
-      --azure: #1E5FE0;
-      --deep: #0F3FA8;
-      --midnight: #0A1F4A;
-      --breath: #F8FAFD;
-      --sky: #DCE9FB;
-      --line: #E2EAF6;
-      --gold: #E8B547;
-      --rose: #F4D7D7;
-      --body-text: #3a4d6e;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Onest', sans-serif;
-      background: var(--breath);
-      color: var(--midnight);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ===== THANK YOU SECTION ===== */
-    .thanks {
-      text-align: center;
-      padding: 32px 20px 24px;
-      background: linear-gradient(180deg, #fff 0%, var(--breath) 100%);
-    }
-
-    .thanks .icon-check {
-      width: 52px; height: 52px;
-      background: #e8f5e9;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 12px;
-      font-size: 24px;
-      animation: popIn 0.5s ease;
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0); opacity: 0; }
-      60% { transform: scale(1.15); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .thanks h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .thanks .sub {
-      font-size: 14px;
-      color: var(--body-text);
-      margin-bottom: 16px;
-    }
-
-    .email-notice {
-      max-width: 520px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      padding: 16px 20px;
-      text-align: left;
-    }
-
-    .email-notice strong { color: var(--midnight); }
-    .email-notice p { font-size: 13px; color: var(--body-text); margin-bottom: 6px; }
-    .email-notice p:last-child { margin-bottom: 0; }
-
-    .email-notice .folders {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      margin: 8px 0 12px;
-    }
-
-    .email-notice .folders span {
-      background: var(--sky);
-      color: var(--deep);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
-    .email-notice .help-link {
-      color: var(--azure);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    /* ===== DIVIDER ===== */
-    .divider {
-      text-align: center;
-      padding: 20px 20px 8px;
-    }
-
-    .divider .line {
-      width: 48px; height: 2px;
-      background: var(--gold);
-      margin: 0 auto 10px;
-      border-radius: 2px;
-    }
-
-    .divider p {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: var(--gold);
-      font-weight: 600;
-    }
-
-    /* ===== OTO SECTION ===== */
-    .oto {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 8px 20px 60px;
-    }
-
-    .oto-card {
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 
-        0 12px 48px rgba(10, 31, 74, 0.12),
-        0 0 0 2px var(--gold),
-        0 0 24px rgba(232, 181, 71, 0.15);
-      animation: pulseGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 12px 48px rgba(10, 31, 74, 0.12), 0 0 0 2px var(--gold), 0 0 24px rgba(232, 181, 71, 0.15); }
-      50% { box-shadow: 0 12px 48px rgba(10, 31, 74, 0.12), 0 0 0 2px var(--gold), 0 0 40px rgba(232, 181, 71, 0.3); }
-    }
-
-    /* Timer bar */
-    .timer-bar {
-      background: linear-gradient(135deg, var(--midnight) 0%, #142d5e 100%);
-      color: #fff;
-      text-align: center;
-      padding: 14px 20px;
-      font-size: 14px;
-      border-bottom: 3px solid var(--gold);
-    }
-
-    .timer-bar .timer-label { opacity: 0.7; margin-right: 8px; }
-
-    .timer-bar .countdown {
-      font-size: 28px;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
-      letter-spacing: 1px;
-    }
-
-    .timer-bar .countdown.urgent { color: #ff6b6b; }
-
-    .timer-bar .expired-text {
-      display: none;
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    /* OTO body */
-    .oto-body { padding: 36px 32px; }
-
-    .oto-body h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-
-    .oto-body .oto-sub {
-      text-align: center;
-      font-size: 15px;
-      color: var(--body-text);
-      margin-bottom: 28px;
-    }
-
-    .oto-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold), #d4a03a);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-
-    /* What they get */
-    .oto-features {
-      list-style: none;
-      margin-bottom: 28px;
-    }
-
-    .oto-features li {
-      padding: 10px 0;
-      font-size: 15px;
-      color: var(--body-text);
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .oto-features li:last-child { border-bottom: none; }
-
-    .oto-features .feat-icon {
-      flex-shrink: 0;
-      width: 24px; height: 24px;
-      background: var(--sky);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px;
-      color: var(--azure);
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
-    .oto-features .feat-icon.bonus {
-      background: linear-gradient(135deg, var(--gold), #d4a03a);
-      color: #fff;
-    }
-
-    /* Who is it for */
-    .who-block {
-      background: var(--breath);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-    }
-
-    .who-block h3 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .who-block p {
-      font-size: 14px;
-      color: var(--body-text);
-      margin-bottom: 6px;
-    }
-
-    /* Price block */
-    .price-block {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .price-old {
-      font-size: 18px;
-      color: #a0aec0;
-      text-decoration: line-through;
-    }
-
-    .price-new {
-      font-size: 44px;
-      font-weight: 700;
-      color: var(--azure);
-      display: block;
-      line-height: 1.1;
-    }
-
-    .price-new span { font-size: 22px; font-weight: 400; }
-
-    .price-once {
-      font-size: 13px;
-      color: var(--gold);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 4px;
-    }
-
-    /* Email + button */
-    .oto-email {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      font-size: 16px;
-      font-family: 'Onest', sans-serif;
-      color: var(--midnight);
-      outline: none;
-      transition: border-color 0.2s;
-      margin-bottom: 12px;
-    }
-
-    .oto-email:focus {
-      border-color: var(--azure);
-      box-shadow: 0 0 0 3px rgba(30, 95, 224, 0.1);
-    }
-
-    .oto-email::placeholder { color: #a0b4d4; }
-    .oto-email.invalid { border-color: #e53e3e; }
-
-    .oto-btn {
-      display: block;
-      width: 100%;
-      padding: 18px;
-      background: var(--azure);
-      color: #fff;
-      border: none;
-      border-radius: 60px;
-      font-size: 17px;
-      font-weight: 600;
-      font-family: 'Onest', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .oto-btn:hover {
-      background: var(--deep);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(30, 95, 224, 0.35);
-    }
-
-    .oto-btn:disabled {
-      background: #a0b4d4;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    .oto-btn .spinner {
-      display: none;
-      width: 20px; height: 20px;
-      border: 2px solid rgba(255,255,255,0.3);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin 0.6s linear infinite;
-      margin: 0 auto;
-    }
-
-    .oto-btn.loading .btn-text { display: none; }
-    .oto-btn.loading .spinner { display: block; }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .error-msg {
-      margin-top: 12px;
-      padding: 10px 14px;
-      background: #fff0f0;
-      border: 1px solid #ffcdd2;
-      border-radius: 10px;
-      color: #c62828;
-      font-size: 13px;
-      display: none;
-      text-align: center;
-    }
-
-    .guarantee {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 12px;
-      color: #8a9ab5;
-      line-height: 1.5;
-    }
-
-    .guarantee svg { width: 14px; height: 14px; fill: #8a9ab5; vertical-align: -2px; margin-right: 4px; }
-
-    /* Skip link */
-    .skip {
-      text-align: center;
-      padding: 24px 20px 48px;
-    }
-
-    .skip a {
-      display: inline-block;
-      padding: 16px 40px;
-      color: var(--azure);
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1.5px solid var(--azure);
-      border-radius: 60px;
-      transition: all 0.3s;
-    }
-
-    .skip a:hover {
-      background: var(--azure);
-      color: #fff;
-    }
-
-    /* Expired state */
-    .oto-card.expired .oto-body { display: none; }
-    .oto-card.expired .timer-bar .countdown { display: none; }
-    .oto-card.expired .timer-bar .timer-label { display: none; }
-    .oto-card.expired .timer-bar .expired-text { display: block; }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      .thanks { padding: 24px 16px 18px; }
-      .thanks h1 { font-size: 20px; }
-      .thanks .icon-check { width: 44px; height: 44px; font-size: 20px; margin-bottom: 8px; }
-      .thanks .sub { font-size: 13px; margin-bottom: 12px; }
-      .email-notice { padding: 14px 16px; }
-      .email-notice p { font-size: 12px; }
-      .oto-body { padding: 28px 20px; }
-      .oto-body h2 { font-size: 22px; }
-      .price-new { font-size: 36px; }
-    }
-  </style>
 </head>
 <body>
 
-<!-- ===== THANK YOU ===== -->
-<section class="thanks">
-  <div class="icon-check">✓</div>
-  <h1>Дякую! Оплата пройшла успішно</h1>
-  <p class="sub">Ви на шляху до свого найкращого голосу</p>
+<div class="card">
+  <div class="logo">Голос на мільйон</div>
+  <h1>Оплата курсу</h1>
+  <p class="subtitle">Наталка Денисенко · Онлайн-курс постановки голосу</p>
 
-  <div class="email-notice">
-    <p><strong>Лист із доступом та паролем</strong> вже надіслано на вашу пошту.</p>
-    <p>Перевірте всі папки:</p>
-    <div class="folders">
-      <span>Спам</span>
-      <span>Промоакції</span>
-      <span>Сповіщення</span>
-    </div>
-    <p>Відправник: <strong>Академія комунікації та голосу Наталки Денисенко</strong></p>
-    <p>Не знайшли лист? Зверніться до <a href="https://t.me/kodvd_communication" class="help-link">менеджера в Telegram</a></p>
+  <div class="price-row">
+    <span class="price-old">2 890 ₴</span>
+    <span class="price">799 <span class="price-currency">₴</span></span>
   </div>
-</section>
 
-<!-- ===== DIVIDER ===== -->
-<div class="divider">
-  <div class="line"></div>
-  <p>Спеціальна пропозиція</p>
-</div>
-
-<!-- ===== ONE TIME OFFER ===== -->
-<section class="oto">
-  <div class="oto-card" id="otoCard">
-
-    <div class="timer-bar">
-      <span class="timer-label">Пропозиція зникне через</span>
-      <div class="countdown" id="countdown">03:00</div>
-      <div class="expired-text">Час пропозиції вичерпано</div>
-    </div>
-
-    <div class="oto-body">
-      <div style="text-align:center">
-        <span class="oto-badge">One time offer</span>
-      </div>
-
-      <h2>Розкрийте повну силу голосу з&nbsp;блоком&nbsp;PRO</h2>
-      <p class="oto-sub">Ця пропозиція доступна тільки зараз, тільки на цій сторінці</p>
-
-      <ul class="oto-features">
-        <li>
-          <div class="feat-icon">1</div>
-          <div><strong>Голос, який тримає увагу</strong> — драматургія голосу, управління темпоритмом, інтонацією, паузами та енергією мовлення</div>
-        </li>
-        <li>
-          <div class="feat-icon">2</div>
-          <div><strong>Сторітелінг голосом</strong> — як будувати історії за класичною конструкцією (зав'язка → кульмінація → розв'язка), хуки, аудіовізуальні прийоми</div>
-        </li>
-        <li>
-          <div class="feat-icon">3</div>
-          <div><strong>Голос у відео та соцмережах</strong> — робота на камеру, закадровий текст, секрети якісного звуку на диктофон телефону</div>
-        </li>
-        <li>
-          <div class="feat-icon">4</div>
-          <div><strong>Публічні виступи</strong> — навички утримання аудиторії, робота зі станом, структура виступу</div>
-        </li>
-        <li>
-          <div class="feat-icon bonus">★</div>
-          <div><strong>БОНУС: +30 днів доступу</strong> до всього курсу «Голос на мільйон» — більше часу на практику та засвоєння матеріалу</div>
-        </li>
-      </ul>
-
-      <div class="who-block">
-        <h3>Для кого PRO-блок?</h3>
-        <p>Для вас, якщо ви виступаєте публічно, записуєте відео, ведете блог, продаєте послуги чи товари, проводите зустрічі або просто хочете, щоб вас слухали до кінця.</p>
-      </div>
-
-      <div class="price-block">
-        <div class="price-old">699 ₴</div>
-        <div class="price-new">349 <span>₴</span></div>
-        <div class="price-once">знижка 50% · пропозиція дійсна один раз</div>
-      </div>
-
-      <input
-        type="email"
-        id="email"
-        class="oto-email"
-        placeholder="Ваш email"
-        autocomplete="email"
-        inputmode="email"
-      >
-
-      <button class="oto-btn" id="payBtn" onclick="createPaymentPro()">
-        <span class="btn-text">Забрати PRO за 349 ₴</span>
-        <div class="spinner"></div>
-      </button>
-
-      <div class="error-msg" id="errorMsg"></div>
-
-      <p class="guarantee">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-        Безпечна оплата з будь-якої карти світу через plata by mono · Гарантія повернення 14 днів
-      </p>
-    </div>
+  <div class="email-group">
+    <label class="email-label" for="email">Ваш email</label>
+    <input
+      type="email"
+      id="email"
+      class="email-input"
+      placeholder="email@example.com"
+      autocomplete="email"
+      inputmode="email"
+      required
+    >
+    <p class="email-hint">На цю пошту прийде доступ до курсу та пароль</p>
+    <p class="email-error" id="emailError">Введіть коректний email</p>
   </div>
-</section>
 
-<div class="skip">
-  <a href="https://natalkadenysenko.sendpulse.courses/courses/auth/login">Перейти до навчання →</a>
+  <button class="pay-btn" id="payBtn" onclick="createPayment()">
+    <span class="btn-text">Оплатити 799 ₴</span>
+    <div class="spinner"></div>
+  </button>
+
+  <div class="error-msg" id="errorMsg"></div>
+
+  <div class="secure">
+    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+    Безпечна оплата з будь-якої карти світу через plata by mono
+  </div>
+
+  <p class="guarantee">Гарантія повернення коштів протягом 14 днів</p>
 </div>
 
 <script>
   // ============================================================
-  //  ТАЙМЕР 3 ХВИЛИНИ
+  //  КОНФІГУРАЦІЯ
   // ============================================================
-  (function() {
-    const DURATION = 3 * 60; // 3 хвилини у секундах
-    const KEY = "oto_timer_start";
-    const countdownEl = document.getElementById("countdown");
-    const card = document.getElementById("otoCard");
-
-    // Запам'ятовуємо час старту (щоб при перезавантаженні не починалося спочатку)
-    let startTime = sessionStorage.getItem(KEY);
-    if (!startTime) {
-      startTime = Date.now();
-      sessionStorage.setItem(KEY, startTime);
-    } else {
-      startTime = parseInt(startTime);
-    }
-
-    function tick() {
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      const remaining = Math.max(0, DURATION - elapsed);
-
-      const min = Math.floor(remaining / 60);
-      const sec = remaining % 60;
-      countdownEl.textContent =
-        String(min).padStart(2, "0") + ":" + String(sec).padStart(2, "0");
-
-      // Останні 30 секунд — червоний
-      if (remaining <= 30) countdownEl.classList.add("urgent");
-
-      if (remaining <= 0) {
-        card.classList.add("expired");
-        return;
-      }
-
-      requestAnimationFrame(() => setTimeout(tick, 250));
-    }
-
-    tick();
-  })();
+  const CONFIG = {
+    amount: 79900,                                   // 799 грн у копійках
+    description: "Оплата курсу «Голос на мільйон»",
+    redirectUrl: "https://golosnamillion.netlify.app/thank-you",  // → сторінка подяки з OTO
+  };
 
   // ============================================================
-  //  АВТОЗАПОВНЕННЯ EMAIL з основної покупки
-  // ============================================================
-  (function() {
-    const savedEmail = localStorage.getItem("mono_email");
-    if (savedEmail) {
-      document.getElementById("email").value = savedEmail;
-    }
-  })();
-
-  // ============================================================
-  //  ОПЛАТА PRO
+  //  ВАЛІДАЦІЯ EMAIL
   // ============================================================
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  document.getElementById("email").addEventListener("input", function() {
+  // Прибираємо червону рамку при введенні
+  document.getElementById("email").addEventListener("input", function () {
     this.classList.remove("invalid");
+    document.getElementById("emailError").style.display = "none";
   });
 
-  async function createPaymentPro() {
+  // ============================================================
+  //  СТВОРЕННЯ ПЛАТЕЖУ
+  // ============================================================
+  async function createPayment() {
     const btn = document.getElementById("payBtn");
     const errorEl = document.getElementById("errorMsg");
     const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
     const email = emailInput.value.trim();
 
+    // Валідуємо email
     if (!email || !isValidEmail(email)) {
       emailInput.classList.add("invalid");
+      emailError.style.display = "block";
       emailInput.focus();
       return;
     }
 
+    // UI: спінер
     btn.classList.add("loading");
     btn.disabled = true;
     errorEl.style.display = "none";
@@ -632,21 +323,24 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: 34900,                                      // 349 грн
-          description: "Спеціальна пропозиція PRO",
-          redirectUrl: "https://golosnamillion.netlify.app/thank-you-pro",
+          amount: CONFIG.amount,
+          description: CONFIG.description,
+          redirectUrl: CONFIG.redirectUrl,
           email: email,
-          product: "pro",                                     // → mono-webhook-pro
         }),
       });
 
       const data = await res.json();
 
-      if (!res.ok) throw new Error(data.error || "Помилка створення платежу");
+      if (!res.ok) {
+        throw new Error(data.error || "Помилка створення платежу");
+      }
 
+      // Зберігаємо дані для сторінки результату
       localStorage.setItem("mono_invoiceId", data.invoiceId);
       localStorage.setItem("mono_email", email);
 
+      // Переходимо на Monobank
       window.location.href = data.pageUrl;
 
     } catch (err) {
@@ -657,8 +351,12 @@
     }
   }
 
-  document.getElementById("email").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") { e.preventDefault(); createPaymentPro(); }
+  // Enter на email → оплата
+  document.getElementById("email").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      createPayment();
+    }
   });
 </script>
 
