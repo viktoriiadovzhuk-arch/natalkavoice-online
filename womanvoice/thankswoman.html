@@ -191,11 +191,10 @@ footer .logo{font-family:var(--display);font-style:italic;font-size:28px;color:v
         <div class="next-steps">
           <div class="next-title">Що далі</div>
           <ul class="next-list">
-            <li>Я щойно надіслала тобі лист з підтвердженням — перевір пошту</li>
-            <li>Туди ж скоро прийде посилання на навчальну платформу</li>
-            <li>Усі деталі описала в листі — просто відкрий і прочитай</li>
-            <li>У четвер, 4 травня, ми починаємо навчання</li>
-            <li>За день до старту я додам тебе в загальний чат — для тарифів Pro і VIP</li>
+            <li>На твою пошту надіслано лист з підтвердженням</li>
+            <li>За 1 день до старту отримаєш посилання на платформу</li>
+            <li>Якщо обрала тариф Pro або VIP — додамо тебе до чату учасниць</li>
+            <li>Питання? Напиши нам — ми поруч</li>
           </ul>
         </div>
 
@@ -282,7 +281,7 @@ async function checkStatus() {
   }
 
   try {
-    const res = await fetch(`${MONO_VOICE_API}/status?invoiceId=${encodeURIComponent(invoiceId)}`);
+    const res = await fetch(`/.netlify/functions/mono-voice-status?invoiceId=${encodeURIComponent(invoiceId)}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
