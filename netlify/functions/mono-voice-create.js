@@ -4,6 +4,8 @@
 // Викликається з фронтенду, коли користувач натиснув "Перейти до оплати".
 // Повертає { invoiceId, pageUrl } — фронтенд редіректить на pageUrl.
 
+const crypto = require('crypto');
+
 // Тарифи визначаються ТУТ (на бекенді), щоб клієнт не міг підробити ціну.
 const TIERS = {
   solo: { name: 'Solo',  amount: 250000,  description: 'Голос Жінки — тариф Solo' },
@@ -34,11 +36,10 @@ exports.handler = async (event) => {
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Сервер не налаштований' }) };
   }
 
-  let tier, email;
+  let tier;
   try {
     const body = JSON.parse(event.body || '{}');
     tier = body.tier;
-    email = (body.email || '').trim().toLowerCase();
   } catch {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Невалідний JSON' }) };
   }
@@ -48,15 +49,8 @@ exports.handler = async (event) => {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Невідомий тариф' }) };
   }
 
-  // Email обов'язковий — на нього відправляються доступи до курсу
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  if (!email || !emailRegex.test(email)) {
-    return { statusCode: 400, headers, body: JSON.stringify({ error: 'Некоректний email' }) };
-  }
-
   const amount = TEST_MODE ? TEST_AMOUNT : config.amount;
-  // reference: "{tier}|{email}" — webhook парсить обидва поля звідси
-  const reference = `${tier}|${email}`;
+  const reference = `voice-${tier}-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
 
   const payload = {
     amount,
@@ -64,10 +58,9 @@ exports.handler = async (event) => {
     merchantPaymInfo: {
       reference,
       destination: TEST_MODE ? 'Тестова оплата' : config.description,
-      customerEmails: [email],
     },
     redirectUrl: `${SITE_URL}/womanvoice/thankswoman`,
-    webHookUrl:  `${SITE_URL}/api/mono-voice/webhook`,
+    webHookUrl:  `${SITE_URL}/.netlify/functions/mono-voice-webhook`,
     validity: 3600,
   };
 
