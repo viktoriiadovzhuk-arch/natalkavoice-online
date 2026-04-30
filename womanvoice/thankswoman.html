@@ -1,282 +1,277 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-<title>Дякую — Голос Жінки</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Дякуємо — Голос Жінки</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F5EFEA;--cream:#FAF4EE;--warm:#F0E6DC;
-  --ink:#1A1A1A;--ink-soft:#4A4244;--ink-faint:#8A7D72;
-  --burgundy:#5A1F1F;--burgundy-deep:#2E0F0F;
-  --gold:#C9A96E;--gold-soft:#E8D4A8;
-  --nude:#E7D6CF;--blush:#EDD4CC;--rose:#D9A594;
-  --display:'Cormorant Garamond',serif;--body:'Lato',sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
+  --cream:#F5EFEA;
+  --ink:#2B2B2B;
+  --ink-faint:#7A6F66;
+  --burgundy:#5A1F1F;
+  --burgundy-deep:#3A0F0F;
+  --gold:#C9A96E;
+  --display:'Cormorant Garamond',serif;
+  --body:'Lato',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{background:var(--burgundy-deep);color:var(--ink);font-family:var(--body);font-weight:300;line-height:1.55;overflow-x:hidden;display:flex;justify-content:center;min-height:100vh}
-::selection{background:var(--gold);color:var(--burgundy-deep)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-weight:300;font-size:15px;line-height:1.6}
+.wrap{max-width:560px;margin:0 auto;padding:48px 20px 80px;text-align:center}
 
-.page{width:100%;max-width:440px;background:var(--cream);position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column}
+/* nav */
+.nav{display:flex;justify-content:center;align-items:center;margin-bottom:36px}
+.brand{font-family:var(--display);font-style:italic;font-size:22px;color:var(--burgundy);letter-spacing:.5px;font-weight:500;text-decoration:none}
 
-/* Living background */
-.bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-.orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:.55}
-.orb-a{width:320px;height:320px;background:var(--blush);top:5%;right:-120px;animation:drift 22s ease-in-out infinite}
-.orb-b{width:280px;height:280px;background:var(--gold-soft);top:40%;left:-100px;animation:drift 28s ease-in-out infinite reverse}
-.orb-c{width:360px;height:360px;background:var(--rose);bottom:-100px;right:-150px;opacity:.35;animation:drift 26s ease-in-out infinite}
-@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,40px) scale(1.1)}}
+/* card */
+.card{background:#fff;border-radius:32px;padding:40px 26px;box-shadow:0 30px 80px rgba(43,43,43,.08);border:1px solid rgba(201,169,110,.15);position:relative;overflow:hidden}
+.card::before{content:'✦';position:absolute;top:18px;left:24px;color:var(--gold);font-size:14px;opacity:.4}
+.card::after{content:'✦';position:absolute;bottom:18px;right:24px;color:var(--gold);font-size:14px;opacity:.4}
 
-.grain{position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.22;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='220' height='220' filter='url(%23n)' opacity='0.45'/></svg>")}
+/* states */
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+h1{font-family:var(--display);font-style:italic;font-size:42px;line-height:1.05;margin:0 0 18px;color:var(--burgundy);font-weight:500;letter-spacing:-1px}
+.lead{font-size:16px;line-height:1.55;color:var(--ink-faint);margin:0 0 28px}
 
-/* Particles */
-.particle{position:absolute;width:4px;height:4px;background:var(--gold);border-radius:50%;opacity:0;animation:pRise linear infinite}
-@keyframes pRise{0%{opacity:0;transform:translateY(100vh)}10%{opacity:.6}100%{opacity:0;transform:translateY(-100px)}}
+/* check icon */
+.check-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#B8945B);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;color:white;font-size:38px;box-shadow:0 15px 40px rgba(201,169,110,.4);font-family:var(--display)}
 
-/* Nav */
-.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:rgba(250,244,238,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,169,110,.2)}
-.nav-logo{font-family:var(--display);font-style:italic;font-size:22px;color:var(--burgundy);font-weight:500}
-.nav-logo span{color:var(--gold)}
-.nav-btn{font-size:10px;color:var(--burgundy);text-decoration:none;padding:10px 18px;border:1px solid var(--burgundy);border-radius:999px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+/* booking summary */
+.booking-summary{background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.3);border-radius:20px;padding:24px;margin:24px 0;text-align:left}
+.bs-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0}
+.bs-row:not(:last-child){border-bottom:1px dashed rgba(201,169,110,.3)}
+.bs-label{font-size:12px;color:var(--ink-faint);letter-spacing:.5px;text-transform:uppercase;font-weight:700}
+.bs-value{font-family:var(--display);font-size:20px;color:var(--burgundy);font-weight:600}
+.bs-value.bs-amount{font-size:28px}
 
-/* Main card */
-.wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px;position:relative;z-index:2}
-.card{width:100%;max-width:380px;text-align:center;position:relative}
+/* personal link */
+.personal-link{margin:24px 0;background:linear-gradient(135deg,var(--burgundy),var(--burgundy-deep));color:var(--cream);border-radius:20px;padding:24px;text-align:left;border:1px solid rgba(201,169,110,.4)}
+.pl-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.pl-title{font-family:var(--display);font-style:italic;font-size:22px;font-weight:500;margin:0 0 14px;line-height:1.2}
+.pl-url{background:rgba(255,255,255,.1);border:1px dashed rgba(201,169,110,.5);border-radius:12px;padding:14px;font-size:13px;font-family:'Lato',monospace;word-break:break-all;line-height:1.4;margin-bottom:14px;color:var(--cream)}
+.pl-actions{display:flex;gap:10px;flex-wrap:wrap}
+.pl-btn{flex:1;min-width:140px;padding:14px 18px;border-radius:999px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;text-align:center;cursor:pointer;border:none;transition:all .25s var(--ease);font-family:var(--body)}
+.pl-btn-primary{background:var(--gold);color:var(--burgundy-deep)}
+.pl-btn-primary:hover,.pl-btn-primary:active{background:#D9B97E;transform:translateY(-1px)}
+.pl-btn-secondary{background:rgba(255,255,255,.1);color:var(--cream);border:1px solid rgba(201,169,110,.4)}
+.pl-btn-secondary:hover,.pl-btn-secondary:active{background:rgba(255,255,255,.18)}
+.pl-note{margin-top:14px;font-size:12px;opacity:.75;line-height:1.5}
 
-/* State: loading */
-.state{display:none;animation:fadeIn .6s var(--ease)}
-.state.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+/* deadline highlight */
+.deadline{background:rgba(90,31,31,.06);border-radius:14px;padding:14px 18px;margin:16px 0;font-size:14px;color:var(--burgundy);font-weight:600;text-align:center;line-height:1.4}
+.deadline strong{font-family:var(--display);font-style:italic;font-size:18px;display:block;margin-top:4px;letter-spacing:.5px}
 
-.icon-wrap{width:140px;height:140px;margin:0 auto 32px;position:relative;display:flex;align-items:center;justify-content:center}
-.icon-wrap::before{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);animation:ringSpin 8s linear infinite}
-.icon-wrap::after{content:'';position:absolute;inset:-14px;border-radius:50%;border:1px dashed var(--gold);opacity:.4;animation:ringSpin 16s linear infinite reverse}
-@keyframes ringSpin{to{transform:rotate(360deg)}}
+/* CTA buttons */
+.cta-btn{display:inline-block;padding:18px 36px;border-radius:999px;text-decoration:none;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;cursor:pointer;border:none;font-family:var(--body);transition:all .25s var(--ease);box-sizing:border-box}
+.cta-primary{background:var(--burgundy);color:var(--cream);box-shadow:0 15px 40px rgba(90,31,31,.25)}
+.cta-primary:hover{background:var(--burgundy-deep)}
+.cta-secondary{background:transparent;color:var(--burgundy);border:1px solid rgba(90,31,31,.3);margin-top:10px}
 
-.icon-inner{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-style:italic;font-size:54px;font-weight:500;line-height:1;color:var(--cream);position:relative;z-index:1}
-
-.state-loading .icon-inner{background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:var(--burgundy)}
-.state-loading .spinner{width:54px;height:54px;border:2px solid rgba(90,31,31,.2);border-top-color:var(--burgundy);border-radius:50%;animation:spin 1s linear infinite}
+/* loading / error */
+.loading{padding:40px 20px;color:var(--ink-faint);font-size:14px;text-align:center}
+.spinner{width:24px;height:24px;border:3px solid rgba(90,31,31,.2);border-top-color:var(--burgundy);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;margin-right:12px;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
+.error-box{background:#FFE8E8;color:#B23232;padding:20px;border-radius:14px;font-size:14px;margin:20px 0;text-align:left;line-height:1.5}
 
-.state-success .icon-inner{background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:var(--burgundy)}
-.state-success .icon-inner::before{content:'✓';font-size:56px;font-weight:600}
-
-.state-processing .icon-inner{background:linear-gradient(135deg,var(--nude),var(--blush));color:var(--burgundy)}
-.state-processing .icon-inner::before{content:'...';font-size:48px}
-
-.state-error .icon-inner{background:var(--burgundy);color:var(--gold)}
-.state-error .icon-inner::before{content:'!';font-size:64px;font-weight:300}
-
-.state-welcome .icon-inner{background:linear-gradient(135deg,var(--nude),var(--blush));color:var(--burgundy)}
-.state-welcome .icon-inner::before{content:'♡';font-size:50px;font-weight:400}
-
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:18px}
-.eyebrow::before,.eyebrow::after{content:'';width:24px;height:1px;background:var(--gold)}
-
-h1{font-family:var(--display);font-style:italic;font-weight:500;font-size:56px;line-height:.95;color:var(--burgundy);letter-spacing:-1.5px;margin-bottom:20px}
-h1 em{color:var(--gold);font-style:italic;display:block}
-
-.sub{font-size:16px;color:var(--ink-soft);line-height:1.65;margin-bottom:32px;font-family:var(--display);font-style:italic;font-weight:500}
-
-.info-box{background:rgba(251,247,243,.7);backdrop-filter:blur(8px);border:1px solid rgba(201,169,110,.3);border-radius:18px;padding:22px 24px;margin-bottom:28px;text-align:left}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(201,169,110,.2);font-size:13px}
-.info-row:last-child{border-bottom:none}
-.info-label{color:var(--ink-faint);letter-spacing:1px;text-transform:uppercase;font-size:10px;font-weight:700}
-.info-value{color:var(--burgundy);font-family:var(--display);font-style:italic;font-weight:500;font-size:16px}
-.info-value.amount{font-size:22px;color:var(--gold)}
-
-.next-steps{background:var(--burgundy);color:var(--cream);border-radius:22px;padding:28px 24px;margin-bottom:28px;text-align:left;position:relative;overflow:hidden}
-.next-steps::before{content:'';position:absolute;top:-80px;right:-80px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.2),transparent 70%);animation:drift 10s ease-in-out infinite}
-.next-steps > *{position:relative;z-index:1}
-.next-title{font-family:var(--display);font-style:italic;font-size:24px;color:var(--gold);margin-bottom:14px;font-weight:500;line-height:1.1}
-.next-list{list-style:none}
-.next-list li{padding:10px 0 10px 28px;position:relative;font-size:14px;color:rgba(251,247,243,.9);line-height:1.5;border-bottom:1px solid rgba(201,169,110,.15)}
-.next-list li:last-child{border-bottom:none}
-.next-list li::before{content:'';position:absolute;left:0;top:18px;width:12px;height:1px;background:var(--gold)}
-
-/* Buttons */
-.cta-primary,.cta-secondary{display:block;width:100%;text-align:center;padding:18px;border-radius:999px;font-family:var(--body);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;font-weight:700;transition:all .3s var(--ease);border:none;cursor:pointer}
-.cta-primary{background:var(--burgundy);color:var(--cream);margin-bottom:10px;box-shadow:0 15px 40px rgba(90,31,31,.25)}
-.cta-primary:active{transform:scale(.98)}
-.cta-secondary{background:transparent;color:var(--burgundy);border:1px solid var(--burgundy)}
-.cta-secondary:active{background:var(--burgundy);color:var(--cream)}
-
-/* Start date reminder */
-.date-reminder{margin-top:28px;padding:20px;background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:var(--burgundy-deep);border-radius:18px;text-align:center;box-shadow:0 20px 50px rgba(201,169,110,.3)}
-.date-reminder-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
-.date-reminder-date{font-family:var(--display);font-style:italic;font-size:36px;font-weight:600;line-height:1;letter-spacing:-1px}
-
-footer{background:#1F0A0A;color:rgba(251,247,243,.5);padding:32px 24px;text-align:center;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;position:relative;z-index:2}
-footer .logo{font-family:var(--display);font-style:italic;font-size:28px;color:var(--gold);margin-bottom:12px;text-transform:none;letter-spacing:-.5px;font-weight:500}
-
-@media(min-width:480px){
-  body{padding:20px 0;background:radial-gradient(circle at 20% 20%,rgba(201,169,110,.1) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(90,31,31,.08) 0%,transparent 50%),#3A2520}
-  .page{border-radius:42px;margin:20px;min-height:calc(100vh - 40px);overflow:hidden}
+@media (max-width:480px){
+  h1{font-size:34px}
+  .card{padding:32px 22px}
+  .booking-summary{padding:20px 16px}
 }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="page">
-  <div class="bg">
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="orb orb-c"></div>
+  <div class="nav">
+    <a href="/womanvoice" class="brand">Голос Жінки</a>
   </div>
-  <div class="bg" id="particleLayer"></div>
 
-  <nav class="nav">
-    <div class="nav-logo">Голос <span>Жінки</span></div>
-    <a href="/womanvoice" class="nav-btn">На головну</a>
-  </nav>
+  <div class="card">
+    <!-- LOADING -->
+    <div id="loadingState" class="loading">
+      <span class="spinner"></span>Перевіряю статус оплати...
+    </div>
 
-  <div class="wrap">
-    <div class="card">
-
-      <!-- LOADING -->
-      <div class="state state-loading active" id="state-loading">
-        <div class="icon-wrap"><div class="spinner"></div></div>
-        <div class="eyebrow">Перевіряю</div>
-        <h1>Хвилинку...</h1>
-        <p class="sub">Перевіряю статус твоєї оплати</p>
+    <!-- ═══ SUCCESS — повна оплата ═══ -->
+    <div id="successFull" style="display:none">
+      <div class="check-icon">✓</div>
+      <div class="eyebrow">Дякуємо за довіру</div>
+      <h1>Ти в програмі</h1>
+      <p class="lead">Оплата успішно отримана.<br>Чекаємо тебе на старті — <strong>4 травня</strong>.</p>
+      <div class="deadline" style="background:rgba(42,107,62,.08);color:#2A6B3E">
+        Найближчим часом ти отримаєш лист<br>
+        з інструкцією як приєднатись
+        <strong>📧 Перевір свою пошту</strong>
       </div>
+      <a href="/womanvoice" class="cta-btn cta-secondary">На головну</a>
+    </div>
 
-      <!-- WELCOME (коли сторінка відкрита напряму, без оплати) -->
-      <div class="state state-welcome" id="state-welcome">
-        <div class="icon-wrap"><div class="icon-inner"></div></div>
-        <div class="eyebrow">Ласкаво просимо</div>
-        <h1>Ця сторінка —<em>для підтвердження</em></h1>
-        <p class="sub">Сюди ти потрапиш автоматично після оплати на Monobank.<br>Якщо ти ще не оформила участь — почни з тарифів на головній.</p>
+    <!-- ═══ SUCCESS — бронь ═══ -->
+    <div id="successBooking" style="display:none">
+      <div class="check-icon">✓</div>
+      <div class="eyebrow">Місце заброньовано</div>
+      <h1>Дякуємо!<br>Ти на програмі</h1>
+      <p class="lead">Твоє місце на курсі «Голос Жінки» зафіксоване.<br>Залишилось доплатити решту до старту програми.</p>
 
-        <div class="date-reminder">
-          <div class="date-reminder-label">Старт потоку</div>
-          <div class="date-reminder-date">4 травня</div>
+      <div class="booking-summary">
+        <div class="bs-row">
+          <span class="bs-label">Тариф</span>
+          <span class="bs-value" id="bsTier">—</span>
         </div>
-
-        <a href="/womanvoice#pricing" class="cta-primary" style="margin-top:28px;">Обрати тариф</a>
-        <a href="/womanvoice" class="cta-secondary">На головну</a>
-      </div>
-
-      <!-- SUCCESS -->
-      <div class="state state-success" id="state-success">
-        <div class="icon-wrap"><div class="icon-inner"></div></div>
-        <div class="eyebrow">Оплата пройшла</div>
-        <h1>Вітаю,<em>ти з нами</em></h1>
-        <p class="sub">Дякую за довіру. Твоє місце на потоці «Голос Жінки» заброньоване.</p>
-
-        <div class="info-box">
-          <div class="info-row">
-            <span class="info-label">Тариф</span>
-            <span class="info-value" id="succ-tier">—</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Сума</span>
-            <span class="info-value amount" id="succ-amount">—</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Картка</span>
-            <span class="info-value" id="succ-card" style="font-size:13px;">—</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Номер рахунку</span>
-            <span class="info-value" id="succ-ref" style="font-size:11px;font-family:var(--body);font-style:normal;">—</span>
-          </div>
+        <div class="bs-row">
+          <span class="bs-label">Сплачено</span>
+          <span class="bs-value" id="bsPaid">1 000 ₴</span>
         </div>
-
-        <div class="next-steps">
-          <div class="next-title">Що далі</div>
-          <ul class="next-list">
-            <li>На твою пошту надіслано лист з підтвердженням</li>
-            <li>За 1 день до старту отримаєш посилання на платформу</li>
-            <li>Якщо обрала тариф Pro або VIP — додамо тебе до чату учасниць</li>
-            <li>Питання? Напиши нам — ми поруч</li>
-          </ul>
+        <div class="bs-row">
+          <span class="bs-label">До доплати</span>
+          <span class="bs-value bs-amount" id="bsRemainder">—</span>
         </div>
+      </div>
 
-        <div class="date-reminder">
-          <div class="date-reminder-label">Побачимося</div>
-          <div class="date-reminder-date">4 травня</div>
+      <div class="deadline">
+        Дедлайн доплати<strong>4 травня · 10:00</strong>
+      </div>
+
+      <!-- Персональне посилання на доплату -->
+      <div class="personal-link">
+        <div class="pl-eyebrow">Твоє персональне посилання</div>
+        <div class="pl-title">Доплати у зручний для тебе момент</div>
+        <div class="pl-url" id="completionUrlBox">https://natalkavoice.online/womanvoice/finish-payment?t=...</div>
+        <div class="pl-actions">
+          <a href="#" id="completionUrlLink" class="pl-btn pl-btn-primary">Доплатити зараз</a>
+          <button type="button" class="pl-btn pl-btn-secondary" id="copyUrlBtn">Скопіювати</button>
         </div>
-
-        <a href="/womanvoice" class="cta-primary" style="margin-top:28px;">Повернутися на сайт</a>
+        <div class="pl-note">
+          📧 Це посилання також надіслано тобі на пошту.<br>
+          Збережи його — за ним можеш повернутися до доплати у будь-який час до 4 травня.
+        </div>
       </div>
 
-      <!-- PROCESSING -->
-      <div class="state state-processing" id="state-processing">
-        <div class="icon-wrap"><div class="icon-inner"></div></div>
-        <div class="eyebrow">В обробці</div>
-        <h1>Оплата<em>обробляється</em></h1>
-        <p class="sub">Банк перевіряє платіж. Зазвичай це займає кілька секунд.<br>Сторінка оновиться автоматично.</p>
+      <a href="/womanvoice" class="cta-btn cta-secondary" style="margin-top:14px;display:inline-block">На головну</a>
+    </div>
 
-        <button class="cta-primary" onclick="checkStatus()">Перевірити зараз</button>
-        <a href="/womanvoice" class="cta-secondary">На головну</a>
+    <!-- ═══ SUCCESS — доплата залишку ═══ -->
+    <div id="successFinish" style="display:none">
+      <div class="check-icon">✓</div>
+      <div class="eyebrow">Курс повністю оплачено</div>
+      <h1>Готово!<br>Ти з нами</h1>
+      <p class="lead">Доплату отримано.<br>Курс «Голос Жінки» — твій.</p>
+      <div class="deadline" style="background:rgba(42,107,62,.08);color:#2A6B3E">
+        Чекаємо тебе на старті — <strong>4 травня</strong>
+        Перевір свою пошту 📧
       </div>
+      <a href="/womanvoice" class="cta-btn cta-secondary">На головну</a>
+    </div>
 
-      <!-- ERROR / FAILURE -->
-      <div class="state state-error" id="state-error">
-        <div class="icon-wrap"><div class="icon-inner"></div></div>
-        <div class="eyebrow">Щось пішло не так</div>
-        <h1>Оплата<em>не пройшла</em></h1>
-        <p class="sub" id="err-message">Можливо, недостатньо коштів, обмеження банку або технічна пауза. Спробуй ще раз або обери інший спосіб.</p>
+    <!-- ═══ PROCESSING — статус ще не success ═══ -->
+    <div id="processingState" style="display:none">
+      <div class="eyebrow">Обробка платежу</div>
+      <h1>Платіж<br>обробляється</h1>
+      <p class="lead">Зачекай хвилинку — банк ще підтверджує транзакцію.</p>
+      <div class="loading"><span class="spinner"></span>Перевіряємо знову через 5 секунд...</div>
+      <a href="/womanvoice" class="cta-btn cta-secondary">На головну</a>
+    </div>
 
-        <a href="/womanvoice#pricing" class="cta-primary">Спробувати ще раз</a>
-        <a href="/womanvoice" class="cta-secondary">На головну</a>
-      </div>
-
+    <!-- ═══ ERROR ═══ -->
+    <div id="errorState" style="display:none">
+      <div class="eyebrow">Щось не так</div>
+      <h1>Платіж не пройшов</h1>
+      <p class="lead">Можливо, оплата не була завершена або сталася помилка.</p>
+      <div class="error-box" id="errorMsg"></div>
+      <a href="/womanvoice#pricing" class="cta-btn cta-primary">Спробувати ще раз</a>
+      <br>
+      <a href="/womanvoice" class="cta-btn cta-secondary">На головну</a>
     </div>
   </div>
-
-  <footer>
-    <div class="logo">Голос Жінки</div>
-    <div>by Наталка Денисенко</div>
-  </footer>
 </div>
 
 <script>
-// ===== КОНФІГ =====
-const MONO_VOICE_API = '/api/mono-voice';
+const params = new URLSearchParams(window.location.search);
+const kindFromUrl = params.get('kind');           // 'booking' | 'finish' | null
+const tokenFromUrl = params.get('t');             // booking token
 
-// ===== STATE MANAGEMENT =====
-function showState(name) {
-  document.querySelectorAll('.state').forEach(s => s.classList.remove('active'));
-  const el = document.getElementById(`state-${name}`);
-  if (el) el.classList.add('active');
+// Read sessionStorage (set by lendings)
+const invoiceId = sessionStorage.getItem('mono_voice_invoice_id');
+const tierStored = sessionStorage.getItem('mono_voice_tier');
+const kindStored = sessionStorage.getItem('mono_voice_kind'); // 'full' | 'booking' | 'finish'
+const emailStored = sessionStorage.getItem('mono_voice_email');
+
+// Pick the kind: prefer URL, fallback to sessionStorage
+const kind = kindFromUrl || kindStored || 'full';
+
+const SITE_URL = 'https://natalkavoice.online';
+
+function show(id) {
+  ['loadingState','successFull','successBooking','successFinish','processingState','errorState']
+    .forEach(s => { const el = document.getElementById(s); if (el) el.style.display = (s === id) ? '' : 'none'; });
 }
 
-function fmtAmount(kopecks) {
-  return new Intl.NumberFormat('uk-UA').format(kopecks / 100) + ' ₴';
+function showError(msg) {
+  document.getElementById('errorMsg').textContent = msg;
+  show('errorState');
 }
 
-function getTierLabel(ref) {
-  if (!ref) return '—';
-  if (ref.includes('solo')) return 'Solo';
-  if (ref.includes('pro'))  return 'Pro';
-  if (ref.includes('vip'))  return 'VIP';
-  return '—';
-}
+// ============ BOOKING success rendering ============
+async function renderBookingSuccess(token) {
+  // Завантажуємо деталі броні з backend
+  try {
+    const res = await fetch('/.netlify/functions/booking-resolve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    });
+    if (!res.ok) throw new Error('not found');
+    const b = await res.json();
 
-// ===== ПЕРЕВІРКА СТАТУСУ =====
-let pollTimer = null;
-let pollCount = 0;
+    document.getElementById('bsTier').textContent = b.tierName;
+    document.getElementById('bsPaid').textContent = b.bookingAmount.toLocaleString('uk-UA').replace(/,/g,' ') + ' ₴';
+    document.getElementById('bsRemainder').textContent = b.remainder.toLocaleString('uk-UA').replace(/,/g,' ') + ' ₴';
 
-async function checkStatus() {
-  // Спочатку читаємо invoiceId з sessionStorage (записано при ініціації оплати)
-  let invoiceId = sessionStorage.getItem('mono_voice_invoice_id');
+    const completionUrl = `${SITE_URL}/womanvoice/finish-payment?t=${token}`;
+    document.getElementById('completionUrlBox').textContent = completionUrl;
+    document.getElementById('completionUrlLink').href = completionUrl;
 
-  // Фолбек: з query параметра (якщо Monobank додає його до redirectUrl)
-  if (!invoiceId) {
-    const params = new URLSearchParams(window.location.search);
-    invoiceId = params.get('invoiceId') || params.get('id');
+    document.getElementById('copyUrlBtn').addEventListener('click', () => {
+      navigator.clipboard?.writeText(completionUrl).then(() => {
+        const btn = document.getElementById('copyUrlBtn');
+        const orig = btn.textContent;
+        btn.textContent = '✓ Скопійовано';
+        setTimeout(() => { btn.textContent = orig; }, 1500);
+      });
+    });
+
+    show('successBooking');
+  } catch (e) {
+    console.error('Booking resolve failed:', e);
+    // Все одно показуємо просте повідомлення про бронь
+    document.getElementById('bsTier').textContent = tierStored ? tierStored.toUpperCase() : '—';
+    document.getElementById('bsRemainder').textContent = '—';
+    document.getElementById('completionUrlBox').textContent = '(посилання надіслане на пошту)';
+    document.getElementById('completionUrlLink').style.display = 'none';
+    document.getElementById('copyUrlBtn').style.display = 'none';
+    show('successBooking');
   }
+}
 
+// ============ Status polling ============
+async function checkStatus() {
   if (!invoiceId) {
-    // Сторінку відкрили напряму — показуємо привітальний екран, не помилку
-    showState('welcome');
+    // Якщо є kind=booking + токен (URL), значить редірект з Mono після броні —
+    // покажемо успіх без додаткової перевірки
+    if (kind === 'booking' && tokenFromUrl) {
+      renderBookingSuccess(tokenFromUrl);
+      return;
+    }
+    if (kind === 'finish') {
+      show('successFinish');
+      return;
+    }
+    showError('Не знайдено інформації про оплату. Якщо ти оплатила — перевір пошту, ми зв\'яжемось.');
     return;
   }
 
@@ -286,60 +281,33 @@ async function checkStatus() {
     const data = await res.json();
 
     if (data.status === 'success') {
-      clearTimeout(pollTimer);
-      document.getElementById('succ-tier').textContent   = getTierLabel(data.reference);
-      document.getElementById('succ-amount').textContent = fmtAmount(data.finalAmount || data.amount);
-      document.getElementById('succ-card').textContent   = data.paymentInfo?.maskedPan || 'Monobank';
-      document.getElementById('succ-ref').textContent    = data.invoiceId;
-      showState('success');
-      // Чистимо sessionStorage — щоб при повторному заході не показувало старе
+      // Розділяємо за типом операції
+      if (kind === 'booking' && tokenFromUrl) {
+        renderBookingSuccess(tokenFromUrl);
+      } else if (kind === 'finish') {
+        show('successFinish');
+      } else {
+        show('successFull');
+      }
+      // Очищаємо sessionStorage
       sessionStorage.removeItem('mono_voice_invoice_id');
       sessionStorage.removeItem('mono_voice_tier');
-      return;
+      sessionStorage.removeItem('mono_voice_kind');
+      sessionStorage.removeItem('mono_voice_email');
+    } else if (data.status === 'failure' || data.status === 'expired' || data.status === 'reversed') {
+      showError(`Статус: ${data.status}. ${data.failureReason || 'Спробуй знову.'}`);
+    } else {
+      // 'created', 'processing', 'hold' etc.
+      show('processingState');
+      setTimeout(checkStatus, 5000);
     }
-
-    if (data.status === 'failure' || data.status === 'reversed' || data.status === 'expired') {
-      clearTimeout(pollTimer);
-      const reason = data.failureReason || data.errCode || '';
-      if (reason) {
-        document.getElementById('err-message').textContent = `Причина: ${reason}. Спробуй ще раз або використай іншу картку.`;
-      }
-      showState('error');
-      return;
-    }
-
-    // created | processing | hold — ще чекаємо
-    showState('processing');
-
-    // Polling — перевіряти кожні 3с, максимум 20 разів (1 хв)
-    pollCount++;
-    if (pollCount < 20) {
-      pollTimer = setTimeout(checkStatus, 3000);
-    }
-  } catch (err) {
-    console.error(err);
-    document.getElementById('err-message').textContent = 'Не вдалося перевірити статус. Якщо гроші списались — напиши нам, ми все перевіримо вручну.';
-    showState('error');
+  } catch (e) {
+    console.error('Status check failed:', e);
+    showError('Не вдалося перевірити статус. Якщо платіж пройшов — перевір пошту.');
   }
 }
 
-// Запуск перевірки одразу
 checkStatus();
-
-// ===== PARTICLES =====
-const pL = document.getElementById('particleLayer');
-function makeParticle() {
-  const p = document.createElement('div');
-  p.className = 'particle';
-  p.style.left = Math.random() * 100 + '%';
-  p.style.bottom = '-10px';
-  p.style.animationDuration = (12 + Math.random() * 10) + 's';
-  p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
-  pL.appendChild(p);
-  setTimeout(() => p.remove(), 22000);
-}
-setInterval(makeParticle, 900);
-for (let i = 0; i < 6; i++) setTimeout(makeParticle, i * 400);
 </script>
 </body>
 </html>

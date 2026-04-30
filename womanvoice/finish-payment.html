@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Доплата — Голос Жінки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5EFEA;
+  --ink:#2B2B2B;
+  --ink-faint:#7A6F66;
+  --burgundy:#5A1F1F;
+  --burgundy-deep:#3A0F0F;
+  --gold:#C9A96E;
+  --display:'Cormorant Garamond',serif;
+  --body:'Lato',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-weight:300}
+.wrap{max-width:520px;margin:0 auto;padding:48px 20px 60px;text-align:center}
+.brand{font-family:var(--display);font-style:italic;font-size:22px;color:var(--burgundy);text-align:center;letter-spacing:.5px;margin-bottom:32px;font-weight:500}
+.card{background:#fff;border-radius:32px;padding:36px 26px;box-shadow:0 30px 80px rgba(43,43,43,.07);border:1px solid rgba(201,169,110,.15)}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+h1{font-family:var(--display);font-style:italic;font-size:38px;line-height:1.05;margin:0 0 20px;color:var(--burgundy);font-weight:500;letter-spacing:-1px}
+.summary{background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3);border-radius:18px;padding:22px;margin:24px 0;text-align:left}
+.summary-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0}
+.summary-row:not(:last-child){border-bottom:1px dashed rgba(201,169,110,.3)}
+.summary-label{font-size:13px;color:var(--ink-faint)}
+.summary-value{font-family:var(--display);font-size:18px;color:var(--burgundy);font-weight:600}
+.summary-value.amount{font-size:30px;line-height:1}
+.deadline{margin-top:12px;font-size:13px;text-align:center;color:var(--burgundy);font-weight:600;padding:10px;border-radius:10px;background:rgba(90,31,31,.06)}
+.cta{display:block;width:100%;padding:20px;border:none;border-radius:999px;background:var(--burgundy);color:var(--cream);font-family:var(--body);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 15px 40px rgba(90,31,31,.25);transition:transform .25s var(--ease),background .25s var(--ease);margin-top:8px}
+.cta:hover{background:var(--burgundy-deep)}
+.cta:active{transform:scale(.98)}
+.cta:disabled{opacity:.6;cursor:not-allowed}
+.note{margin-top:18px;font-size:12px;color:var(--ink-faint);line-height:1.6}
+.error{background:#FFE8E8;color:#B23232;padding:18px;border-radius:14px;font-size:14px;margin:20px 0;text-align:left}
+.loading{padding:40px;color:var(--ink-faint);font-size:14px}
+.spinner{width:24px;height:24px;border:3px solid rgba(90,31,31,.2);border-top-color:var(--burgundy);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;margin-right:12px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.completed{background:rgba(42,107,62,.08);border:1px solid rgba(42,107,62,.3);border-radius:18px;padding:24px;color:#2A6B3E;text-align:center}
+.completed strong{font-family:var(--display);font-size:22px;font-style:italic;display:block;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Голос Жінки</div>
+  <div class="card">
+    <div id="loadingState" class="loading">
+      <span class="spinner"></span>Завантаження...
+    </div>
+
+    <div id="readyState" style="display:none">
+      <div class="eyebrow">Доплата залишку</div>
+      <h1>Завершити оплату курсу</h1>
+      <p style="color:var(--ink-faint);font-size:14px;line-height:1.55">Твоя бронь на курс зафіксована. Залишилось доплатити залишок до старту.</p>
+
+      <div class="summary">
+        <div class="summary-row"><span class="summary-label">Тариф</span><span class="summary-value" id="sTier">—</span></div>
+        <div class="summary-row"><span class="summary-label">Повна вартість</span><span class="summary-value" id="sFull">—</span></div>
+        <div class="summary-row"><span class="summary-label">Сплачено (бронь)</span><span class="summary-value" id="sPaid">—</span></div>
+        <div class="summary-row"><span class="summary-label">До доплати</span><span class="summary-value amount" id="sRemainder">—</span></div>
+      </div>
+
+      <div class="deadline" id="sDeadline">Сплати до 4 травня — старт курсу</div>
+
+      <button class="cta" id="finishBtn">Доплатити залишок</button>
+      <div class="note">Перенаправимо на сторінку Monobank для оплати</div>
+    </div>
+
+    <div id="completedState" style="display:none">
+      <div class="completed">
+        <strong>Курс уже повністю оплачений ✓</strong>
+        Чекаємо тебе на старті — 4 травня
+      </div>
+      <button class="cta" style="background:var(--gold);color:var(--burgundy-deep);margin-top:24px" onclick="location.href='/womanvoice'">На головну</button>
+    </div>
+
+    <div id="errorState" style="display:none">
+      <div class="error" id="errorMsg">Не вдалося знайти бронь</div>
+      <button class="cta" onclick="location.href='/womanvoice'">На головну</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const token = params.get('t');
+let bookingData = null;
+
+function showError(msg) {
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('errorState').style.display = '';
+  document.getElementById('errorMsg').textContent = msg;
+}
+
+function showCompleted() {
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('completedState').style.display = '';
+}
+
+function showReady(data) {
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('readyState').style.display = '';
+  document.getElementById('sTier').textContent = data.tierName;
+  document.getElementById('sFull').textContent = data.fullPrice.toLocaleString('uk-UA').replace(/,/g,' ') + ' ₴';
+  document.getElementById('sPaid').textContent = data.bookingAmount.toLocaleString('uk-UA').replace(/,/g,' ') + ' ₴';
+  document.getElementById('sRemainder').textContent = data.remainder.toLocaleString('uk-UA').replace(/,/g,' ') + ' ₴';
+}
+
+async function loadBooking() {
+  if (!token) { showError('Посилання неповне'); return; }
+  try {
+    const res = await fetch('/.netlify/functions/booking-resolve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    });
+    if (!res.ok) {
+      const e = await res.json().catch(() => ({}));
+      throw new Error(e.error || 'Не знайдено');
+    }
+    bookingData = await res.json();
+    if (bookingData.completed) showCompleted();
+    else showReady(bookingData);
+  } catch (e) {
+    showError(e.message || 'Помилка завантаження');
+  }
+}
+
+document.getElementById('finishBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('finishBtn');
+  btn.disabled = true;
+  btn.textContent = 'Створюю рахунок...';
+  try {
+    const res = await fetch('/.netlify/functions/booking-finish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!data.pageUrl) throw new Error('Invalid response');
+    window.location.href = data.pageUrl;
+  } catch (e) {
+    btn.textContent = 'Помилка — спробуй ще раз';
+    setTimeout(() => { btn.textContent = 'Доплатити залишок'; btn.disabled = false; }, 3000);
+  }
+});
+
+loadBooking();
+</script>
+</body>
+</html>

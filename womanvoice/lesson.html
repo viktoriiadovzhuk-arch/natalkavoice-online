@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Промоурок — Голос Жінки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5EFEA;
+  --ink:#2B2B2B;
+  --ink-faint:#7A6F66;
+  --burgundy:#5A1F1F;
+  --burgundy-deep:#3A0F0F;
+  --gold:#C9A96E;
+  --nude:#E7D6CF;
+  --display:'Cormorant Garamond',serif;
+  --body:'Lato',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-weight:300;font-size:15px;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:32px 20px 60px}
+
+/* ─── HEADER ─── */
+.brand{font-family:var(--display);font-style:italic;font-size:22px;color:var(--burgundy);text-align:center;letter-spacing:.5px;margin-bottom:32px;font-weight:500}
+
+/* ─── GATE ─── */
+.gate{background:#fff;border-radius:32px;padding:36px 26px 36px;box-shadow:0 30px 80px rgba(43,43,43,.07);border:1px solid rgba(201,169,110,.15);text-align:center}
+.gate-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
+.gate h1{font-family:var(--display);font-style:italic;font-size:42px;line-height:1.05;margin:0 0 14px;color:var(--burgundy);font-weight:500;letter-spacing:-1px}
+.gate p.lead{font-size:16px;line-height:1.55;color:var(--ink-faint);margin:0 0 24px;max-width:480px;margin-left:auto;margin-right:auto}
+.gate-bonus{background:linear-gradient(135deg,rgba(201,169,110,.12),rgba(201,169,110,.04));border:1px solid rgba(201,169,110,.3);border-radius:18px;padding:18px 20px;margin:20px auto 28px;max-width:460px;font-size:14px;line-height:1.5}
+.gate-bonus strong{color:var(--burgundy);font-weight:700;display:block;font-family:var(--display);font-style:italic;font-size:18px;margin-bottom:6px;letter-spacing:.3px}
+.gate form{display:flex;flex-direction:column;gap:14px;max-width:380px;margin:0 auto}
+.gate input{padding:16px 20px;border:1px solid rgba(43,43,43,.15);border-radius:14px;font-size:15px;font-family:var(--body);background:#fff;text-align:center}
+.gate input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.15)}
+.gate button{padding:18px;border:none;border-radius:999px;background:var(--burgundy);color:var(--cream);font-family:var(--body);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 15px 40px rgba(90,31,31,.25);transition:transform .25s var(--ease),background .25s var(--ease)}
+.gate button:hover{background:var(--burgundy-deep)}
+.gate button:active{transform:scale(.97)}
+.gate button:disabled{opacity:.6;cursor:not-allowed}
+.gate-note{margin-top:18px;font-size:11px;color:var(--ink-faint);letter-spacing:.3px;line-height:1.5}
+.gate-error{color:#B23232;margin-top:14px;font-size:14px;min-height:20px}
+
+/* ─── LESSON ─── */
+.lesson{display:none}
+.lesson.show{display:block}
+.lesson-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;text-align:center;margin-bottom:12px}
+.lesson h1{font-family:var(--display);font-style:italic;font-size:38px;line-height:1.05;margin:0 0 24px;color:var(--burgundy);font-weight:500;letter-spacing:-1px;text-align:center}
+.video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#000;margin-bottom:36px;box-shadow:0 30px 80px rgba(43,43,43,.18)}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ─── PROMO CARD ─── */
+.promo-card{background:linear-gradient(135deg,var(--burgundy),var(--burgundy-deep));color:var(--cream);border-radius:32px;padding:32px 24px;margin:0 auto 28px;max-width:520px;text-align:center;border:1px solid rgba(201,169,110,.4);box-shadow:0 30px 80px rgba(90,31,31,.2);position:relative;overflow:hidden}
+.promo-card::before{content:'✦';position:absolute;top:18px;left:24px;color:var(--gold);font-size:18px;opacity:.6}
+.promo-card::after{content:'✦';position:absolute;bottom:18px;right:24px;color:var(--gold);font-size:18px;opacity:.6}
+.promo-card-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.promo-card h3{font-family:var(--display);font-style:italic;font-size:28px;font-weight:500;margin:0 0 18px;line-height:1.1;letter-spacing:-.5px}
+.promo-code{font-family:'Lato',monospace;font-size:30px;letter-spacing:5px;background:rgba(255,255,255,.1);padding:18px 14px;border-radius:14px;border:1px dashed rgba(201,169,110,.5);margin:18px 0;font-weight:700;cursor:pointer;user-select:all;transition:background .25s var(--ease)}
+.promo-code:hover{background:rgba(255,255,255,.15)}
+.promo-code:active{background:rgba(255,255,255,.2)}
+.promo-meta{font-size:13px;opacity:.85;line-height:1.6}
+.promo-timer{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:280px;margin-left:auto;margin-right:auto}
+.promo-timer>div{background:rgba(255,255,255,.08);border-radius:10px;padding:8px 4px;border:1px solid rgba(201,169,110,.18)}
+.promo-timer>div span{display:block;font-family:var(--display);font-size:22px;font-weight:600;line-height:1}
+.promo-timer>div i{display:block;font-style:normal;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;opacity:.6}
+.promo-expired{margin-top:20px;font-size:13px;color:#FFD0D0;letter-spacing:.5px}
+
+/* ─── CTA ─── */
+.lesson-cta{text-align:center;margin-top:30px}
+.lesson-cta a{display:inline-block;padding:18px 40px;border-radius:999px;background:var(--gold);color:var(--burgundy-deep);text-decoration:none;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;box-shadow:0 15px 40px rgba(201,169,110,.3);transition:transform .25s var(--ease)}
+.lesson-cta a:active{transform:scale(.97)}
+.lesson-secondary-link{display:block;text-align:center;color:var(--ink-faint);font-size:13px;text-decoration:underline;margin-top:14px}
+
+/* ─── SPINNER ─── */
+.spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:inline-block;vertical-align:middle;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (max-width:480px){
+  .gate{padding:28px 20px}
+  .gate h1{font-size:34px}
+  .lesson h1{font-size:30px}
+  .promo-code{font-size:24px;letter-spacing:4px}
+  .promo-card{padding:26px 18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">Голос Жінки</div>
+
+  <!-- ═══ GATE FORM ═══ -->
+  <section class="gate" id="gateSection">
+    <div class="gate-eyebrow">Безкоштовно для тебе</div>
+    <h1>Усе починається<br>зі стану</h1>
+    <p class="lead">Любов до себе — це не дія і не подія.<br>Це стан, з якого народжується все життя жінки. Залиш свою пошту, щоб увійти в нього разом із Наталкою.</p>
+
+    <div class="gate-bonus">
+      <strong>+ персональний промокод</strong>
+      На повний курс «Голос Жінки». Дійсний 24 години.
+    </div>
+
+    <form id="gateForm">
+      <input type="email" id="gateEmail" placeholder="your@email.com" required autocomplete="email">
+      <button type="submit" id="gateSubmit">Отримати доступ</button>
+    </form>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-note">Без спаму. Тільки те, що допоможе тобі.</div>
+  </section>
+
+  <!-- ═══ LESSON ═══ -->
+  <section class="lesson" id="lessonSection">
+    <div class="lesson-eyebrow">Для тебе від Наталки</div>
+    <h1>Усе починається<br>зі стану</h1>
+
+    <div class="video-frame">
+      <iframe
+        id="lessonVideo"
+        src=""
+        title="Промоурок — Голос Жінки"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Promo code card (shown only if user has active code) -->
+    <div class="promo-card" id="promoCard" style="display:none">
+      <div class="promo-card-eyebrow">Твій персональний промокод</div>
+      <h3>На повний курс</h3>
+      <div class="promo-code" id="promoCode" title="Натисни щоб скопіювати">VOICE-XXXXXX</div>
+      <div class="promo-meta">
+        Дійсний до: <strong id="promoUntil">—</strong><br>
+        Використати один раз при оплаті
+      </div>
+      <div class="promo-timer" id="promoTimer">
+        <div><span data-pt="h">00</span><i>год</i></div>
+        <div><span data-pt="m">00</span><i>хв</i></div>
+        <div><span data-pt="s">00</span><i>сек</i></div>
+      </div>
+      <div class="promo-expired" id="promoExpired" style="display:none">
+        ⏱ Промокод закінчився
+      </div>
+    </div>
+
+    <div class="promo-card" id="promoExpiredCard" style="display:none;background:linear-gradient(135deg,#5A5A5E,#3A3A3E)">
+      <div class="promo-card-eyebrow" style="color:#FFD0D0">Промокод протермінований</div>
+      <h3>На жаль, твої 24 години закінчились</h3>
+      <div class="promo-meta" style="opacity:1">
+        Доступ до уроку залишається назавжди.<br>
+        Доєднайся до програми за поточною ціною.
+      </div>
+    </div>
+
+    <div class="lesson-cta">
+      <a href="/womanvoice#pricing" id="goToPricing">Перейти до програми</a>
+      <a href="/womanvoice" class="lesson-secondary-link">На головну</a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const token = params.get('t');
+const VIDEO_ID = 'CzRGlHm4p-I';
+
+// === ВИДОЗМІНА: якщо в URL є токен — одразу показати урок (повторний візит) ===
+async function showLessonForToken(t) {
+  // Викликаємо backend щоб дістати promocode за токеном
+  try {
+    const res = await fetch('/.netlify/functions/lesson-resolve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: t })
+    });
+    if (!res.ok) throw new Error('not ok');
+    const data = await res.json();
+    showLesson(data);
+  } catch (e) {
+    console.error(e);
+    document.getElementById('gateSection').style.display = '';
+    document.getElementById('lessonSection').classList.remove('show');
+  }
+}
+
+function showLesson(data) {
+  document.getElementById('gateSection').style.display = 'none';
+  document.getElementById('lessonSection').classList.add('show');
+  document.getElementById('lessonVideo').src = `https://www.youtube.com/embed/${VIDEO_ID}?rel=0`;
+
+  if (data.promocode && data.expiresAt && Date.now() < data.expiresAt) {
+    const card = document.getElementById('promoCard');
+    card.style.display = '';
+    document.getElementById('promoCode').textContent = data.promocode;
+    document.getElementById('promoUntil').textContent = new Date(data.expiresAt).toLocaleString('uk-UA', {
+      day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit'
+    });
+    startPromoTimer(data.expiresAt);
+  } else if (data.promocode) {
+    // Code exists but expired
+    document.getElementById('promoExpiredCard').style.display = '';
+  } else {
+    document.getElementById('promoExpiredCard').style.display = '';
+  }
+
+  // Click-to-copy
+  const codeEl = document.getElementById('promoCode');
+  codeEl.addEventListener('click', () => {
+    navigator.clipboard?.writeText(codeEl.textContent).then(() => {
+      const orig = codeEl.textContent;
+      codeEl.textContent = '✓ Скопійовано';
+      setTimeout(() => { codeEl.textContent = orig; }, 1200);
+    });
+  });
+}
+
+function startPromoTimer(expiresAt) {
+  const tick = () => {
+    const r = expiresAt - Date.now();
+    if (r <= 0) {
+      document.getElementById('promoTimer').style.display = 'none';
+      document.getElementById('promoExpired').style.display = '';
+      clearInterval(timer);
+      return;
+    }
+    const h = Math.floor(r / 3600000);
+    const m = Math.floor((r % 3600000) / 60000);
+    const s = Math.floor((r % 60000) / 1000);
+    const set = (k, v) => { const el = document.querySelector(`[data-pt="${k}"]`); if (el) el.textContent = String(v).padStart(2,'0'); };
+    set('h', h); set('m', m); set('s', s);
+  };
+  tick();
+  const timer = setInterval(tick, 1000);
+}
+
+// === Form submit ===
+document.getElementById('gateForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('gateEmail').value.trim().toLowerCase();
+  const errEl = document.getElementById('gateError');
+  const btn = document.getElementById('gateSubmit');
+
+  errEl.textContent = '';
+  if (!email || !email.includes('@')) {
+    errEl.textContent = 'Введи валідний email';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Перевіряю...';
+
+  try {
+    const res = await fetch('/.netlify/functions/lesson-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Помилка');
+
+    // Замінюємо URL на той з токеном (щоб при F5 не треба було вводити email)
+    if (data.lessonUrl) {
+      const url = new URL(data.lessonUrl);
+      window.history.replaceState({}, '', url.pathname + url.search);
+    }
+    showLesson(data);
+  } catch (err) {
+    errEl.textContent = err.message || 'Не вдалося відправити. Спробуй ще раз.';
+    btn.disabled = false;
+    btn.innerHTML = 'Отримати доступ';
+  }
+});
+
+// On load: if token in URL — auto-resolve
+if (token) {
+  showLessonForToken(token);
+}
+</script>
+</body>
+</html>
