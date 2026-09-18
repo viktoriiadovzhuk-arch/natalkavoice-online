@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ранкова руханка для голосу · Наталка Денисенко</title>
+<meta name="description" content="Безкоштовна ранкова руханка для голосу від Наталки Денисенко — 8 хвилин вправ, які розігрівають голос перед важливим днем.">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#081B38">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep-navy:#081B38;
+  --navy-2:#0E2447;
+  --royal:#1749B0;
+  --sapphire:#2D6AE0;
+  --sky:#DCE7F8;
+  --sky-dim:#AFC4E4;
+  --gold:#C9983A;
+  --gold-light:#EACF88;
+  --ivory:#F7F3EE;
+  --sand:#E6DED3;
+  --parchment:#FDFBF8;
+  --charcoal:#1A1A2E;
+  --slate:#4A4E69;
+  --mist:#8B8FA3;
+  --green:#1A7A55;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--parchment);color-scheme:light}
+body{
+  font-family:'Onest',system-ui,sans-serif;
+  background:var(--parchment);
+  color:var(--charcoal);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.16;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+
+/* ─────── ШАПКА ─────── */
+.top{
+  background:var(--deep-navy);color:var(--ivory);
+  padding:40px 0 46px;position:relative;
+}
+.top::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.from{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.from .ava{
+  width:54px;height:54px;border-radius:50%;flex:0 0 54px;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,var(--gold-light),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:21px;color:var(--deep-navy);
+  box-shadow:0 0 0 1px rgba(201,152,58,.5),0 0 0 5px rgba(201,152,58,.14);
+}
+.from .ava img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.from b{display:block;font-weight:500;font-size:15px;color:#fff}
+.from span{font-size:13.5px;color:var(--sky-dim)}
+.top h1{font-size:clamp(28px,6vw,42px);color:#fff;margin-bottom:14px}
+.top p{font-size:16.5px;color:var(--sky);max-width:56ch}
+
+/* ─────── ФОРМА ПОШТИ ─────── */
+.gate{padding:44px 0 56px}
+.gatecard{
+  background:#fff;border:1px solid var(--sand);border-radius:22px;
+  padding:30px 26px;box-shadow:0 18px 50px rgba(8,27,56,.08);
+}
+.gatecard h2{font-size:23px;margin-bottom:8px}
+.gatecard .note{font-size:15px;color:var(--slate);margin-bottom:22px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13.5px;color:var(--slate);margin-bottom:7px}
+input[type=email],input[type=text]{
+  width:100%;font-family:'Onest',sans-serif;font-size:16px;color:var(--charcoal);
+  background:var(--parchment);border:1px solid var(--sand);border-radius:12px;
+  padding:14px 16px;outline:none;transition:border-color .16s ease;
+}
+input:focus{border-color:var(--sapphire)}
+input.bad{border-color:#C0392B;background:#FDF3F2}
+.err{font-size:13.5px;color:#C0392B;margin-top:7px;display:none}
+.err.on{display:block}
+.btn{
+  display:block;width:100%;text-align:center;text-decoration:none;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--deep-navy);
+  font-family:'Onest',sans-serif;font-weight:600;font-size:16.5px;
+  padding:17px 22px;border-radius:100px;border:none;cursor:pointer;
+  transition:transform .16s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--sapphire);outline-offset:3px}
+.btn.navy{background:var(--deep-navy);color:#fff}
+.btn.ghost{background:transparent;border:1px solid var(--sand);color:var(--charcoal)}
+.fineprint{font-size:12.5px;color:var(--mist);margin-top:12px;text-align:center}
+
+/* ─────── КОНТЕНТ ─────── */
+#content{display:none}
+#content.on{display:block}
+section{padding:52px 0}
+.alt{background:var(--ivory)}
+h2{font-size:clamp(24px,4.8vw,31px);margin-bottom:8px}
+.sub{color:var(--slate);font-size:16px;margin-bottom:26px;max-width:58ch}
+
+/* відео */
+.player{
+  position:relative;width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
+  background:var(--navy-2);border:1px solid var(--sand);
+}
+.player iframe,.player video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:var(--sky-dim);font-size:15px;text-align:center;padding:24px;
+}
+.hints{list-style:none;display:grid;gap:10px;margin-top:22px}
+.hints li{display:flex;gap:11px;font-size:15.5px;color:var(--slate)}
+.hints b{color:var(--gold);font-weight:400;flex:0 0 auto}
+
+/* рейтинг */
+.rate-head{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.chip{
+  background:#fff;border:1px solid var(--sand);border-radius:14px;
+  padding:12px 16px;text-align:center;flex:1 1 150px;
+}
+.chip i{
+  display:block;font-style:normal;font-family:'Playfair Display',serif;
+  font-size:28px;color:var(--royal);line-height:1.1;
+}
+.chip small{font-size:12.5px;color:var(--slate)}
+.shots{display:grid;gap:14px}
+.shot{
+  border:1px solid var(--sand);border-radius:16px;overflow:hidden;background:#fff;
+  box-shadow:0 8px 24px rgba(8,27,56,.05);
+}
+.shotcap{font-size:13px;color:var(--mist);margin-top:14px;text-align:center}
+
+/* промо-плашка */
+.promobar{
+  background:var(--deep-navy);border-radius:20px;padding:24px;color:var(--ivory);
+  margin-bottom:26px;
+}
+.promobar h3{font-family:'Onest',sans-serif;font-weight:500;font-size:17px;color:#fff;margin-bottom:4px}
+.promobar .lead{font-size:14.5px;color:var(--sky-dim);margin-bottom:18px}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pgrid .field{margin:0}
+.promobar label{color:var(--sky-dim)}
+.promobar input{
+  background:var(--navy-2);border-color:#22406E;color:#fff;
+}
+.promobar input:focus{border-color:var(--sapphire)}
+.applied{
+  display:flex;align-items:center;gap:8px;margin-top:14px;
+  font-size:14px;color:var(--gold-light);
+}
+.clock{
+  display:inline-flex;align-items:center;gap:9px;margin-top:14px;
+  border:1px solid rgba(234,207,136,.5);background:var(--navy-2);
+  border-radius:100px;padding:8px 16px;font-size:14px;color:var(--gold-light);
+}
+.clock b{font-family:'Playfair Display',serif;font-size:17px;color:#fff;font-weight:500}
+
+/* пакети */
+.packs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pack{
+  background:#fff;border:1px solid var(--sand);border-radius:20px;padding:26px 22px;
+  display:flex;flex-direction:column;position:relative;
+}
+.pack.best{border-color:var(--gold);box-shadow:0 14px 40px rgba(201,152,58,.16)}
+.tag{
+  position:absolute;top:-11px;left:22px;background:var(--gold);color:var(--deep-navy);
+  font-size:12px;font-weight:600;border-radius:100px;padding:4px 12px;
+}
+.pack h3{font-size:21px;margin-bottom:4px}
+.pack .who{font-size:14px;color:var(--mist);margin-bottom:18px}
+.pack ul{list-style:none;display:grid;gap:9px;margin-bottom:22px;flex:1}
+.pack li{display:flex;gap:10px;font-size:14.5px;color:var(--slate)}
+.pack li b{color:var(--gold);font-weight:400;flex:0 0 auto}
+.pr{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.pr s{font-size:16px;color:var(--mist)}
+.pr strong{font-family:'Playfair Display',serif;font-size:34px;font-weight:500;color:var(--charcoal)}
+.pack .btn{font-size:15.5px;padding:15px 18px}
+
+/* faq */
+details{border-bottom:1px solid var(--sand);padding:15px 0}
+summary{
+  cursor:pointer;font-size:16px;font-weight:500;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:21px}
+details[open] summary::after{content:"–"}
+details p{margin-top:9px;font-size:15px;color:var(--slate)}
+
+footer{background:var(--deep-navy);color:var(--sky-dim);padding:30px 0;font-size:13.5px}
+footer a{color:var(--sky)}
+
+@media(max-width:640px){
+  .packs,.pgrid{grid-template-columns:1fr}
+  .rate-head{gap:8px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ══════════ ШАПКА ══════════ -->
+<header class="top">
+  <div class="wrap">
+    <div class="from">
+      <div class="ava">Н<img src="/natalka.jpg" alt="Наталка Денисенко" onerror="this.remove()"></div>
+      <div>
+        <b>Наталка Денисенко</b>
+        <span>голос Мавки · 60+ фільмів · 30 000+ випускників</span>
+      </div>
+    </div>
+    <h1>Ранкова руханка для голосу</h1>
+    <p>Вісім хвилин вправ, які я роблю перед кожним записом і перед виступами. Дикція, тембр, впевненість — усе прокидається одразу.</p>
+  </div>
+</header>
+
+<!-- ══════════ ФОРМА ══════════ -->
+<div class="gate" id="gate">
+  <div class="wrap">
+    <div class="gatecard">
+      <h2>Куди надіслати руханку</h2>
+      <p class="note">Залиш пошту — відео відкриється просто тут, а на пошту прилетить посилання, щоб не загубити.</p>
+      <div class="field">
+        <label for="mail">Твоя пошта</label>
+        <input type="email" id="mail" placeholder="you@example.com" autocomplete="email" inputmode="email">
+        <div class="err" id="mailErr">Схоже, у пошті помилка. Перевір іще раз.</div>
+      </div>
+      <button class="btn" id="open">Відкрити руханку</button>
+      <div class="fineprint">Без спаму. Тільки те, що стосується голосу.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ КОНТЕНТ ══════════ -->
+<div id="content">
+
+  <!-- ВІДЕО -->
+  <section>
+    <div class="wrap">
+      <h2>Твоя руханка</h2>
+      <p class="sub">Вісім хвилин. Найкраще робити одразу після пробудження, до кави.</p>
+
+      <div class="player" id="player">
+        <div class="ph">Відео завантажується…</div>
+      </div>
+
+      <ul class="hints">
+        <li><b>·</b><span>Не роби вправи пошепки — звук має бути, хоча б упівголоса</span></li>
+        <li><b>·</b><span>Поклади руку на груди: має вібрувати. Це і є той тембр</span></li>
+        <li><b>·</b><span>Після руханки голос теплий хвилин п'ятнадцять — саме тоді записуй сторіс і дзвони</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- РЕЙТИНГ -->
+  <section class="alt">
+    <div class="wrap">
+      <h2>Як курс оцінюють ті, хто його проходить</h2>
+      <p class="sub">Це не відгуки, зібрані вручну. Це оцінки на навчальній платформі — їх ставлять учасниці після кожного уроку.</p>
+
+      <div class="rate-head">
+        <div class="chip"><i>4.86</i><small>курс загалом · 894 оцінки</small></div>
+        <div class="chip"><i>4.92</i><small>щоденна практика</small></div>
+        <div class="chip"><i>5.00</i><small>тренажер дикції</small></div>
+      </div>
+
+      <div class="shots">
+        <div class="shot"><img src="/rating-1.jpg" alt="Оцінки уроків курсу на платформі" loading="lazy"></div>
+        <div class="shot"><img src="/rating-2.jpg" alt="Оцінки блоку щоденної практики" loading="lazy"></div>
+      </div>
+      <div class="shotcap">Скріншот з навчальної платформи</div>
+    </div>
+  </section>
+
+  <!-- ПАКЕТИ -->
+  <section id="buy">
+    <div class="wrap">
+      <h2>Що далі</h2>
+      <p class="sub">Руханка розігріває те, що вже є. Щоб голос змінився взагалі — треба практика щодня. Саме з неї зроблений курс.</p>
+
+      <!-- промо -->
+      <div class="promobar">
+        <h3>Твій промокод уже згенеровано</h3>
+        <p class="lead">Він прив'язаний до твоєї пошти й діє 24 години. Знижка застосується автоматично.</p>
+        <div class="pgrid">
+          <div class="field">
+            <label for="buyMail">Пошта</label>
+            <input type="email" id="buyMail" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="buyPromo">Промокод</label>
+            <input type="text" id="buyPromo" autocapitalize="characters" spellcheck="false">
+          </div>
+        </div>
+        <div class="applied" id="applied">✓ Промокод застосовано — ціни нижче вже зі знижкою</div>
+        <div class="clock" id="clock"><span>Діє ще</span><b id="left">24:00:00</b></div>
+      </div>
+
+      <!-- пакети -->
+      <div class="packs">
+
+        <div class="pack">
+          <h3>Базовий</h3>
+          <p class="who">Поставити голос</p>
+          <ul>
+            <li><b>·</b><span>7 модулів, понад 70 технік</span></li>
+            <li><b>·</b><span>30 днів щоденної практики</span></li>
+            <li><b>·</b><span>7-денний тренажер дикції</span></li>
+            <li><b>·</b><span>Медитація для голосу</span></li>
+            <li><b>·</b><span>Доступ 30 днів</span></li>
+          </ul>
+          <div class="pr"><s id="baseOld">999 ₴</s><strong id="basePrice">799 ₴</strong></div>
+          <a class="btn navy" id="buyBase" href="/pay">Забрати базовий</a>
+        </div>
+
+        <div class="pack best">
+          <span class="tag">Найчастіше беруть</span>
+          <h3>Повний</h3>
+          <p class="who">Поставити й почати ним працювати</p>
+          <ul>
+            <li><b>·</b><span>Усе з базового</span></li>
+            <li><b>·</b><span>+4 модулі PRO: увага, сторітелінг, камера, виступи</span></li>
+            <li><b>·</b><span>+30 днів практики PRO</span></li>
+            <li><b>·</b><span>Доступ 3 місяці</span></li>
+            <li><b>·</b><span>Сертифікат повного курсу</span></li>
+          </ul>
+          <div class="pr"><s id="fullOld">1 999 ₴</s><strong id="fullPrice">1 399 ₴</strong></div>
+          <a class="btn" id="buyFull" href="/pay">Забрати повний</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="alt">
+    <div class="wrap">
+      <h2>Питання</h2>
+      <p class="sub"></p>
+      <details><summary>Руханка залишиться, якщо я нічого не куплю?</summary><p>Так. Вона твоя назавжди, посилання прийшло на пошту. Купувати нічого не треба.</p></details>
+      <details><summary>Коли починається курс?</summary><p>Одразу після оплати. Доступ приходить на пошту за кілька хвилин, чекати старту не треба.</p></details>
+      <details><summary>Скільки часу щодня?</summary><p>П'ятнадцять хвилин. Усе робиться з телефона — вранці, в дорозі, на кухні.</p></details>
+      <details><summary>Не можу обрати пакет.</summary><p>Бери базовий. Добрати модулі PRO зможеш і потім, просто вже дорожче.</p></details>
+      <details><summary>А якщо промокод згорить?</summary><p>Курс нікуди не зникне, просто коштуватиме повну ціну — 999 ₴ і 1 999 ₴.</p></details>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Наталка Денисенко · «Голос на мільйон»<br>
+    Питання — у <a href="https://instagram.com/natalkavoice.online">директ</a>.
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ─── НАЛАШТУВАННЯ ─────────────────────────────────── */
+  var VIDEO_URL   = '';                               // ← посилання на embed відео руханки
+  var LEAD_HOOK   = '/.netlify/functions/save-lead';  // ← куди віддаємо пошту + промокод
+  var HOURS       = 24;
+  var PRICE_BASE  = { full: '999 ₴',  promo: '799 ₴'  };
+  var PRICE_FULL  = { full: '1 999 ₴', promo: '1 399 ₴' };
+  /* ──────────────────────────────────────────────────── */
+
+  var STORE = 'gnm_ranok_lead';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var gate = $('gate'), content = $('content');
+
+  /* ─── Генерація промокоду ─── */
+  function makeCode() {
+    var abc = 'ACDEFHJKLMNPRTUVWXY3479';
+    var s = '';
+    var rnd = window.crypto && window.crypto.getRandomValues
+      ? (function () { var a = new Uint32Array(5); crypto.getRandomValues(a); var i = 0; return function () { return a[i++]; }; })()
+      : function () { return Math.floor(Math.random() * 4294967296); };
+    for (var i = 0; i < 5; i++) s += abc[rnd() % abc.length];
+    return 'RANOK-' + s;
+  }
+
+  /* ─── Збереження / відновлення ─── */
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+  function save(o) {
+    try { localStorage.setItem(STORE, JSON.stringify(o)); } catch (e) {}
+  }
+
+  /* ─── Валідація пошти ─── */
+  function validMail(v) {
+    return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v.trim());
+  }
+
+  var lead = load();
+
+  /* ─── Показ контенту ─── */
+  function reveal(data) {
+    lead = data;
+
+    if (gate) gate.style.display = 'none';
+    if (content) content.classList.add('on');
+
+    /* відео */
+    var player = $('player');
+    if (player) {
+      if (VIDEO_URL) {
+        player.innerHTML = '<iframe src="' + VIDEO_URL + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Ранкова руханка для голосу"></iframe>';
+      } else {
+        player.innerHTML = '<div class="ph">Відео скоро з\'явиться. Посилання вже надіслали тобі на пошту.</div>';
+      }
+    }
+
+    /* поля покупки */
+    if ($('buyMail'))  $('buyMail').value  = data.email;
+    if ($('buyPromo')) $('buyPromo').value = data.code;
+
+    tick();
+    setInterval(tick, 1000);
+    links();
+
+    /* м'який скрол до відео */
+    var first = document.querySelector('#content section');
+    if (first) window.scrollTo({ top: first.offsetTop - 12, behavior: 'smooth' });
+  }
+
+  /* ─── Таймер і ціни ─── */
+  var expired = false;
+
+  function tick() {
+    if (!lead) return;
+    var left = lead.deadline - Date.now();
+
+    if (left <= 0 && !expired) {
+      expired = true;
+      $('basePrice').textContent = PRICE_BASE.full;
+      $('fullPrice').textContent = PRICE_FULL.full;
+      $('baseOld').style.display = 'none';
+      $('fullOld').style.display = 'none';
+      $('applied').innerHTML = 'Термін промокоду вичерпано — курс доступний за звичайною ціною';
+      $('clock').style.display = 'none';
+      if ($('buyPromo')) { $('buyPromo').value = ''; $('buyPromo').placeholder = 'промокод неактивний'; }
+      links();
+      return;
+    }
+    if (expired) return;
+
+    var h = Math.floor(left / 3600000);
+    var m = Math.floor(left % 3600000 / 60000);
+    var s = Math.floor(left % 60000 / 1000);
+    var p = function (n) { return n < 10 ? '0' + n : String(n); };
+    if ($('left')) $('left').textContent = p(h) + ':' + p(m) + ':' + p(s);
+  }
+
+  /* ─── Посилання на оплату ─── */
+  function links() {
+    if (!lead) return;
+    var mail  = $('buyMail')  ? $('buyMail').value.trim()  : lead.email;
+    var promo = $('buyPromo') ? $('buyPromo').value.trim() : '';
+
+    function url(product) {
+      var q = new URLSearchParams();
+      q.set('product', product);
+      q.set('email', mail);
+      if (promo && !expired) q.set('promo', promo);
+      q.set('src', 'ranok');
+      return '/pay?' + q.toString();
+    }
+
+    if ($('buyBase')) $('buyBase').setAttribute('href', url('base'));
+    if ($('buyFull')) $('buyFull').setAttribute('href', url('full'));
+  }
+
+  ['buyMail', 'buyPromo'].forEach(function (id) {
+    var el = $(id);
+    if (el) el.addEventListener('input', links);
+  });
+
+  /* ─── Сабміт форми ─── */
+  function submit() {
+    var input = $('mail');
+    var val = input.value.trim();
+
+    if (!validMail(val)) {
+      input.classList.add('bad');
+      $('mailErr').classList.add('on');
+      input.focus();
+      return;
+    }
+    input.classList.remove('bad');
+    $('mailErr').classList.remove('on');
+
+    var data = {
+      email: val,
+      code: makeCode(),
+      deadline: Date.now() + HOURS * 3600000
+    };
+    save(data);
+
+    /* віддаємо лід на бек — сторінка не чекає відповіді */
+    try {
+      fetch(LEAD_HOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: data.email,
+          promo: data.code,
+          expires_at: new Date(data.deadline).toISOString(),
+          source: 'ranok'
+        })
+      }).catch(function () {});
+    } catch (e) {}
+
+    reveal(data);
+  }
+
+  if ($('open')) $('open').addEventListener('click', submit);
+  if ($('mail')) $('mail').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') submit();
+  });
+
+  /* ─── Повернення на сторінку ─── */
+  if (lead && lead.email && lead.code) reveal(lead);
+
+});
+</script>
+</body>
+</html>
