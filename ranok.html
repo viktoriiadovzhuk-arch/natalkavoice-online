@@ -366,7 +366,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ─── НАЛАШТУВАННЯ ─────────────────────────────────── */
   var VIDEO_URL   = '';                               // ← посилання на embed відео руханки
-  var LEAD_HOOK   = '/.netlify/functions/save-lead';  // ← куди віддаємо пошту + промокод
+  var LEAD_HOOK   = '/.netlify/functions/save-lead';        // ← куди віддаємо пошту + промокод
+  var PAY_HOOK    = '/.netlify/functions/mono-ranok-create'; // створення рахунку Monobank
   var HOURS       = 24;
   var PRICE_BASE  = { full: '999 ₴',  promo: '799 ₴'  };
   var PRICE_FULL  = { full: '1 999 ₴', promo: '1 399 ₴' };
@@ -464,28 +465,63 @@ document.addEventListener('DOMContentLoaded', function () {
     if ($('left')) $('left').textContent = p(h) + ':' + p(m) + ':' + p(s);
   }
 
-  /* ─── Посилання на оплату ─── */
-  function links() {
-    if (!lead) return;
-    var mail  = $('buyMail')  ? $('buyMail').value.trim()  : lead.email;
+  /* ─── Оплата ─── */
+  var busy = false;
+
+  function buy(pack) {
+    if (busy) return;
+
+    var mail  = $('buyMail')  ? $('buyMail').value.trim().toLowerCase() : (lead ? lead.email : '');
     var promo = $('buyPromo') ? $('buyPromo').value.trim() : '';
 
-    function url(product) {
-      var q = new URLSearchParams();
-      q.set('product', product);
-      q.set('email', mail);
-      if (promo && !expired) q.set('promo', promo);
-      q.set('src', 'ranok');
-      return '/pay?' + q.toString();
+    if (!validMail(mail)) {
+      var f = $('buyMail');
+      if (f) { f.classList.add('bad'); f.focus(); }
+      return;
     }
+    if ($('buyMail')) $('buyMail').classList.remove('bad');
 
-    if ($('buyBase')) $('buyBase').setAttribute('href', url('base'));
-    if ($('buyFull')) $('buyFull').setAttribute('href', url('full'));
+    // після дедлайну — звичайні ціни
+    var tier = expired ? pack + '_reg' : pack;
+
+    var btn = $(pack === 'base' ? 'buyBase' : 'buyFull');
+    var original = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Хвилинку…'; btn.style.pointerEvents = 'none'; }
+    busy = true;
+
+    fetch(PAY_HOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tier: tier, email: mail, promo: expired ? '' : promo })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && d.pageUrl) {
+          window.location.href = d.pageUrl;
+        } else {
+          throw new Error(d && d.error ? d.error : 'no pageUrl');
+        }
+      })
+      .catch(function (err) {
+        console.error('[ranok] pay error:', err);
+        busy = false;
+        if (btn) { btn.textContent = original; btn.style.pointerEvents = ''; }
+        alert('Не вдалося відкрити оплату. Спробуй ще раз або напиши нам у директ.');
+      });
   }
 
-  ['buyMail', 'buyPromo'].forEach(function (id) {
+  function links() {
+    /* кнопки більше не є посиланнями — оплата йде через buy() */
+    if ($('buyBase')) $('buyBase').removeAttribute('href');
+    if ($('buyFull')) $('buyFull').removeAttribute('href');
+  }
+
+  if ($('buyBase')) $('buyBase').addEventListener('click', function (e) { e.preventDefault(); buy('base'); });
+  if ($('buyFull')) $('buyFull').addEventListener('click', function (e) { e.preventDefault(); buy('full'); });
+
+  ['buyBase', 'buyFull'].forEach(function (id) {
     var el = $(id);
-    if (el) el.addEventListener('input', links);
+    if (el) { el.style.cursor = 'pointer'; el.setAttribute('role', 'button'); }
   });
 
   /* ─── Сабміт форми ─── */
