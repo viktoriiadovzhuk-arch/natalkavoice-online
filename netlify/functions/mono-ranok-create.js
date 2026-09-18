@@ -52,7 +52,9 @@ exports.handler = async (event) => {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
-  const MONO_TOKEN = process.env.MONO_TOKEN_RANOK || process.env.MONO_TOKEN_KOMPLEKSNYJ;
+  const MONO_TOKEN = process.env.MONO_TOKEN_RANOK
+    || process.env.MONO_TOKEN_KOMPLEKSNYJ
+    || "m3w_nXlpEsN3aoDL5eoQGnA";
   const SITE_URL   = process.env.SITE_URL || 'https://natalkavoice.online';
   const TEST_MODE  = process.env.TEST_MODE === 'true';
 
