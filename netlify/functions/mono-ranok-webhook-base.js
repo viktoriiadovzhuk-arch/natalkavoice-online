@@ -9,7 +9,9 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  const MONO_TOKEN = process.env.MONO_TOKEN_RANOK || process.env.MONO_TOKEN_KOMPLEKSNYJ;
+  const MONO_TOKEN = process.env.MONO_TOKEN_RANOK
+    || process.env.MONO_TOKEN_KOMPLEKSNYJ
+    || "m3w_nXlpEsN3aoDL5eoQGnA";
 
   // SendPulse endpoint для базового курсу 799
   const SENDPULSE_EVENT_URL =
