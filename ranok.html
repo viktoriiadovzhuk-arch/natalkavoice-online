@@ -151,6 +151,13 @@ h2{font-size:clamp(24px,4.8vw,31px);margin-bottom:8px}
   background:var(--navy-2);border-color:#22406E;color:#fff;
 }
 .promobar input:focus{border-color:var(--sapphire)}
+.codebox{
+  font-family:'Playfair Display',serif;font-size:clamp(22px,5vw,29px);
+  color:var(--gold-light);letter-spacing:.08em;
+  background:var(--navy-2);border:1px dashed rgba(234,207,136,.45);
+  border-radius:14px;padding:16px 18px;text-align:center;
+  word-break:break-all;
+}
 .applied{
   display:flex;align-items:center;gap:8px;margin-top:14px;
   font-size:14px;color:var(--gold-light);
@@ -182,6 +189,37 @@ h2{font-size:clamp(24px,4.8vw,31px);margin-bottom:8px}
 .pr s{font-size:16px;color:var(--mist)}
 .pr strong{font-family:'Playfair Display',serif;font-size:34px;font-weight:500;color:var(--charcoal)}
 .pack .btn{font-size:15.5px;padding:15px 18px}
+
+/* ─── ПОПАП ОПЛАТИ ─── */
+.ov{
+  position:fixed;inset:0;z-index:100;display:none;
+  background:rgba(8,27,56,.72);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;padding:20px;
+}
+.ov.on{display:flex}
+.modal{
+  background:#fff;border-radius:22px;width:100%;max-width:420px;
+  padding:30px 26px 26px;position:relative;
+  box-shadow:0 30px 80px rgba(8,27,56,.35);
+  max-height:92vh;overflow-y:auto;
+}
+.modal .x{
+  position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;
+  border:none;background:var(--ivory);color:var(--slate);font-size:19px;
+  cursor:pointer;line-height:1;
+}
+.modal .x:hover{background:var(--sand)}
+.modal .kicker{font-size:13px;color:var(--mist);margin-bottom:5px}
+.modal h3{font-size:24px;margin-bottom:12px}
+.modal .mprice{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
+.modal .mprice s{font-size:16px;color:var(--mist)}
+.modal .mprice strong{font-family:'Playfair Display',serif;font-size:32px;font-weight:500}
+.modal .why{
+  background:var(--ivory);border-radius:12px;padding:13px 15px;
+  font-size:14px;color:var(--slate);margin-bottom:18px;
+}
+.modal .btn{margin-top:4px}
+.modal .safe{font-size:12.5px;color:var(--mist);text-align:center;margin-top:12px}
 
 /* faq */
 details{border-bottom:1px solid var(--sand);padding:15px 0}
@@ -288,19 +326,10 @@ footer a{color:var(--sky)}
       <!-- промо -->
       <div class="promobar">
         <h3>Твій промокод уже згенеровано</h3>
-        <p class="lead">Він прив'язаний до твоєї пошти й діє 24 години. Знижка застосується автоматично.</p>
-        <div class="pgrid">
-          <div class="field">
-            <label for="buyMail">Пошта</label>
-            <input type="email" id="buyMail" autocomplete="email">
-          </div>
-          <div class="field">
-            <label for="buyPromo">Промокод</label>
-            <input type="text" id="buyPromo" autocapitalize="characters" spellcheck="false">
-          </div>
-        </div>
-        <div class="applied" id="applied">✓ Промокод застосовано — ціни нижче вже зі знижкою</div>
+        <p class="lead">Він прив'язаний до твоєї пошти й діє 24 години. Знижка вже врахована в цінах нижче — вводити нічого не треба.</p>
+        <div class="codebox" id="codeBox">RANOK-•••••</div>
         <div class="clock" id="clock"><span>Діє ще</span><b id="left">24:00:00</b></div>
+        <div class="applied" id="applied"></div>
       </div>
 
       <!-- пакети -->
@@ -336,8 +365,6 @@ footer a{color:var(--sky)}
         </div>
 
       </div>
-
-      <div id="payErr" style="display:none;margin-top:18px;padding:14px 16px;border:1px solid #E0B4AE;background:#FDF3F2;border-radius:12px;font-size:14px;color:#8E2B1F;word-break:break-word"></div>
     </div>
   </section>
   <section class="alt">
@@ -352,6 +379,39 @@ footer a{color:var(--sky)}
     </div>
   </section>
 
+</div>
+
+<!-- ══════════ ПОПАП ОПЛАТИ ══════════ -->
+<div class="ov" id="ov">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="x" id="mClose" aria-label="Закрити">×</button>
+
+    <div class="kicker">Голос на мільйон</div>
+    <h3 id="mTitle">Базовий</h3>
+
+    <div class="mprice">
+      <s id="mOld">999 ₴</s>
+      <strong id="mNow">799 ₴</strong>
+    </div>
+
+    <div class="why">Доступ до курсу прийде на цю пошту. Вкажи ту, якою реально користуєшся — змінити потім буде складніше.</div>
+
+    <div class="field">
+      <label for="mMail">Пошта</label>
+      <input type="email" id="mMail" placeholder="you@example.com" autocomplete="email" inputmode="email">
+      <div class="err" id="mMailErr">Схоже, у пошті помилка. Перевір іще раз.</div>
+    </div>
+
+    <div class="field" id="mPromoWrap">
+      <label for="mPromo">Промокод</label>
+      <input type="text" id="mPromo" autocapitalize="characters" spellcheck="false">
+    </div>
+
+    <button class="btn" id="mGo">Перейти до оплати</button>
+    <div class="safe">Оплата карткою через Monobank</div>
+
+    <div id="payErr" style="display:none;margin-top:16px;padding:13px 15px;border:1px solid #E0B4AE;background:#FDF3F2;border-radius:12px;font-size:14px;color:#8E2B1F;word-break:break-word"></div>
+  </div>
 </div>
 
 <footer>
@@ -425,8 +485,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* поля покупки */
-    if ($('buyMail'))  $('buyMail').value  = data.email;
-    if ($('buyPromo')) $('buyPromo').value = data.code;
+    if ($('codeBox')) $('codeBox').textContent = data.code;
 
     tick();
     setInterval(tick, 1000);
@@ -450,9 +509,9 @@ document.addEventListener('DOMContentLoaded', function () {
       $('fullPrice').textContent = PRICE_FULL.full;
       $('baseOld').style.display = 'none';
       $('fullOld').style.display = 'none';
-      $('applied').innerHTML = 'Термін промокоду вичерпано — курс доступний за звичайною ціною';
+      $('applied').textContent = 'Термін промокоду вичерпано — курс доступний за звичайною ціною';
+      if ($('codeBox')) $('codeBox').style.opacity = '.4';
       $('clock').style.display = 'none';
-      if ($('buyPromo')) { $('buyPromo').value = ''; $('buyPromo').placeholder = 'промокод неактивний'; }
       links();
       return;
     }
@@ -465,29 +524,85 @@ document.addEventListener('DOMContentLoaded', function () {
     if ($('left')) $('left').textContent = p(h) + ':' + p(m) + ':' + p(s);
   }
 
-  /* ─── Оплата ─── */
+  /* ─── Попап оплати ─── */
   var busy = false;
+  var current = 'base';
 
-  function buy(pack) {
+  var PACKS = {
+    base: { title: 'Базовий', old: '999 ₴',   now: '799 ₴'   },
+    full: { title: 'Повний',  old: '1 999 ₴', now: '1 399 ₴' }
+  };
+
+  function openModal(pack) {
+    current = pack;
+    var cfg = PACKS[pack];
+
+    $('mTitle').textContent = cfg.title;
+    $('mNow').textContent   = expired ? cfg.old : cfg.now;
+    $('mOld').style.display = expired ? 'none' : '';
+    if (!expired) $('mOld').textContent = cfg.old;
+
+    /* пошта: беремо ту, з якою відкрили руханку */
+    var known = (lead && lead.email) ? lead.email : '';
+    $('mMail').value = known;
+
+    /* промокод */
+    if (expired) {
+      $('mPromoWrap').style.display = 'none';
+      $('mPromo').value = '';
+    } else {
+      $('mPromoWrap').style.display = '';
+      $('mPromo').value = (lead && lead.code) ? lead.code : '';
+    }
+
+    $('mMail').classList.remove('bad');
+    $('mMailErr').classList.remove('on');
+    $('payErr').style.display = 'none';
+    $('mGo').textContent = 'Перейти до оплати';
+    $('mGo').style.pointerEvents = '';
+    busy = false;
+
+    $('ov').classList.add('on');
+    document.body.style.overflow = 'hidden';
+
+    /* на десктопі одразу ставимо курсор у пошту, на мобільному — ні,
+       щоб клавіатура не з'їла половину попапа */
+    if (window.innerWidth > 640) setTimeout(function () { $('mMail').focus(); }, 60);
+  }
+
+  function closeModal() {
+    $('ov').classList.remove('on');
+    document.body.style.overflow = '';
+  }
+
+  /* ─── Оплата ─── */
+  function pay() {
     if (busy) return;
 
-    var mail  = $('buyMail')  ? $('buyMail').value.trim().toLowerCase() : (lead ? lead.email : '');
-    var promo = $('buyPromo') ? $('buyPromo').value.trim() : '';
+    var mail  = $('mMail').value.trim().toLowerCase();
+    var promo = $('mPromo') ? $('mPromo').value.trim() : '';
 
     if (!validMail(mail)) {
-      var f = $('buyMail');
-      if (f) { f.classList.add('bad'); f.focus(); }
+      $('mMail').classList.add('bad');
+      $('mMailErr').classList.add('on');
+      $('mMail').focus();
       return;
     }
-    if ($('buyMail')) $('buyMail').classList.remove('bad');
+    $('mMail').classList.remove('bad');
+    $('mMailErr').classList.remove('on');
+    $('payErr').style.display = 'none';
 
-    // після дедлайну — звичайні ціни
-    var tier = expired ? pack + '_reg' : pack;
+    /* якщо пошта відрізняється від тієї, з якою відкривали руханку — оновлюємо */
+    if (lead && lead.email !== mail) {
+      lead.email = mail;
+      save(lead);
+    }
 
-    var btn = $(pack === 'base' ? 'buyBase' : 'buyFull');
-    var original = btn ? btn.textContent : '';
-    if (btn) { btn.textContent = 'Хвилинку…'; btn.style.pointerEvents = 'none'; }
+    var tier = expired ? current + '_reg' : current;
+
     busy = true;
+    $('mGo').textContent = 'Хвилинку…';
+    $('mGo').style.pointerEvents = 'none';
 
     fetch(PAY_HOOK, {
       method: 'POST',
@@ -508,36 +623,42 @@ document.addEventListener('DOMContentLoaded', function () {
         if (d && d.pageUrl) {
           window.location.href = d.pageUrl;
         } else {
-          throw new Error('відповідь без pageUrl: ' + JSON.stringify(d));
+          throw new Error('відповідь без pageUrl');
         }
       })
       .catch(function (err) {
         console.error('[ranok] pay error:', err);
         busy = false;
-        if (btn) { btn.textContent = original; btn.style.pointerEvents = ''; }
-
-        var box = $('payErr');
-        if (box) {
-          box.textContent = 'Не вдалося відкрити оплату. ' + err.message;
-          box.style.display = 'block';
-        } else {
-          alert('Не вдалося відкрити оплату.\n\n' + err.message);
-        }
+        $('mGo').textContent = 'Перейти до оплати';
+        $('mGo').style.pointerEvents = '';
+        $('payErr').textContent = 'Не вдалося відкрити оплату. ' + err.message;
+        $('payErr').style.display = 'block';
       });
   }
 
   function links() {
-    /* кнопки більше не є посиланнями — оплата йде через buy() */
     if ($('buyBase')) $('buyBase').removeAttribute('href');
     if ($('buyFull')) $('buyFull').removeAttribute('href');
   }
 
-  if ($('buyBase')) $('buyBase').addEventListener('click', function (e) { e.preventDefault(); buy('base'); });
-  if ($('buyFull')) $('buyFull').addEventListener('click', function (e) { e.preventDefault(); buy('full'); });
+  if ($('buyBase')) $('buyBase').addEventListener('click', function (e) { e.preventDefault(); openModal('base'); });
+  if ($('buyFull')) $('buyFull').addEventListener('click', function (e) { e.preventDefault(); openModal('full'); });
 
   ['buyBase', 'buyFull'].forEach(function (id) {
     var el = $(id);
     if (el) { el.style.cursor = 'pointer'; el.setAttribute('role', 'button'); }
+  });
+
+  if ($('mGo'))    $('mGo').addEventListener('click', pay);
+  if ($('mClose')) $('mClose').addEventListener('click', closeModal);
+  if ($('ov'))     $('ov').addEventListener('click', function (e) { if (e.target === $('ov')) closeModal(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && $('ov').classList.contains('on')) closeModal();
+  });
+  ['mMail', 'mPromo'].forEach(function (id) {
+    var el = $(id);
+    if (el) el.addEventListener('keydown', function (e) { if (e.key === 'Enter') pay(); });
   });
 
   /* ─── Сабміт форми ─── */
