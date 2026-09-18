@@ -336,10 +336,10 @@ footer a{color:var(--sky)}
         </div>
 
       </div>
+
+      <div id="payErr" style="display:none;margin-top:18px;padding:14px 16px;border:1px solid #E0B4AE;background:#FDF3F2;border-radius:12px;font-size:14px;color:#8E2B1F;word-break:break-word"></div>
     </div>
   </section>
-
-  <!-- FAQ -->
   <section class="alt">
     <div class="wrap">
       <h2>Питання</h2>
@@ -494,19 +494,35 @@ document.addEventListener('DOMContentLoaded', function () {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tier: tier, email: mail, promo: expired ? '' : promo })
     })
-      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        return r.text().then(function (t) {
+          var d = null;
+          try { d = JSON.parse(t); } catch (e) {}
+          if (!r.ok) {
+            throw new Error('HTTP ' + r.status + ' · ' + ((d && (d.error || d.message)) || t.slice(0, 200)));
+          }
+          return d;
+        });
+      })
       .then(function (d) {
         if (d && d.pageUrl) {
           window.location.href = d.pageUrl;
         } else {
-          throw new Error(d && d.error ? d.error : 'no pageUrl');
+          throw new Error('відповідь без pageUrl: ' + JSON.stringify(d));
         }
       })
       .catch(function (err) {
         console.error('[ranok] pay error:', err);
         busy = false;
         if (btn) { btn.textContent = original; btn.style.pointerEvents = ''; }
-        alert('Не вдалося відкрити оплату. Спробуй ще раз або напиши нам у директ.');
+
+        var box = $('payErr');
+        if (box) {
+          box.textContent = 'Не вдалося відкрити оплату. ' + err.message;
+          box.style.display = 'block';
+        } else {
+          alert('Не вдалося відкрити оплату.\n\n' + err.message);
+        }
       });
   }
 
