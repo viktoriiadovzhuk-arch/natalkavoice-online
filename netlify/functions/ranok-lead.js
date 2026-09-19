@@ -22,7 +22,7 @@ exports.handler = async (event) => {
 
   // SendPulse endpoint для ліда з ранкової руханки
   const SENDPULSE_EVENT_URL =
-    "https://events.sendpulse.com/events/id/65a53161523148a1d2ba3dc255ca9973/9397073";
+    "https://events.sendpulse.com/events/id/626b9e27f31a4df5d6a9e3ccd5ea9498/9397073";
 
   let data;
   try {
