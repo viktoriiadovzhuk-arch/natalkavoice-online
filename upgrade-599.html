@@ -206,7 +206,7 @@ h1{font-size:clamp(28px,6.2vw,40px);color:#fff;margin-bottom:16px}
   <div class="under">Модулі відкриються одразу після оплати, у тому самому кабінеті</div>
 
   <div class="skip">
-    <a href="/thank-you" id="skip">Ні, дякую — почати базовий курс</a>
+    <a href="https://natalkadenysenko.sendpulse.courses/courses/auth/login" id="skip" target="_blank" rel="noopener">Ні, дякую — почати базовий курс</a>
   </div>
 
 </div>
@@ -276,20 +276,33 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   var skip = document.getElementById('skip');
-  if (skip && email) skip.setAttribute('href', '/thank-you?email=' + encodeURIComponent(email));
+  if (skip) skip.setAttribute('target', '_blank');
 
-  /* ── Таймер 15 хвилин, живе в межах сесії ── */
-  var KEY = 'gnm_upgrade_deadline';
-  var deadline;
-  try {
-    var saved = sessionStorage.getItem(KEY);
-    deadline = saved ? parseInt(saved, 10) : null;
-  } catch (e) { deadline = null; }
+  /* ── Таймер 15 хвилин ──
+     Ключ прив'язаний до конкретної покупки, а не до сесії браузера:
+     кожна нова оплата відкриває своє вікно. Інакше людина, яка колись
+     уже бачила цю сторінку, одразу отримувала б ціну після дедлайну. */
+  var orderKey = params.get('invoiceId') || params.get('orderId') || params.get('order') || email || '';
+  var KEY = 'gnm_upgrade_deadline_' + orderKey;
+
+  var deadline = null;
+
+  /* /upgrade-599?reset=1 — скинути таймер (для тестування) */
+  if (params.get('reset')) {
+    try { sessionStorage.removeItem(KEY); } catch (e) {}
+  } else {
+    try {
+      var saved = sessionStorage.getItem(KEY);
+      deadline = saved ? parseInt(saved, 10) : null;
+    } catch (e) { deadline = null; }
+  }
 
   if (!deadline || isNaN(deadline)) {
     deadline = Date.now() + 15 * 60 * 1000;
     try { sessionStorage.setItem(KEY, String(deadline)); } catch (e) {}
   }
+
+  console.log('[upgrade] вікно до', new Date(deadline).toLocaleTimeString(), '· ключ', KEY);
 
   var clock = document.getElementById('clock');
   var timerBox = document.getElementById('timerBox');
