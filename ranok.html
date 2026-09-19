@@ -713,6 +713,40 @@ document.addEventListener('DOMContentLoaded', function () {
     if (el) el.addEventListener('keydown', function (e) { if (e.key === 'Enter') pay(); });
   });
 
+  /* ─── Відправка ліда ─── */
+  function sendLead(data) {
+    var payload = {
+      email: data.email,
+      promo: data.code,
+      expires_at: new Date(data.deadline).toISOString(),
+      source: 'ranok'
+    };
+
+    console.log('[ranok] lead →', LEAD_HOOK, payload);
+
+    try {
+      fetch(LEAD_HOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) {
+          return r.text().then(function (t) {
+            if (r.ok) {
+              console.log('[ranok] lead ok:', r.status, t);
+            } else {
+              console.error('[ranok] lead FAILED:', r.status, t);
+            }
+          });
+        })
+        .catch(function (err) {
+          console.error('[ranok] lead network error:', err);
+        });
+    } catch (e) {
+      console.error('[ranok] lead throw:', e);
+    }
+  }
+
   /* ─── Сабміт форми ─── */
   function submit() {
     var input = $('mail');
@@ -734,20 +768,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     save(data);
 
-    /* віддаємо лід на бек — сторінка не чекає відповіді */
-    try {
-      fetch(LEAD_HOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: data.email,
-          promo: data.code,
-          expires_at: new Date(data.deadline).toISOString(),
-          source: 'ranok'
-        })
-      }).catch(function () {});
-    } catch (e) {}
-
+    sendLead(data);
     reveal(data);
   }
 
@@ -757,6 +778,41 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ─── Повернення на сторінку ─── */
+
+  /* посилання з листа: /ranok?email=...&code=...&exp=...
+     відновлюємо той самий промокод і той самий дедлайн, нову подію не шлемо */
+  (function fromLink() {
+    var q = new URLSearchParams(window.location.search);
+
+    /* /ranok?reset=1 — скинути збережений лід і показати форму заново */
+    if (q.get('reset')) {
+      try { localStorage.removeItem(STORE); } catch (e) {}
+      lead = null;
+      console.log('[ranok] lead скинуто, форма показана заново');
+      return;
+    }
+
+    var qEmail = (q.get('email') || '').trim().toLowerCase();
+    var qCode  = (q.get('code')  || '').trim();
+    var qExp   = (q.get('exp')   || '').trim();
+
+    if (!qEmail || !validMail(qEmail) || !qCode) return;
+
+    var dl;
+    if (/^\d+$/.test(qExp)) {
+      dl = qExp.length <= 10 ? parseInt(qExp, 10) * 1000 : parseInt(qExp, 10);
+    } else if (qExp) {
+      var t = Date.parse(qExp);
+      dl = isNaN(t) ? null : t;
+    }
+    /* якщо дедлайн не передали — беремо збережений, інакше 24 год від зараз */
+    if (!dl) dl = (lead && lead.deadline) ? lead.deadline : Date.now() + HOURS * 3600000;
+
+    var data = { email: qEmail, code: qCode, deadline: dl };
+    save(data);
+    lead = data;
+  })();
+
   if (lead && lead.email && lead.code) reveal(lead);
 
 });
