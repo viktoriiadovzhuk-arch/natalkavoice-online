@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Повна версія курсу · 599 ₴</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark only">
+<meta name="theme-color" content="#081B38">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep-navy:#081B38;
+  --royal:#1749B0;
+  --sapphire:#2D6AE0;
+  --sky:#DCE7F8;
+  --sky-dim:#AFC4E4;
+  --gold:#C9983A;
+  --gold-light:#EACF88;
+  --ivory:#F7F3EE;
+  --mist:#94A6C2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#081B38 !important;color-scheme:dark}
+body{
+  font-family:'Onest',system-ui,sans-serif;
+  background:#081B38 !important;
+  color:var(--ivory);
+  line-height:1.6;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  padding:0 0 48px;
+}
+.page{background:#081B38;min-height:100vh;padding:1px 0 48px}
+.wrap{max-width:620px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.16;letter-spacing:-.01em}
+
+/* ─── ПІДТВЕРДЖЕННЯ ОПЛАТИ ─── */
+.paid{
+  border-bottom:1px solid rgba(197,216,246,.14);
+  padding:20px 0;margin-bottom:38px;
+}
+.paid .row{display:flex;align-items:center;gap:12px}
+.check{
+  width:26px;height:26px;border-radius:50%;flex:0 0 26px;
+  background:rgba(45,106,224,.2);border:1px solid var(--sapphire);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sky);font-size:14px;
+}
+.paid b{font-weight:500;font-size:15.5px;color:#fff}
+.paid p{font-size:14px;color:var(--sky-dim);margin-top:6px;padding-left:38px}
+
+/* ─── ГОЛОВНЕ ─── */
+h1{font-size:clamp(28px,6.2vw,40px);color:#fff;margin-bottom:16px}
+.lede{font-size:16.5px;color:var(--sky);margin-bottom:8px;max-width:56ch}
+
+/* ─── ТАЙМЕР ─── */
+.timer{
+  display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;
+  border:1px solid rgba(234,207,136,.55);
+  background:#0E2447;
+  border-radius:100px;padding:10px 20px;margin:26px 0 34px;
+}
+.timer .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--gold-light);flex:0 0 7px;
+}
+.timer span{font-size:14.5px;color:var(--gold-light)}
+.timer b{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:#fff}
+
+/* ─── ЩО ДОДАЄТЬСЯ ─── */
+.block{
+  background:#0E2447;
+  border:1px solid #1B3763;
+  border-radius:20px;padding:28px 24px;margin-bottom:14px;
+}
+.block h2{font-size:20px;color:#fff;margin-bottom:4px}
+.block > p{font-size:14.5px;color:var(--sky-dim);margin-bottom:20px}
+.items{list-style:none;display:grid;gap:16px}
+.items li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start}
+.items .m{
+  font-family:'Playfair Display',serif;font-size:15px;color:var(--gold);padding-top:2px;
+}
+.items h3{font-family:'Onest',sans-serif;font-weight:500;font-size:16px;color:#fff;margin-bottom:2px}
+.items p{font-size:14.5px;color:var(--sky-dim)}
+
+.extras{list-style:none;display:grid;gap:12px}
+.extras li{display:flex;gap:12px;font-size:15.5px;color:var(--sky)}
+.extras b{color:var(--gold-light);font-weight:400;flex:0 0 auto}
+.extras strong{color:#fff;font-weight:500}
+
+/* ─── РАХУНОК ─── */
+.calc{
+  border:1px solid rgba(234,207,136,.45);
+  border-radius:20px;padding:26px 24px;margin:24px 0 22px;
+  background:#0E2447;
+}
+.line{display:flex;justify-content:space-between;gap:16px;font-size:15.5px;padding:9px 0;color:var(--sky)}
+.line.muted{color:var(--mist)}
+.line.total{
+  border-top:1px solid rgba(234,207,136,.4);
+  margin-top:8px;padding-top:16px;align-items:baseline;
+}
+.line.total span:first-child{color:#fff;font-size:16px}
+.price{font-family:'Playfair Display',serif;font-size:38px;color:var(--gold-light);line-height:1}
+.saving{font-size:14.5px;color:var(--gold-light);text-align:right;margin-top:4px}
+
+/* ─── КНОПКА ─── */
+.btn{
+  display:block;width:100%;text-align:center;text-decoration:none;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--deep-navy);
+  font-family:'Onest',sans-serif;font-weight:600;font-size:17px;
+  padding:19px 24px;border-radius:100px;border:none;cursor:pointer;
+  transition:transform .18s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.under{font-size:13.5px;color:var(--sky-dim);text-align:center;margin-top:14px}
+
+.skip{text-align:center;margin-top:26px}
+.skip a{color:var(--mist);font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.skip a:hover{color:var(--sky)}
+
+/* ─── СТАН ПІСЛЯ ДЕДЛАЙНУ ─── */
+.gone .timer{border-color:#24406E;background:#0E2447;text-align:left}
+.gone .timer span,.gone .timer b{color:var(--sky)}
+.gone .dot{background:var(--mist)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="wrap">
+
+  <!-- ── Підтвердження ── -->
+  <div class="paid">
+    <div class="row">
+      <div class="check">✓</div>
+      <b>Оплату отримано. Курс уже твій.</b>
+    </div>
+    <p>Доступ надіслали на <span id="mail">твою пошту</span>. Перевір також «Промоакції» і спам.</p>
+  </div>
+
+  <!-- ── Офер ── -->
+  <h1>Одна пропозиція, яка діє тільки зараз</h1>
+  <p class="lede">Базовий курс — це сім модулів і тридцять днів. Повна версія додає ще чотири модулі й розтягує доступ до трьох місяців.</p>
+  <p class="lede">Окремо вона коштує 1 200 ₴. На цій сторінці — 599 ₴.</p>
+
+  <div class="timer" id="timerBox">
+    <span class="dot"></span>
+    <span>Пропозиція зникне через</span>
+    <b id="clock">15:00</b>
+  </div>
+
+  <!-- ── PRO-модулі ── -->
+  <div class="block">
+    <h2>Чотири модулі PRO</h2>
+    <p>Те, що йде після базової техніки — коли голос уже поставлений і треба ним працювати.</p>
+    <ul class="items">
+      <li>
+        <span class="m">8</span>
+        <div><h3>Голос, який тримає увагу</h3><p>Як говорити так, щоб тебе слухали до кінця, а не чекали паузи, щоб перебити.</p></div>
+      </li>
+      <li>
+        <span class="m">9</span>
+        <div><h3>Сторітелінг голосом</h3><p>Та сама історія звучить нудно або захопливо залежно від того, як ти нею керуєш.</p></div>
+      </li>
+      <li>
+        <span class="m">10</span>
+        <div><h3>Голос у відео та соцмережах</h3><p>Робота з камерою і мікрофоном: чому запис звучить інакше і що з цим робити.</p></div>
+      </li>
+      <li>
+        <span class="m">11</span>
+        <div><h3>Публічні виступи</h3><p>Підготовка голосу перед виходом, тремтіння, дихання, робота із залом.</p></div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Що ще ── -->
+  <div class="block">
+    <h2>І ще три речі</h2>
+    <ul class="extras">
+      <li><b>·</b><span><strong>Доступ 3 місяці</strong> замість 30 днів — можна проходити у своєму темпі й повертатись</span></li>
+      <li><b>·</b><span><strong>30 днів практики PRO</strong> — окремі щоденні завдання під нові модулі</span></li>
+      <li><b>·</b><span><strong>Усі бонуси</strong> — тренажер дикції, медитація, телеграм-група, сертифікат повного курсу</span></li>
+    </ul>
+  </div>
+
+  <!-- ── Рахунок ── -->
+  <div class="calc">
+    <div class="line muted"><span>Повний курс окремо</span><span>1 999 ₴</span></div>
+    <div class="line"><span>Ти вже сплатила</span><span>799 ₴</span></div>
+    <div class="line total">
+      <span>Доплата зараз</span>
+      <span class="price">599 ₴</span>
+    </div>
+    <div class="saving">Разом 1 398 ₴ замість 1 999 ₴</div>
+  </div>
+
+  <a class="btn" href="/pay-upgrade" id="cta">Додати повну версію за 599 ₴</a>
+  <div class="under">Модулі відкриються одразу після оплати, у тому самому кабінеті</div>
+
+  <div class="skip">
+    <a href="/thank-you" id="skip">Ні, дякую — почати базовий курс</a>
+  </div>
+
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  var params = new URLSearchParams(window.location.search);
+
+  /* ── Пошта покупця з параметрів оплати ── */
+  var email = params.get('email');
+  var mail = document.getElementById('mail');
+  if (email && mail) mail.textContent = email;
+
+  /* ── Прокидаємо дані замовлення далі на оплату апгрейду ── */
+  var next = new URLSearchParams();
+  next.set('product', 'upgrade');
+  ['email', 'order', 'orderId', 'invoiceId', 'name', 'phone', 'src'].forEach(function (k) {
+    var v = params.get(k);
+    if (v) next.set(k, v);
+  });
+  if (!next.get('src')) next.set('src', 'blog');
+
+  var cta = document.getElementById('cta');
+  var PAY_HOOK = '/.netlify/functions/mono-ranok-create-upgrade';
+  var busy = false;
+
+  function payUpgrade() {
+    if (busy) return;
+    if (!email) { alert('Не бачимо твою пошту. Напиши нам у директ, відкриємо доступ вручну.'); return; }
+
+    busy = true;
+    var original = cta.textContent;
+    cta.textContent = 'Хвилинку…';
+    cta.style.pointerEvents = 'none';
+
+    fetch(PAY_HOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tier: next.get('tier') === 'late' ? 'upgrade_late' : 'upgrade', email: email })
+    })
+      .then(function (r) {
+        return r.text().then(function (t) {
+          var d = null;
+          try { d = JSON.parse(t); } catch (e) {}
+          if (!r.ok) throw new Error('HTTP ' + r.status + ' · ' + ((d && d.error) || t.slice(0, 150)));
+          return d;
+        });
+      })
+      .then(function (d) {
+        if (d && d.pageUrl) { window.location.href = d.pageUrl; }
+        else { throw new Error('відповідь без pageUrl'); }
+      })
+      .catch(function (err) {
+        console.error('[upgrade] pay error:', err);
+        busy = false;
+        cta.textContent = original;
+        cta.style.pointerEvents = '';
+        alert('Не вдалося відкрити оплату. ' + err.message);
+      });
+  }
+
+  if (cta) {
+    cta.setAttribute('href', '#');
+    cta.addEventListener('click', function (e) { e.preventDefault(); payUpgrade(); });
+  }
+
+  var skip = document.getElementById('skip');
+  if (skip && email) skip.setAttribute('href', '/thank-you?email=' + encodeURIComponent(email));
+
+  /* ── Таймер 15 хвилин, живе в межах сесії ── */
+  var KEY = 'gnm_upgrade_deadline';
+  var deadline;
+  try {
+    var saved = sessionStorage.getItem(KEY);
+    deadline = saved ? parseInt(saved, 10) : null;
+  } catch (e) { deadline = null; }
+
+  if (!deadline || isNaN(deadline)) {
+    deadline = Date.now() + 15 * 60 * 1000;
+    try { sessionStorage.setItem(KEY, String(deadline)); } catch (e) {}
+  }
+
+  var clock = document.getElementById('clock');
+  var timerBox = document.getElementById('timerBox');
+
+  function tick() {
+    var left = deadline - Date.now();
+
+    if (left <= 0) {
+      clearInterval(iv);
+      document.body.classList.add('gone');
+      if (timerBox) {
+        timerBox.innerHTML = '<span class="dot"></span><span>Ціна 599 ₴ більше не діє. Пропозиція чекає на пошті — там вона коштує 999 ₴.</span>';
+      }
+      if (cta) cta.textContent = 'Додати повну версію за 999 ₴';
+      var priceEl = document.querySelector('.price');
+      if (priceEl) priceEl.textContent = '999 ₴';
+      var savingEl = document.querySelector('.saving');
+      if (savingEl) savingEl.textContent = 'Разом 1 798 ₴ замість 1 999 ₴';
+      next.set('tier', 'late');
+      return;
+    }
+
+    var m = Math.floor(left / 60000);
+    var s = Math.floor(left % 60000 / 1000);
+    if (clock) clock.textContent = m + ':' + (s < 10 ? '0' + s : s);
+  }
+
+  tick();
+  var iv = setInterval(tick, 1000);
+
+});
+</script>
+</body>
+</html>

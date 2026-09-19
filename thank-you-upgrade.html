@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Повна версія відкрита</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark only">
+<meta name="theme-color" content="#081B38">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep-navy:#081B38;
+  --navy-2:#0E2447;
+  --sapphire:#2D6AE0;
+  --sky:#DCE7F8;
+  --sky-dim:#AFC4E4;
+  --gold:#C9983A;
+  --gold-light:#EACF88;
+  --ivory:#F7F3EE;
+  --mist:#94A6C2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#081B38 !important;color-scheme:dark}
+body{
+  font-family:'Onest',system-ui,sans-serif;
+  background:#081B38 !important;color:var(--ivory);line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.page{background:#081B38;min-height:100vh;padding:1px 0 52px}
+.wrap{max-width:580px;margin:0 auto;padding:0 24px}
+h1,h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.16}
+
+.paid{border-bottom:1px solid #1B3763;padding:26px 0;margin-bottom:38px}
+.paid .row{display:flex;align-items:center;gap:12px}
+.check{
+  width:28px;height:28px;border-radius:50%;flex:0 0 28px;
+  background:rgba(45,106,224,.22);border:1px solid var(--sapphire);
+  display:flex;align-items:center;justify-content:center;color:var(--sky);font-size:15px;
+}
+.paid b{font-weight:500;font-size:16px;color:#fff}
+
+h1{font-size:clamp(27px,6vw,38px);color:#fff;margin-bottom:16px}
+.lede{font-size:16.5px;color:var(--sky);margin-bottom:10px;max-width:54ch}
+
+.steps{
+  background:var(--navy-2);border:1px solid #1B3763;border-radius:20px;
+  padding:26px 24px;margin:30px 0 26px;
+}
+.steps h2{font-size:19px;color:#fff;margin-bottom:18px}
+.steps ol{list-style:none;display:grid;gap:16px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:12px;counter-increment:s}
+.steps li::before{
+  content:counter(s);
+  font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);padding-top:1px;
+}
+.steps h3{font-family:'Onest',sans-serif;font-weight:500;font-size:16px;color:#fff;margin-bottom:2px}
+.steps p{font-size:14.5px;color:var(--sky-dim)}
+
+.btn{
+  display:block;width:100%;text-align:center;text-decoration:none;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--deep-navy);font-weight:600;font-size:17px;
+  padding:19px 24px;border-radius:100px;transition:transform .16s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.under{font-size:13.5px;color:var(--sky-dim);text-align:center;margin-top:14px}
+
+.help{
+  border-top:1px solid #1B3763;margin-top:34px;padding-top:24px;
+  font-size:14.5px;color:var(--sky-dim);
+}
+.help a{color:var(--sky)}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="wrap">
+
+  <div class="paid">
+    <div class="row">
+      <div class="check">✓</div>
+      <b>Оплату отримано</b>
+    </div>
+  </div>
+
+  <h1>Повна версія відкрита</h1>
+  <p class="lede">Чотири модулі PRO уже додані до твого кабінету, доступ продовжено до трьох місяців.</p>
+  <p class="lede">Заходити треба тим самим логіном, що й раніше — <span id="mail">твоя пошта</span>. Нічого створювати наново не потрібно.</p>
+
+  <div class="steps">
+    <h2>Що робити далі</h2>
+    <ol>
+      <li><div><h3>Зайди на платформу</h3><p>Той самий логін і пароль. Нові модулі вже в списку.</p></div></li>
+      <li><div><h3>Почни з базових модулів</h3><p>PRO має сенс, коли голос уже поставлений. Не перестрибуй одразу до восьмого модуля.</p></div></li>
+      <li><div><h3>Зроби перший день практики</h3><p>Не чекай понеділка. П'ятнадцять хвилин сьогодні дадуть більше, ніж година наступного тижня.</p></div></li>
+    </ol>
+  </div>
+
+  <a class="btn" id="go" href="https://natalkadenysenko.sendpulse.courses/courses/auth/login">Перейти на платформу</a>
+  <div class="under">Кнопка відкриє сторінку входу в новій вкладці</div>
+
+  <div class="help">
+    Щось не відкрилось або не прийшов лист — напиши в <a href="https://instagram.com/natalkavoice.online">директ</a>, розберемось швидко.
+  </div>
+
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var params = new URLSearchParams(window.location.search);
+  var email = params.get('email');
+  if (email) {
+    var m = document.getElementById('mail');
+    if (m) m.textContent = email;
+  }
+  var go = document.getElementById('go');
+  if (go) go.setAttribute('target', '_blank');
+});
+</script>
+</body>
+</html>
