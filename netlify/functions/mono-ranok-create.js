@@ -10,13 +10,13 @@
 const TIERS = {
   // ціни воронки РАНОК (у межах дії промокоду)
   base: {
-    amount: 700,
+    amount: 79900,
     description: 'Голос на мільйон — базовий',
     webhook: 'mono-ranok-webhook-base',
     redirect: '/upgrade-599',
   },
   full: {
-    amount: 1300,
+    amount: 139900,
     description: 'Голос на мільйон — повний',
     webhook: 'mono-ranok-webhook-full',
     redirect: '/thank-you-full',
