@@ -1,218 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дякую за покупку PRO — Голос на мільйон</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Onest:wght@300;400;500;600;700&display=swap');
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Дякую за покупку PRO — Голос на мільйон</title>
+<meta name="theme-color" content="#080808">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Golos+Text:wght@400;500;600;800&family=Fira+Sans+Extra+Condensed:wght@800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080808;--ink:#15110E;--paper:#F2ECDF;--gypsum:#CFC8BA;
+  --accent:#F0421F;--pencil-on-paper:#BE2A0E;--brass:#B8934F;
+  --font-display:"Fira Sans Extra Condensed","Arial Narrow",sans-serif;
+  --font-body:"Golos Text",system-ui,sans-serif;
+  --font-hand:"Caveat","Segoe Print",cursive;
+  --gutter:clamp(1.25rem,4vw,4rem);
+  --sect:clamp(3.5rem,8vw,7rem);
+  --max:1500px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--paper);font:400 1.0625rem/1.5 var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,figure{margin:0;padding:0}
+ul{list-style:none}
+a{color:inherit}
+h1,h2{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:0}
+h1{font-size:min(22.5vw,7rem);line-height:1.13}
+h1 span.l{display:block;white-space:nowrap}
+h2{font-size:clamp(3rem,14vw,8rem);line-height:.98;text-wrap:balance}
+p{max-width:60ch;text-wrap:pretty}
+b,strong{font-weight:800}
+.wrap{width:min(100%,var(--max));margin-inline:auto;padding-inline:var(--gutter)}
+.label{font:600 .8125rem/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;width:100%;min-height:60px;padding:.9em 1.4em;background:var(--accent);color:var(--ink);border:0;border-radius:0;font:800 1.125rem/1.15 var(--font-body);text-decoration:none;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 0 var(--ink)}
+.hand{font:700 clamp(1.875rem,7vw,2.75rem)/1 var(--font-hand);color:var(--accent);display:inline-block;transform:rotate(-3deg)}
+.mk{position:relative;display:inline-block;white-space:nowrap}
+.pen{position:absolute;left:-1%;width:102%;max-width:none;bottom:-.06em;height:.13em;overflow:visible;pointer-events:none;transform-origin:left;animation:draw .8s .35s ease-out backwards}
+.pen path{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+@keyframes draw{from{transform:scaleX(0)}}
 
-    :root {
-      --azure: #1E5FE0;
-      --deep: #0F3FA8;
-      --midnight: #0A1F4A;
-      --breath: #F8FAFD;
-      --sky: #DCE9FB;
-      --line: #E2EAF6;
-      --gold: #E8B547;
-      --body-text: #3a4d6e;
-    }
+/* подяка */
+.thanks{position:relative;background:var(--stage);overflow:clip;padding-bottom:var(--sect)}
+.thanks-pic img{width:100%;aspect-ratio:var(--pic-ratio);object-fit:cover;object-position:var(--pic-pos);filter:saturate(.82) contrast(1.05);-webkit-mask:linear-gradient(#000 55%,#0000 92%);mask:linear-gradient(#000 55%,#0000 92%)}
+.thanks-body{position:relative;margin-top:-3rem}
+.thanks-sub{margin-top:.875rem;font-size:1.125rem;line-height:1.35;font-weight:500}
+.thanks .hand{margin-top:.625rem}
+.note{position:relative;margin-top:1.5rem;background:var(--paper);color:var(--ink);padding:1.25rem;transform:rotate(-.8deg);box-shadow:8px 10px 0 #ffffff14}
+.note-t{font:900 clamp(2.125rem,9.5vw,3.25rem)/1.1 var(--font-display);text-transform:uppercase}
+.note-list{margin-top:1rem;border-top:2px solid var(--ink)}
+.note-list li{padding:.75rem 0;border-bottom:1px solid #15110e40;line-height:1.35}
+.note-list li:last-child{border-bottom:0;padding-bottom:0}
+.note-list b{display:block}
+.note-list a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--pencil-on-paper);text-underline-offset:.15em}
+.folders{display:flex;flex-wrap:wrap;gap:.375rem;margin-top:.5rem}
+.folders span{padding:.25rem .625rem;border:1.5px solid var(--ink);font-weight:600;font-size:.9375rem;line-height:1.3}
+.note .btn{margin-top:1rem}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* офер: аркуш ролі */
+.offer{position:relative;background:var(--accent);color:var(--ink);padding-block:var(--sect);overflow:clip}
+.offer-grid{display:grid;gap:2rem}
+.offer .hand{color:var(--ink)}
+.offer-sub{margin-top:1rem;font-size:1.125rem;line-height:1.35;font-weight:500}
+.sheet{position:relative;background:var(--paper);color:var(--ink);padding:3.25rem 1.25rem 1.5rem;box-shadow:0 2px 0 #0003,10px 14px 0 #0000002e;transform:rotate(-.8deg)}
+.brad{position:absolute;top:1.125rem;width:1rem;height:1rem;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ecd69e,var(--brass) 55%,#6f5526);box-shadow:0 1px 1px #0006}
+.brad.a{left:1.25rem}.brad.b{right:1.25rem}
+.sheet-t{font:900 clamp(3.25rem,15vw,5rem)/1.06 var(--font-display);text-transform:uppercase}
+.remark{font-style:italic;margin-top:.625rem;line-height:1.35}
+.roles{margin-top:1.25rem;border-top:2px solid var(--ink)}
+.roles li{display:grid;gap:.125rem;padding:.75rem 0;border-bottom:1px solid #15110e40;line-height:1.25}
+.roles span{color:#4a423a;font-size:1rem;line-height:1.35}
+.roles .bonus b{color:var(--pencil-on-paper)}
 
-    body {
-      font-family: 'Onest', sans-serif;
-      background: var(--breath);
-      color: var(--midnight);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 48px 40px;
-      max-width: 520px;
-      width: 100%;
-      box-shadow: 0 8px 40px rgba(10, 31, 74, 0.08);
-      text-align: center;
-    }
-
-    .icon-check {
-      width: 80px; height: 80px;
-      background: #e8f5e9;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 36px;
-      animation: popIn 0.5s ease;
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0); opacity: 0; }
-      60% { transform: scale(1.15); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 30px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .sub {
-      font-size: 16px;
-      color: var(--body-text);
-      margin-bottom: 32px;
-    }
-
-    .pro-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold), #d4a03a);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-    }
-
-    .email-notice {
-      background: var(--breath);
-      border: 1.5px solid var(--line);
-      border-radius: 16px;
-      padding: 24px 28px;
-      text-align: left;
-      margin-bottom: 32px;
-    }
-
-    .email-notice strong { color: var(--midnight); }
-    .email-notice p { font-size: 14px; color: var(--body-text); margin-bottom: 10px; }
-    .email-notice p:last-child { margin-bottom: 0; }
-
-    .email-notice .folders {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      margin: 8px 0 12px;
-    }
-
-    .email-notice .folders span {
-      background: var(--sky);
-      color: var(--deep);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
-    .email-notice .help-link {
-      color: var(--azure);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .what-you-get {
-      text-align: left;
-      margin-bottom: 32px;
-    }
-
-    .what-you-get h3 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-
-    .what-you-get li {
-      list-style: none;
-      padding: 8px 0;
-      font-size: 14px;
-      color: var(--body-text);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .what-you-get li::before {
-      content: "✓";
-      color: var(--azure);
-      font-weight: 700;
-      font-size: 15px;
-      flex-shrink: 0;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 16px 40px;
-      background: var(--azure);
-      color: #fff;
-      border: none;
-      border-radius: 60px;
-      font-size: 16px;
-      font-weight: 600;
-      font-family: 'Onest', sans-serif;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .btn:hover {
-      background: var(--deep);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(30, 95, 224, 0.35);
-    }
-
-    @media (max-width: 480px) {
-      .card { padding: 36px 24px; }
-      h1 { font-size: 24px; }
-    }
-  </style>
+footer{background:#080808;color:var(--gypsum);font-size:.9375rem;padding-block:2.5rem}
+footer p+p{margin-top:.5rem}
+@media (min-width:1000px){
+  h1{font-size:clamp(7rem,10.5vw,12rem)}
+  .thanks{padding-block:var(--sect);min-height:min(100vh,62rem);display:flex;align-items:center}
+  .thanks-pic{position:absolute;inset:0 0 0 auto;width:50%}
+  .thanks-pic img{height:100%;aspect-ratio:auto;-webkit-mask:linear-gradient(to right,#0000,#000 35%);mask:linear-gradient(to right,#0000,#000 35%)}
+  .pro h1{font-size:clamp(5.5rem,8vw,9rem)}
+  .thanks-body{margin-top:0;width:min(100%,var(--max))}
+  .thanks-col{width:min(50%,44rem)}
+  .note{padding:1.75rem}
+  .offer-grid{grid-template-columns:minmax(0,1fr) minmax(0,38rem);gap:clamp(2.5rem,6vw,6rem);align-items:start}
+  .sheet{padding:3.5rem 2.25rem 2rem}
+  .offer h2{font-size:clamp(4.5rem,7.5vw,8rem)}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-
-<div class="card">
-  <div class="icon-check">✓</div>
-  <h1>Дякую! Обидва доступи ваші</h1>
-  <p class="sub">Базовий курс + блок PRO — все в одному кабінеті</p>
-
-  <span class="pro-badge">PRO підключено</span>
-
-  <div class="email-notice">
-    <p><strong>Лист із доступом та паролем</strong> вже надіслано на вашу пошту.</p>
-    <p>Перевірте всі папки:</p>
-    <div class="folders">
-      <span>Спам</span>
-      <span>Промоакції</span>
-      <span>Сповіщення</span>
+<main>
+<section class="thanks pro" style="--stage:#080808;--pic-ratio:1/.66;--pic-pos:50% 3%" aria-label="Доступи відкрито">
+  <figure class="thanks-pic"><img src="/adsnew/img/hero.jpg" width="1000" height="1500" alt="Наталка Денисенко на чорному тлі сцени, руки на поясі, дивиться прямо в камеру" fetchpriority="high"></figure>
+  <div class="wrap thanks-body"><div class="thanks-col">
+    <span class="hand" aria-hidden="true">дякую! PRO підключено</span>
+    <h1><span class="l">Обидва</span><span class="l">доступи</span><span class="l"><span class="mk">твої<svg class="pen" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 7C50 3 96 9 150 5s100-3 148 2"/></svg></span></span></h1>
+    <p class="thanks-sub">Базовий курс і блок PRO, усе в одному кабінеті.</p>
+    <div class="note">
+      <h2 class="note-t">Доступ і пароль уже на твоїй пошті</h2>
+      <ul class="note-list">
+        <li><b>Не бачиш листа? Перевір усі папки</b><div class="folders"><span>Спам</span><span>Промоакції</span><span>Сповіщення</span></div></li>
+        <li><b>Відправник</b>Академія комунікації та голосу Наталки Денисенко</li>
+        <li><b>Не знайшла?</b>Напиши <a href="https://t.me/kodvd_communication" target="_blank" rel="noopener">менеджеру в Telegram</a></li>
+      </ul>
+      <a class="btn" href="https://natalkadenysenko.sendpulse.courses/courses/auth/login">Перейти до навчання →</a>
     </div>
-    <p>Відправник: <strong>Академія комунікації та голосу Наталки Денисенко</strong></p>
-    <p>Не знайшли лист? Зверніться до <a href="https://t.me/kodvd_communication" class="help-link">менеджера в Telegram</a></p>
+  </div></div>
+</section>
+
+<section class="offer" aria-label="Що тебе чекає">
+  <div class="wrap offer-grid">
+    <div>
+      <span class="hand" aria-hidden="true">твій аркуш ролі</span>
+      <h2 style="margin-top:.5rem">Що тебе чекає</h2>
+    </div>
+    <article class="sheet">
+      <i class="brad a" aria-hidden="true"></i><i class="brad b" aria-hidden="true"></i>
+      <h3 class="sheet-t">Голос на мільйон + PRO</h3>
+      <ul class="roles">
+        <li><b>7 теоретичних модулів</b><span>Постановка голосу</span></li>
+        <li><b>30-денна практика</b><span>Щоденні відеовправи</span></li>
+        <li><b>PRO: Голос, який тримає увагу</b></li>
+        <li><b>PRO: Сторітелінг голосом</b></li>
+        <li><b>PRO: Голос у відео та соцмережах</b></li>
+        <li><b>PRO: Публічні виступи</b></li>
+        <li class="bonus"><b>Бонус: +30 додаткових днів доступу</b></li>
+        <li><b>Авторська медитація Наталки Денисенко</b></li>
+        <li><b>Сертифікат по завершенню</b></li>
+      </ul>
+      <a class="btn" style="margin-top:1.25rem" href="https://natalkadenysenko.sendpulse.courses/courses/auth/login">Перейти до навчання →</a>
+    </article>
   </div>
+</section>
+</main>
 
-  <ul class="what-you-get">
-    <h3>Що вас чекає</h3>
-    <li>7 теоретичних модулів з постановки голосу</li>
-    <li>30-денна практика (щоденні відеовправи)</li>
-    <li>PRO: Голос, який тримає увагу</li>
-    <li>PRO: Сторітелінг голосом</li>
-    <li>PRO: Голос у відео та соцмережах</li>
-    <li>PRO: Публічні виступи</li>
-    <li>+30 додаткових днів доступу (бонус)</li>
-    <li>Авторська медитація Наталки Денисенко</li>
-    <li>Сертифікат по завершенню</li>
-  </ul>
-
-  <a href="https://natalkadenysenko.sendpulse.courses/courses/auth/login" class="btn">Перейти до навчання →</a>
-</div>
-
+<footer aria-label="Юридична інформація">
+  <div class="wrap">
+    <p>ФОП Денисенко Олександр Дмитрович · РНОКПП 1995303258</p>
+    <p><a href="https://t.me/kodvd_communication" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:golos1million@gmail.com">golos1million@gmail.com</a> · <a href="https://drive.google.com/file/d/1lfBKxANzT4toTtStBflbZv4gWNFFhoJf/view?usp=sharing" target="_blank" rel="noopener">Публічна оферта</a> · <a href="https://drive.google.com/file/d/1Fu1frfMtYF1arBrRhnQZTsgMpJUMng13/view?usp=drive_link" target="_blank" rel="noopener">Політика конфіденційності</a></p>
+    <p>Усі матеріали мають освітню мету. Результат залежить від твоєї практики, і ми не гарантуємо конкретних результатів. © 2026</p>
+  </div>
+</footer>
 </body>
 </html>
