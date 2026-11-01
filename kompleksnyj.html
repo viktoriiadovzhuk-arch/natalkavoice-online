@@ -1,1959 +1,436 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Голос на мільйон — Комплексний курс по голосу · Наталка Денисенко</title>
 <meta name="description" content="Комплексний курс по голосу від Наталки Денисенко. 11 модулів + 30 днів практики. Старт уже сьогодні.">
+<meta property="og:title" content="Голос на мільйон — комплексний курс Наталки Денисенко">
+<meta property="og:description" content="11 модулів і 30 днів практики: від дихання до публічних виступів. 1 999 грн.">
+<meta property="og:image" content="https://natalkavoice.online/home/img/og.jpg">
+<meta name="theme-color" content="#102A6E">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Onest:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;700;800;900&family=Onest:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════════════
-   ГОЛОС НА МІЛЬЙОН · КОМПЛЕКСНИЙ КУРС · 2026
-   Brandbook v2 · Deep palette
-   ══════════════════════════════════════════════ */
-
-:root {
-  /* Core */
-  --navy:       #081B38;
-  --royal:      #1749B0;
-  --sapphire:   #2D6AE0;
-  --sapphire-s: #5B8DEF;
-  --sky:        #C5D8F6;
-  --sky-mist:   #E4EDF9;
-
-  /* Gold */
-  --gold:       #C9983A;
-  --gold-light: #E4C87A;
-  --gold-deep:  #9A7428;
-  --gold-glow:  rgba(201,152,58,0.15);
-
-  /* Surfaces */
-  --ivory:      #F7F3EE;
-  --parchment:  #FDFBF8;
-  --sand:       #EBE3D9;
-
-  /* Text */
-  --charcoal:   #1A1A2E;
-  --slate:      #4A4E69;
-  --mist:       #8B8FA3;
-
-  /* Accents */
-  --blush:      #D4A48C;
-  --blush-lt:   #F0DDD3;
-  --teal:       #1A5C52;
-
-  /* Effects */
-  --glow-royal: rgba(23,73,176,0.35);
-  --glow-saph:  rgba(45,106,224,0.2);
-  --glow-gold:  rgba(201,152,58,0.25);
-
-  /* Type */
-  --serif:      'Playfair Display', Georgia, serif;
-  --serif-alt:  'Cormorant Garamond', Georgia, serif;
-  --sans:       'Onest', -apple-system, system-ui, sans-serif;
-
-  /* Motion */
-  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out:   cubic-bezier(0, 0, 0.2, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: var(--sans);
-  background: var(--ivory);
-  color: var(--charcoal);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-section { padding: 120px 0; position: relative; overflow: hidden; }
-img { max-width: 100%; display: block; }
-
-/* ═══ SCROLL REVEAL ═══ */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-}
-.reveal.in { opacity: 1; transform: translateY(0); }
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-}
-.reveal-left.in { opacity: 1; transform: translateX(0); }
-.reveal-right {
-  opacity: 0;
-  transform: translateX(60px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-}
-.reveal-right.in { opacity: 1; transform: translateX(0); }
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-}
-.reveal-scale.in { opacity: 1; transform: scale(1); }
-
-/* Stagger children */
-.stagger > * { opacity: 0; transform: translateY(30px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.stagger.in > *:nth-child(1) { transition-delay: 0s; }
-.stagger.in > *:nth-child(2) { transition-delay: 0.1s; }
-.stagger.in > *:nth-child(3) { transition-delay: 0.2s; }
-.stagger.in > *:nth-child(4) { transition-delay: 0.25s; }
-.stagger.in > *:nth-child(5) { transition-delay: 0.3s; }
-.stagger.in > *:nth-child(6) { transition-delay: 0.35s; }
-.stagger.in > *:nth-child(7) { transition-delay: 0.4s; }
-.stagger.in > *:nth-child(8) { transition-delay: 0.45s; }
-.stagger.in > *:nth-child(9) { transition-delay: 0.5s; }
-.stagger.in > *:nth-child(10) { transition-delay: 0.55s; }
-.stagger.in > *:nth-child(11) { transition-delay: 0.6s; }
-.stagger.in > * { opacity: 1; transform: translateY(0); }
-
-/* ═══ FLOATING ANIMATIONS ═══ */
-@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
-@keyframes floatX { 0%,100%{transform:translateX(0)} 50%{transform:translateX(12px)} }
-@keyframes floatYR { 0%,100%{transform:translateY(0)} 50%{transform:translateY(14px)} }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
-@keyframes spin { to{transform:rotate(360deg)} }
-@keyframes glow { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:0.7;transform:scale(1.05)} }
-@keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
-@keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
-
-/* ═══ BRAND DECORATIVE ELEMENTS ═══ */
-.deco-orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(80px);
-}
-.deco-dots {
-  position: absolute;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle at 1px 1px, rgba(23,73,176,0.08) 1px, transparent 0);
-  background-size: 24px 24px;
-  pointer-events: none;
-  opacity: 0.6;
-}
-.deco-ring {
-  position: absolute;
-  border: 1px solid rgba(23,73,176,0.1);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: spin 60s linear infinite;
-}
-.deco-line {
-  position: absolute;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, var(--sand), transparent);
-  pointer-events: none;
-}
-
-/* ═══ SECTION HELPERS ═══ */
-.sec-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  font-family: var(--serif-alt);
-  font-style: italic;
-  font-size: 17px;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-.sec-label::before {
-  content: '';
-  width: 32px; height: 1px;
-  background: var(--gold);
-}
-.sec-title {
-  font-family: var(--serif);
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--charcoal);
-  margin: 0 0 20px;
-}
-.sec-title em { font-style: italic; color: var(--royal); }
-
-/* ═══ NAVBAR ═══ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 1000;
-  padding: 20px 0;
-  transition: all 0.4s var(--ease);
-}
-.nav.scrolled {
-  background: rgba(253,251,248,0.92);
-  backdrop-filter: blur(16px);
-  padding: 14px 0;
-  box-shadow: 0 2px 20px rgba(8,27,56,0.06);
-}
-.nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: 0 40px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.brand {
-  display: flex; align-items: center; gap: 12px;
-  font-family: var(--serif);
-  font-size: 17px; font-weight: 600;
-  color: var(--navy);
-  text-decoration: none;
-}
-.brand-mark {
-  width: 36px; height: 36px;
-  background: var(--royal);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 14px; font-weight: 700;
-  box-shadow: 0 4px 12px var(--glow-royal);
-}
-.nav-cta {
-  padding: 12px 28px;
-  background: var(--royal);
-  color: #fff;
-  border: none; border-radius: 60px;
-  font-family: var(--sans);
-  font-size: 14px; font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s var(--ease);
-}
-.nav-cta:hover {
-  background: var(--navy);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px var(--glow-royal);
-}
-
-/* ═══ HERO ═══ */
-.hero {
-  min-height: 100vh;
-  background: var(--navy);
-  display: flex; align-items: center;
-  position: relative;
-  padding: 140px 0 100px;
-  overflow: hidden;
-}
-
-/* Hero background effects */
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 25% 30%, rgba(23,73,176,0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 75% 70%, rgba(201,152,58,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 100%, rgba(45,106,224,0.15) 0%, transparent 40%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
-  background-size: 40px 40px;
-  pointer-events: none;
-}
-
-/* Floating orbs in hero */
-.hero-orb1 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, var(--royal) 0%, transparent 70%);
-  top: -100px; left: -100px;
-  opacity: 0.2;
-  animation: glow 8s ease-in-out infinite;
-}
-.hero-orb2 {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, var(--sapphire) 0%, transparent 70%);
-  bottom: -80px; right: -80px;
-  opacity: 0.15;
-  animation: glow 10s ease-in-out infinite 2s;
-}
-.hero-orb3 {
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
-  top: 30%; right: 20%;
-  opacity: 0.1;
-  animation: floatY 12s ease-in-out infinite;
-}
-
-/* Floating rings */
-.hero-ring1 {
-  width: 600px; height: 600px;
-  border: 1px solid rgba(91,141,239,0.08);
-  top: -200px; right: -200px;
-  animation: spin 80s linear infinite;
-}
-.hero-ring2 {
-  width: 400px; height: 400px;
-  border: 1px solid rgba(201,152,58,0.06);
-  bottom: -150px; left: -100px;
-  animation: spin 60s linear infinite reverse;
-}
-
-/* Hero layout */
-.hero-grid {
-  position: relative; z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.hero-text {
-  animation: slideUp 1s var(--ease);
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 28px;
-}
-.hero-eyebrow .pulse-dot {
-  width: 8px; height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 12px var(--glow-gold);
-}
-
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(48px, 6vw, 76px);
-  font-weight: 500;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin: 0 0 8px;
-}
-.hero h1 em { font-style: italic; color: var(--sapphire-s); }
-
-.hero-sub {
-  font-family: var(--serif-alt);
-  font-style: italic;
-  font-size: 19px;
-  color: var(--sky);
-  opacity: 0.7;
-  max-width: 480px;
-  line-height: 1.5;
-  margin-bottom: 36px;
-}
-
-.hero-offer {
-  display: flex; align-items: center; gap: 24px;
-  margin-bottom: 32px;
-  animation: slideUp 1s var(--ease) 0.2s both;
-}
-.hero-price {
-  font-family: var(--serif);
-  font-size: 52px;
-  font-weight: 600;
-  color: #fff;
-}
-.hero-price .cur {
-  font-size: 28px;
-  color: var(--sapphire-s);
-  margin-left: 4px;
-}
-.hero-price-old {
-  font-size: 18px;
-  color: var(--mist);
-  text-decoration: line-through;
-}
-
-.hero-cta {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 18px 40px;
-  background: var(--royal);
-  color: #fff;
-  border: none; border-radius: 60px;
-  font-family: var(--sans);
-  font-size: 17px; font-weight: 600;
-  cursor: pointer;
-  transition: all 0.4s var(--ease);
-  position: relative;
-  overflow: hidden;
-  animation: slideUp 1s var(--ease) 0.3s both;
-}
-.hero-cta::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s;
-}
-.hero-cta:hover::before { transform: translateX(100%); }
-.hero-cta:hover {
-  background: var(--sapphire);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px var(--glow-royal);
-}
-
-.hero-stats {
-  display: flex; gap: 32px;
-  margin-top: 8px;
-  animation: slideUp 1s var(--ease) 0.4s both;
-}
-.hero-stat {
-  text-align: center;
-}
-.hero-stat b {
-  display: block;
-  font-family: var(--serif);
-  font-size: 28px;
-  color: #fff;
-  line-height: 1;
-}
-.hero-stat span {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--mist);
-}
-
-/* Hero photo side */
-.hero-photo {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  animation: slideUp 1.2s var(--ease) 0.3s both;
-}
-
-.hero-photo-img {
-  width: 80%;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-  box-shadow:
-    0 40px 80px rgba(0,0,0,0.4),
-    0 20px 40px rgba(23,73,176,0.2);
-}
-.hero-photo-img img {
-  width: 100%; height: auto;
-  display: block;
-}
-
-/* Floating tags around photo */
-.hero-tag {
-  position: absolute;
-  background: rgba(253,251,248,0.95);
-  backdrop-filter: blur(8px);
-  padding: 14px 20px;
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-  z-index: 3;
-  font-size: 14px;
-  color: var(--charcoal);
-  border: 1px solid rgba(235,227,217,0.3);
-}
-.hero-tag b { display: block; font-family: var(--serif); font-size: 20px; color: var(--royal); line-height: 1; }
-.hero-tag.t1 { top: 15%; left: -10%; animation: floatY 7s ease-in-out infinite; }
-.hero-tag.t2 { bottom: 20%; right: -5%; animation: floatYR 8s ease-in-out infinite; }
-.hero-tag.t3 {
-  top: 55%; left: -15%;
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 10px 18px;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px var(--glow-gold);
-  animation: floatX 9s ease-in-out infinite;
-}
-.hero-tag.t4 {
-  bottom: 8%; left: -8%;
-  background: rgba(26,92,82,0.9);
-  color: #fff;
-  border: none;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 10px 18px;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(26,92,82,0.3);
-  animation: floatYR 10s ease-in-out infinite 1s;
-}
-
-/* ═══ PAIN SECTION ═══ */
-.pain-section { background: var(--parchment); }
-.pain-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 48px;
-}
-.pain-card {
-  background: #fff;
-  border: 1px solid var(--sand);
-  border-radius: 14px;
-  padding: 28px 24px;
-  transition: all 0.4s var(--ease);
-  position: relative;
-  overflow: hidden;
-}
-.pain-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--royal), var(--sapphire));
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.pain-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(8,27,56,0.08);
-  border-color: var(--royal);
-}
-.pain-card:hover::before { opacity: 1; }
-.pain-num {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 28px;
-  color: var(--sand);
-  margin-bottom: 12px;
-}
-.pain-card p {
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--slate);
-  margin: 0;
-}
-
-.pain-conclusion {
-  margin-top: 48px;
-  background: var(--navy);
-  border-radius: 16px;
-  padding: 48px 56px;
-  position: relative;
-  overflow: hidden;
-}
-.pain-conclusion::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 80% 50%, rgba(23,73,176,0.3) 0%, transparent 60%);
-  pointer-events: none;
-}
-.pain-conclusion p {
-  font-family: var(--serif-alt);
-  font-style: italic;
-  font-size: 22px;
-  color: var(--sky);
-  line-height: 1.5;
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
-  margin: 0;
-}
-.pain-conclusion strong { color: #fff; font-weight: 500; }
-
-/* ═══ PROMISE SECTION ═══ */
-.promise-section { background: var(--ivory); }
-.promise-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 48px;
-}
-.promise-card {
-  padding: 24px 28px;
-  border-radius: 12px;
-  background: var(--parchment);
-  border: 1px solid var(--sand);
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  transition: all 0.3s var(--ease);
-}
-.promise-card:hover {
-  transform: translateX(8px);
-  border-color: var(--royal);
-  background: #fff;
-}
-.promise-icon {
-  width: 40px; height: 40px;
-  background: var(--sky-mist);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  color: var(--royal);
-  font-size: 18px;
-}
-.promise-card p {
-  font-size: 15px;
-  color: var(--charcoal);
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* ═══ PROGRAM SECTION ═══ */
-.program-section { background: var(--parchment); }
-
-.program-parts {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin-top: 48px;
-}
-
-.program-part-label {
-  display: flex; align-items: center; gap: 12px;
-  margin: 32px 0 16px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  font-weight: 600;
-}
-.program-part-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--sand);
-}
-.program-part-label:first-child { margin-top: 0; }
-
-/* Module accordion */
-.module {
-  background: #fff;
-  border: 1px solid var(--sand);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: all 0.4s var(--ease);
-}
-.module:hover {
-  border-color: var(--royal);
-  box-shadow: 0 8px 24px rgba(8,27,56,0.06);
-}
-.module.open {
-  border-color: var(--royal);
-  box-shadow: 0 12px 32px rgba(23,73,176,0.1);
-}
-
-.module-head {
-  display: grid;
-  grid-template-columns: 80px 1fr 40px;
-  align-items: center;
-  padding: 28px 32px;
-  gap: 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.module-head:hover { background: var(--ivory); }
-
-.module-num {
-  font-family: var(--serif);
-  font-size: 32px;
-  color: var(--sand);
-  line-height: 1;
-  transition: color 0.3s;
-}
-.module-num span {
-  display: block;
-  font-family: var(--sans);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--mist);
-  margin-bottom: 2px;
-}
-.module.open .module-num { color: var(--royal); }
-
-.module-title {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--charcoal);
-  margin: 0;
-  line-height: 1.3;
-}
-
-.module-toggle {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: var(--ivory);
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.4s var(--ease);
-}
-.module.open .module-toggle {
-  background: var(--royal);
-  transform: rotate(180deg);
-}
-.module.open .module-toggle svg { color: #fff; }
-
-.module-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s var(--ease);
-}
-.module.open .module-body { max-height: 400px; }
-.module-body-inner {
-  padding: 0 32px 32px 132px;
-  border-top: 1px solid var(--sand);
-}
-.module-body-inner p {
-  font-size: 16px;
-  line-height: 1.65;
-  color: var(--slate);
-  margin: 20px 0 0;
-  position: relative;
-  padding-left: 20px;
-}
-.module-body-inner p::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--royal);
-  font-weight: 700;
-}
-
-/* PRO badge */
-.pro-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  padding: 4px 10px;
-  border-radius: 4px;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-/* ═══ PRACTICE SECTION ═══ */
-.practice-block {
-  margin-top: 80px;
-  padding: 80px 70px;
-  background: linear-gradient(135deg, var(--navy) 0%, #0C2550 100%);
-  border-radius: 16px;
-  color: var(--sky);
-  position: relative;
-  overflow: hidden;
-}
-.practice-block::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
-  background-size: 28px 28px;
-  pointer-events: none;
-}
-.practice-block::after {
-  content: '';
-  position: absolute;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--sapphire) 0%, transparent 60%);
-  filter: blur(80px);
-  opacity: 0.25;
-  top: -150px; right: -150px;
-  pointer-events: none;
-  animation: glow 10s ease-in-out infinite;
-}
-
-.practice-eyebrow {
-  display: inline-flex; align-items: center; gap: 14px;
-  font-family: var(--serif-alt);
-  font-style: italic;
-  font-size: 18px;
-  color: var(--sapphire-s);
-  margin-bottom: 22px;
-  position: relative; z-index: 1;
-}
-.practice-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--sapphire-s); }
-
-.practice-block h3 {
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.1;
-  color: #fff;
-  margin: 0 0 24px;
-  font-weight: 500;
-  position: relative; z-index: 1;
-  max-width: 700px;
-}
-.practice-block h3 em { color: var(--sapphire-s); font-style: italic; }
-.practice-block .lede {
-  font-family: var(--serif-alt);
-  font-style: italic;
-  font-size: 20px;
-  color: rgba(197,216,246,0.7);
-  max-width: 600px;
-  line-height: 1.5;
-  margin: 0 0 48px;
-  position: relative; z-index: 1;
-}
-
-.practice-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative; z-index: 1;
-  margin-bottom: 48px;
-}
-.practice-cell {
-  padding: 28px 24px;
-  background: rgba(8,27,56,0.6);
-  backdrop-filter: blur(4px);
-}
-.practice-cell h4 {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  margin: 0 0 8px;
-}
-.practice-cell p {
-  font-size: 14px;
-  color: rgba(197,216,246,0.6);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* ═══ OBJECTIONS ═══ */
-.obj-section { background: var(--ivory); }
-.obj-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 20px;
-  margin-top: 48px;
-}
-.objection {
-  background: var(--parchment);
-  border: 1px solid var(--sand);
-  border-radius: 14px;
-  padding: 32px 28px;
-  transition: all 0.3s var(--ease);
-}
-.objection:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(8,27,56,0.06);
-}
-.obj-q {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--charcoal);
-  margin: 0 0 12px;
-}
-.obj-a {
-  font-size: 15px;
-  color: var(--slate);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ═══ ABOUT ═══ */
-.about-section {
-  background: var(--parchment);
-  position: relative;
-}
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-.about-photo {
-  position: relative;
-}
-.about-photo-glow {
-  position: absolute;
-  width: 80%; height: 80%;
-  top: 10%; left: 10%;
-  background: radial-gradient(circle, var(--sapphire) 0%, transparent 60%);
-  filter: blur(60px);
-  opacity: 0.15;
-  z-index: 1;
-  animation: glow 8s ease-in-out infinite;
-}
-.about-tag {
-  position: absolute;
-  top: 60%; right: -20px;
-  background: var(--parchment);
-  border: 1px solid var(--sand);
-  padding: 18px 24px;
-  border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(8,27,56,0.12);
-  max-width: 200px;
-  font-family: var(--serif-alt);
-  font-style: italic;
-  font-size: 15px;
-  color: var(--charcoal);
-  z-index: 3;
-  animation: floatYR 9s ease-in-out infinite;
-}
-.about-tag::before {
-  content: '"';
-  position: absolute;
-  top: -12px; left: 16px;
-  font-family: var(--serif);
-  font-size: 48px;
-  color: var(--royal);
-  line-height: 1;
-}
-
-/* About enhanced effects */
-.about-photo-glow2 {
-  position: absolute;
-  width: 60%; height: 60%;
-  top: 5%; right: -10%;
-  background: radial-gradient(circle, var(--gold) 0%, transparent 60%);
-  filter: blur(60px);
-  opacity: 0.1;
-  z-index: 1;
-  animation: glow 10s ease-in-out infinite 3s;
-}
-.about-photo-ring {
-  position: absolute;
-  width: 110%; height: 110%;
-  top: -5%; left: -5%;
-  border: 1px solid rgba(23,73,176,0.08);
-  border-radius: 12px;
-  z-index: 0;
-  animation: floatY 12s ease-in-out infinite;
-  transform-origin: center;
-}
-.about-photo-ring2 {
-  position: absolute;
-  width: 120%; height: 120%;
-  top: -10%; left: -10%;
-  border: 1px solid rgba(201,152,58,0.06);
-  border-radius: 16px;
-  z-index: 0;
-  animation: floatYR 14s ease-in-out infinite 2s;
-}
-.about-float-stat {
-  position: absolute;
-  background: rgba(253,251,248,0.95);
-  backdrop-filter: blur(8px);
-  padding: 14px 18px;
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(8,27,56,0.15);
-  z-index: 4;
-  text-align: center;
-  border: 1px solid rgba(235,227,217,0.4);
-}
-.about-float-stat b {
-  display: block;
-  font-family: var(--serif);
-  font-size: 22px;
-  color: var(--royal);
-  line-height: 1;
-}
-.about-float-stat span {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--mist);
-}
-.about-float-stat.af1 {
-  top: 8%; right: -24px;
-  animation: floatY 7s ease-in-out infinite;
-}
-.about-float-stat.af2 {
-  bottom: 12%; left: -28px;
-  animation: floatYR 8s ease-in-out infinite 1.5s;
-}
-
-/* About section slide-in photo */
-.about-photo-img {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow:
-    0 32px 64px rgba(8,27,56,0.18),
-    0 0 0 1px rgba(23,73,176,0.06),
-    inset 0 0 80px rgba(23,73,176,0.03);
-  position: relative;
-  z-index: 2;
-  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
-}
-.about-photo-img:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow:
-    0 40px 80px rgba(8,27,56,0.22),
-    0 0 40px rgba(23,73,176,0.08),
-    0 0 0 1px rgba(23,73,176,0.1);
-}
-.about-photo-img img {
-  width: 100%; height: auto;
-  display: block;
-}
-
-.about-content .stat-row {
-  display: flex; gap: 24px;
-  margin-top: 32px;
-}
-.about-stat {
-  padding: 16px 20px;
-  background: var(--ivory);
-  border: 1px solid var(--sand);
-  border-radius: 10px;
-  text-align: center;
-  flex: 1;
-}
-.about-stat b {
-  display: block;
-  font-family: var(--serif);
-  font-size: 24px;
-  color: var(--royal);
-  line-height: 1;
-}
-.about-stat span {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--mist);
-}
-
-/* ═══ REVIEWS ═══ */
-.reviews-section { background: var(--ivory); }
-.review-slider-wrap { position: relative; margin-top: 48px; }
-.review-controls {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 20px;
-}
-.review-info { font-size: 14px; color: var(--mist); }
-.review-info b { color: var(--charcoal); }
-.review-arrows { display: flex; gap: 8px; }
-.review-arrow {
-  width: 44px; height: 44px;
-  border: 1.5px solid var(--sand);
-  background: #fff;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  color: var(--charcoal);
-}
-.review-arrow:hover {
-  border-color: var(--royal);
-  color: var(--royal);
-  transform: scale(1.08);
-}
-
-.review-slider {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 8px 0 24px;
-  scrollbar-width: none;
-}
-.review-slider::-webkit-scrollbar { display: none; }
-
-.review-slide {
-  flex: 0 0 auto;
-  width: 280px;
-  scroll-snap-align: start;
-  background: #fff;
-  border: 1px solid var(--sand);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: all 0.4s var(--ease);
-  box-shadow: 0 4px 16px rgba(8,27,56,0.04);
-}
-.review-slide:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(8,27,56,0.08);
-  border-color: var(--royal);
-}
-.review-slide img {
-  width: 100%; height: auto;
-  display: block;
-}
-
-/* ═══ OFFER ═══ */
-.offer-section {
-  background: var(--navy);
-  position: relative;
-  overflow: hidden;
-}
-.offer-section::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 30%, rgba(23,73,176,0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(201,152,58,0.08) 0%, transparent 50%);
-  pointer-events: none;
-}
-.offer-section::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
-  background-size: 36px 36px;
-  pointer-events: none;
-}
-
-.offer-inner {
-  position: relative; z-index: 2;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.offer-list {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 40px;
-  backdrop-filter: blur(4px);
-}
-.offer-list h4 {
-  font-family: var(--serif);
-  font-size: 22px;
-  color: #fff;
-  margin: 0 0 24px;
-}
-.offer-list ul { list-style: none; padding: 0; margin: 0; }
-.offer-list li {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  font-size: 15px;
-  color: var(--sky);
-}
-.offer-list li:last-child { border-bottom: none; }
-.offer-list li svg { flex-shrink: 0; margin-top: 2px; color: var(--sapphire-s); }
-.offer-list li b { color: #fff; }
-
-.offer-cta-block {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 40px;
-  text-align: center;
-  backdrop-filter: blur(4px);
-  position: sticky;
-  top: 100px;
-}
-
-.offer-timer {
-  background: rgba(201,152,58,0.1);
-  border: 1px solid rgba(201,152,58,0.2);
-  border-radius: 10px;
-  padding: 12px 20px;
-  margin-bottom: 28px;
-}
-.offer-timer .label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--gold);
-  display: block;
-  margin-bottom: 4px;
-}
-.offer-timer .clock {
-  font-family: var(--serif);
-  font-size: 28px;
-  color: var(--gold-light);
-  font-variant-numeric: tabular-nums;
-}
-
-.offer-price {
-  font-family: var(--serif);
-  font-size: 56px;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1;
-}
-.offer-price .cur { font-size: 28px; color: var(--sapphire-s); margin-left: 4px; }
-.offer-price-old {
-  font-size: 18px;
-  color: var(--mist);
-  text-decoration: line-through;
-  margin-top: 4px;
-}
-
-.offer-buy {
-  display: block;
-  width: 100%;
-  padding: 18px;
-  background: var(--royal);
-  color: #fff;
-  border: none; border-radius: 60px;
-  font-family: var(--sans);
-  font-size: 17px; font-weight: 600;
-  cursor: pointer;
-  transition: all 0.4s;
-  margin-top: 24px;
-  position: relative;
-  overflow: hidden;
-}
-.offer-buy::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s;
-}
-.offer-buy:hover::before { transform: translateX(100%); }
-.offer-buy:hover {
-  background: var(--sapphire);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px var(--glow-royal);
-}
-
-.offer-guarantee {
-  margin-top: 20px;
-  font-size: 12px;
-  color: var(--mist);
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-}
-.offer-guarantee svg { width: 14px; height: 14px; fill: var(--mist); }
-
-.offer-disclaimer {
-  margin-top: 20px;
-  font-size: 11px;
-  color: rgba(197,216,246,0.4);
-  line-height: 1.6;
-}
-
-/* ═══ FAQ ═══ */
-.faq-section { background: var(--parchment); }
-.faq-list { margin-top: 48px; max-width: 800px; }
-.faq-item {
-  border-bottom: 1px solid var(--sand);
-}
-.faq-q {
-  width: 100%;
-  background: none; border: none;
-  padding: 24px 0;
-  text-align: left;
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--charcoal);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  transition: color 0.3s;
-}
-.faq-q:hover { color: var(--royal); }
-.faq-q svg {
-  flex-shrink: 0;
-  transition: transform 0.4s var(--ease);
-  color: var(--mist);
-}
-.faq-item.open .faq-q svg { transform: rotate(180deg); color: var(--royal); }
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s var(--ease);
-}
-.faq-item.open .faq-a { max-height: 200px; }
-.faq-a p {
-  padding: 0 0 24px;
-  font-size: 15px;
-  color: var(--slate);
-  line-height: 1.65;
-  margin: 0;
-}
-
-/* ═══ FOOTER ═══ */
-footer {
-  background: var(--navy);
-  color: var(--sky);
-  padding: 60px 0 40px;
-}
-footer .wrap { text-align: center; }
-footer .foot-brand {
-  font-family: var(--serif);
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 8px;
-}
-footer p {
-  font-size: 13px;
-  color: var(--mist);
-  line-height: 1.6;
-  margin: 6px 0;
-}
-footer a {
-  color: var(--sapphire-s);
-  text-decoration: none;
-}
-footer a:hover { text-decoration: underline; }
-footer .foot-legal {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  font-size: 11px;
-  color: rgba(197,216,246,0.4);
-  max-width: 700px;
-  margin-left: auto; margin-right: auto;
-}
-
-/* ═══ STICKY CTA ═══ */
-.sticky-cta {
-  position: fixed;
-  bottom: -80px;
-  left: 50%; transform: translateX(-50%);
-  background: rgba(253,251,248,0.95);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--sand);
-  border-radius: 60px;
-  padding: 10px 12px 10px 24px;
-  display: flex; align-items: center; gap: 16px;
-  z-index: 999;
-  box-shadow: 0 8px 32px rgba(8,27,56,0.12);
-  transition: bottom 0.5s var(--ease);
-  white-space: nowrap;
-}
-.sticky-cta.visible { bottom: 24px; }
-.sticky-cta-text { font-size: 14px; color: var(--charcoal); }
-.sticky-cta-text b { font-family: var(--serif); font-size: 18px; color: var(--royal); margin-right: 4px; }
-.sticky-cta-btn {
-  padding: 12px 24px;
-  background: var(--royal);
-  color: #fff;
-  border: none; border-radius: 60px;
-  font-family: var(--sans);
-  font-size: 14px; font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.sticky-cta-btn:hover { background: var(--navy); }
-
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-photo { margin-top: 40px; }
-  .hero-sub { margin-left: auto; margin-right: auto; }
-  .hero-offer { justify-content: center; }
-  .hero-stats { justify-content: center; }
-  .hero-tag { display: none; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-photo { max-width: 400px; margin: 0 auto 40px; }
-  .offer-inner { grid-template-columns: 1fr; }
-  .offer-cta-block { position: static; }
-  .pain-grid { grid-template-columns: repeat(2, 1fr); }
-  .promise-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 720px) {
-  .wrap { padding: 0 24px; }
-  section { padding: 80px 0; }
-  .hero { padding: 120px 0 80px; }
-  .hero-price { font-size: 40px; }
-  .pain-grid { grid-template-columns: 1fr; }
-  .obj-grid { grid-template-columns: 1fr; }
-  .module-head { grid-template-columns: 60px 1fr 36px; padding: 22px 24px; gap: 14px; }
-  .module-num { font-size: 26px; }
-  .module-title { font-size: 17px; }
-  .module-body-inner { padding: 0 24px 28px 24px; }
-  .practice-block { padding: 48px 28px; }
-  .practice-grid { grid-template-columns: 1fr 1fr; }
-  .practice-block h3 { font-size: 28px; }
-  .offer-list, .offer-cta-block { padding: 28px; }
-  .offer-price { font-size: 48px; }
-  .pain-conclusion { padding: 32px 28px; }
-  .about-tag { display: none; }
-  .about-float-stat { display: none; }
-  .sticky-cta { left: 16px; right: 16px; transform: none; border-radius: 16px; }
-  .sticky-cta-text { font-size: 12px; }
-  .sticky-cta-text b { font-size: 15px; }
-}
-
-@media (max-width: 480px) {
-  .practice-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 20px; }
-  .hero-stats b { font-size: 22px; }
-  .about-content .stat-row { flex-direction: column; gap: 12px; }
+:root{
+  --cobalt:#102A6E;--navy:#0A1B47;--desk:#060F2B;--cream:#F4F2EC;--white:#FFFFFF;--sig:#FFD83D;--ink:#0A1B47;--muted:#46557A;
+  --font-display:"Geologica",system-ui,sans-serif;--font-body:"Onest",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:clamp(1.25rem,4vw,4rem);--sect:clamp(4.5rem,9vw,8.5rem);--max:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 clamp(1.0625rem,1.15vw,1.1875rem)/1.5 var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,ol,figure{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit}
+h1,h2{font-family:var(--font-display);font-weight:900;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:clamp(2.625rem,11vw,6.25rem);text-wrap:balance}
+p{max-width:58ch;text-wrap:pretty}
+b,strong{font-weight:800}
+.wrap{width:min(100%,var(--max));margin-inline:auto;padding-inline:var(--gutter)}
+.sect{padding-block:var(--sect);position:relative;overflow-x:clip}
+.tag{display:inline-block;font:700 .8125rem/1.3 var(--font-mono);letter-spacing:.04em;text-transform:uppercase}
+.tag::before{content:"";display:inline-block;width:.6em;height:.6em;margin-right:.55em;border-radius:50%;background:currentColor;vertical-align:.02em}
+:focus-visible{outline:3px solid var(--sig);outline-offset:3px}
+.on-light :focus-visible{outline-color:var(--cobalt)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:62px;width:100%;padding:.9em 1.4em;background:var(--sig);color:var(--navy);border:0;border-radius:6px;font:800 1.125rem/1.15 var(--font-body);text-align:center;text-decoration:none;box-shadow:0 5px 0 #B8931A;transition:transform .12s,box-shadow .12s;cursor:pointer}
+.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 #B8931A}
+.btn:active{transform:translateY(5px);box-shadow:none}
+.wave{width:100%;height:100%}
+.wave path{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+.old{position:relative;display:inline-block;white-space:nowrap;text-decoration:line-through;text-decoration-thickness:2px}
+
+/* перший екран */
+.hero{position:relative;min-height:100svh;background:var(--cobalt);color:var(--white);display:flex;flex-direction:column;overflow:clip}
+.hero-top{position:relative;z-index:3;padding-top:1rem;display:flex;justify-content:space-between;gap:1rem;color:var(--white)}
+.hero-top .rec{color:var(--sig)}
+.hero h1{position:relative;z-index:1;margin-top:.625rem;font-size:min(25.5vw,20svh);line-height:.9}
+.hero h1 span{display:block}
+.hero h1 .s{font-size:.62em;line-height:1.08;white-space:nowrap}
+.hero-wave{position:absolute;left:0;right:0;bottom:17%;height:42%;color:#FFFFFF;opacity:.3;z-index:0}
+.hero-fig{position:absolute;z-index:2;right:-10%;bottom:0;height:min(72svh,150vw);width:auto;max-width:none}
+.hero-fig img{height:100%;width:auto;max-width:none}
+.hero-low{position:relative;z-index:3;margin-top:auto;padding-bottom:calc(1rem + env(safe-area-inset-bottom))}
+.hero-sub{position:relative;z-index:3;max-width:11.5em;margin-top:.625rem;font-weight:700;line-height:1.25;font-size:1.0625rem}
+.lcd,.screen{max-width:none}
+.lcd{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;background:var(--desk);color:var(--sig);padding:.625rem .875rem;border-radius:6px 6px 0 0;font-family:var(--font-mono)}
+.lcd .now{font-weight:700;font-size:2rem;line-height:1.1;white-space:nowrap;word-spacing:-.35em}
+.lcd .old{color:#C9D3EC;font-size:1rem;text-decoration-thickness:1px}
+.hero .btn{border-radius:0 0 6px 6px}
+
+/* впізнавання */
+.cues-grid{display:grid;gap:2rem}
+.cues .tag{color:var(--cobalt)}
+.cues h2{margin-top:.875rem}
+.cue-list{margin-top:1.75rem;border-top:2px solid var(--ink)}
+.cue-list li{display:grid;grid-template-columns:1fr 3.75rem;gap:.875rem;align-items:center;padding:.875rem 0;border-bottom:1px solid #0a1f4a33;font-weight:500;line-height:1.3}
+.cue-list .wave{height:1.75rem;color:var(--cobalt)}
+.cues-pic{margin:calc(var(--sect) * -.5) auto 0;width:min(84%,26rem)}
+.cues-pic img{width:100%;aspect-ratio:1/1.25;object-fit:cover;object-position:50% 0;-webkit-mask:linear-gradient(#000 78%,#0000);mask:linear-gradient(#000 78%,#0000)}
+
+/* зміна погляду */
+.shift{background:var(--navy);color:var(--white);padding-top:calc(var(--sect) + 2rem)}
+.shift .tag{color:var(--sig)}
+.shift h2{margin-top:.875rem}
+.shift-lead{margin-top:1.25rem;font-size:1.1875rem;line-height:1.4}
+.shift-wave{height:clamp(9rem,26vw,20rem);margin:2.25rem calc(var(--gutter) * -1);color:var(--sig)}
+.after{display:grid;gap:0;border-top:1px solid #ffffff40}
+.after li{padding:1rem 0;border-bottom:1px solid #ffffff40;font:800 clamp(1.3125rem,3vw,1.75rem)/1.2 var(--font-display);letter-spacing:-.01em}
+
+/* пульт */
+.prog .tag{color:var(--cobalt)}
+.prog h2{margin-top:.875rem}
+.desk{margin-top:2rem;background:var(--desk);color:#fff;padding:1rem .75rem .875rem;border-radius:10px;box-shadow:0 18px 0 -8px #0a1f4a22;position:relative}
+.desk-h{display:grid;grid-template-columns:7fr 4fr;gap:.625rem;font:700 .8125rem/1.2 var(--font-mono);text-transform:uppercase;margin-bottom:.75rem}
+.desk-h span{border-bottom:2px solid #fff;padding-bottom:.375rem}
+.desk-h span+span{color:var(--sig);border-color:var(--sig)}
+.faders{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:.125rem}
+.ch{display:grid;justify-items:center;gap:.5rem}
+.trk{position:relative;display:block;width:4px;height:clamp(10rem,24vw,17rem);background:#33456f;border-radius:2px}
+.cap{position:absolute;left:50%;bottom:var(--v);width:clamp(18px,4.4vw,44px);height:30px;margin-left:calc(clamp(18px,4.4vw,44px) / -2);background:linear-gradient(#fff 0 44%,var(--navy) 44% 56%,#fff 56%);border-radius:3px;transition:bottom 1s cubic-bezier(.2,.8,.2,1) var(--d)}
+.js .desk:not(.in) .cap{bottom:2%}
+.ch.pro .cap{background:linear-gradient(var(--sig) 0 44%,var(--navy) 44% 56%,var(--sig) 56%)}
+.ch b{font:700 .75rem/1 var(--font-mono)}
+.ch.pro b{color:var(--sig)}
+.mods{margin-top:2rem;display:grid;gap:2rem}
+.mods h3{font:800 1.25rem/1.2 var(--font-display);padding-bottom:.625rem;border-bottom:3px solid var(--ink)}
+.mods .p h3{border-color:var(--cobalt);color:var(--cobalt)}
+details{border-bottom:1px solid #0a1f4a33}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:.75rem;align-items:center;min-height:60px;padding:.75rem 0;font-weight:700;font-size:1.0625rem;line-height:1.25}
+summary::-webkit-details-marker{display:none}
+summary .n{font:700 .875rem/1 var(--font-mono);color:var(--cobalt)}
+summary i{width:1.125rem;height:1.125rem;position:relative;transition:transform .25s}
+summary i::before,summary i::after{content:"";position:absolute;left:0;right:0;top:50%;height:2.5px;margin-top:-1.25px;background:var(--cobalt)}
+summary i::after{transform:rotate(90deg)}
+details[open] summary i{transform:rotate(45deg)}
+details p{padding:0 0 1rem;color:var(--muted)}
+
+/* практика */
+.prac{background:var(--sig);color:var(--navy)}
+.prac-n{font:900 clamp(11rem,52vw,27rem)/.78 var(--font-display);letter-spacing:-.05em}
+.prac h2{margin-top:1rem;font-size:clamp(2.25rem,9vw,5rem)}
+.prac-lead{margin-top:1rem;font-size:1.1875rem;line-height:1.4;font-weight:500}
+.days{display:grid;grid-template-columns:repeat(30,1fr);gap:clamp(2px,.5vw,6px);margin-top:2rem;height:3.5rem;align-items:end}
+.days i{background:var(--navy);height:calc(18% + var(--i) * 2.7%);border-radius:2px}
+.skills{margin-top:2rem;border-top:2px solid var(--navy)}
+.skills li{padding:.75rem 0;border-bottom:1px solid #0a1f4a55;line-height:1.3}
+.skills b{display:block;font-size:1.125rem}
+.gift{margin-top:1.75rem;background:var(--navy);color:#fff;padding:1.125rem 1.25rem;border-radius:6px;transform:rotate(-1deg)}
+.gift b{display:block;color:var(--sig);font:800 1.25rem/1.2 var(--font-display)}
+
+/* авторка */
+.auth{background:var(--cobalt);color:#fff}
+.auth .tag{color:var(--sig)}
+.auth-grid{display:grid;gap:1.5rem}
+.auth h2{margin-top:.875rem}
+.auth-pic img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:6px}
+.auth-pic{position:relative}
+.auth-pic figcaption{position:absolute;left:-.25rem;bottom:1rem;background:var(--sig);color:var(--navy);padding:.5rem .75rem;font-weight:800;line-height:1.2;transform:rotate(-2deg);max-width:85%}
+.auth p{margin-top:1rem}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem .75rem;margin-top:1.75rem;border-top:2px solid #fff;padding-top:1.25rem}
+.stats b{display:block;font:900 clamp(2.5rem,11vw,4.25rem)/1 var(--font-display);letter-spacing:-.03em}
+.stats span{font-size:1rem}
+
+/* відгуки */
+.rev .tag{color:var(--cobalt)}
+.rev h2{margin-top:.875rem}
+.rev-nav{display:flex;align-items:center;gap:.5rem;margin-top:1.25rem;font:700 .9375rem/1 var(--font-mono)}
+.rev-nav button{width:48px;height:48px;border:2px solid var(--ink);background:none;color:var(--ink);border-radius:6px;font:700 1.125rem/1 var(--font-mono);cursor:pointer}
+.rev-nav span{margin-left:.5rem}
+.rev-track{display:flex;gap:.75rem;margin:1.25rem calc(var(--gutter) * -1) 0;padding:0 var(--gutter) .75rem;overflow-x:auto;scroll-snap-type:x mandatory;align-items:flex-start;-webkit-overflow-scrolling:touch}
+.rev-track img{flex:0 0 min(78vw,20rem);width:min(78vw,20rem);scroll-snap-align:center;border-radius:10px}
+
+/* офер: майстер-канал */
+.offer{background:var(--navy);color:#fff;overflow:visible}
+.offer .tag{color:var(--sig)}
+.offer h2{margin-top:.875rem}
+.master{margin-top:2rem;background:var(--desk);border:1px solid #2a3d6b;border-radius:10px;padding:1.25rem;box-shadow:0 14px 0 -6px #0003;position:relative}
+.master-t{font:700 .8125rem/1.2 var(--font-mono);text-transform:uppercase;color:#C9D3EC;display:flex;justify-content:space-between;gap:1rem}
+.leds{margin-top:.875rem;border-top:1px solid #2a3d6b}
+.leds li{position:relative;padding:.75rem 0 .75rem 1.5rem;border-bottom:1px solid #2a3d6b;line-height:1.3;font-weight:700}
+.leds li::before{content:"";position:absolute;left:.125rem;top:1.15rem;width:.625rem;height:.625rem;border-radius:50%;background:var(--sig);box-shadow:0 0 10px #ffd83d99}
+.leds span{display:block;font-weight:400;font-size:1rem;color:#C9D3EC}
+.screen{margin-top:1.25rem;background:#000;color:var(--sig);border-radius:6px;padding:.875rem 1rem;font-family:var(--font-mono);display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.screen .now{font-weight:700;font-size:clamp(3rem,15vw,4.75rem);line-height:1;white-space:nowrap;word-spacing:-.3em}
+.screen .now small{font-size:.42em}
+.screen .old{color:#C9D3EC;font-size:1.0625rem;margin-bottom:.25rem}
+.master .btn{margin-top:1.25rem}
+.fine{margin-top:1rem;font-size:.9375rem;line-height:1.4;color:#C9D3EC}
+
+/* питання */
+.faq .tag{color:var(--cobalt)}
+.faq h2{margin-top:.875rem}
+.faq-list{margin-top:1.75rem;border-top:2px solid var(--ink)}
+.faq summary{grid-template-columns:1fr auto}
+.faq-c{margin-top:1.5rem}
+.faq-c a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--cobalt)}
+
+/* фінал */
+.final{position:relative;background:var(--cobalt);color:#fff;overflow:clip;padding-bottom:0}
+.final h2{font-size:clamp(3.5rem,16vw,11rem);position:relative;z-index:2}
+.final-wave{position:absolute;inset:auto 0 0;height:60%;color:#fff;opacity:.28}
+.final-grid{display:grid;gap:1.25rem;position:relative;z-index:2}
+.final-fig{position:relative;z-index:1;width:min(92%,34rem);margin:1rem -2rem 0 auto}
+.final .btn{margin-top:1.25rem}
+footer{background:var(--desk);color:#C9D3EC;font-size:.9375rem;padding-block:2.5rem 6.5rem}
+footer p+p{margin-top:.5rem}
+.sticky-cta{position:fixed;inset:auto 0 0;z-index:50;padding:.625rem var(--gutter) calc(.75rem + env(safe-area-inset-bottom));background:var(--desk);transform:translateY(110%);transition:transform .3s}
+.sticky-cta.on{transform:none}
+.sticky-cta .btn{min-height:54px;box-shadow:none}
+
+@media (min-width:1000px){
+  .hero-top{padding-top:1.5rem}
+  .hero h1{font-size:min(15vw,30vh);margin-top:.75rem}
+  .hero h1 .s{font-size:.62em}
+  .hero-wave{bottom:0;height:62%}
+  .hero-fig{right:4%;height:min(90vh,60vw)}
+  .hero-low{width:min(30rem,36vw);padding-bottom:2.25rem}
+  .hero-sub{font-size:1.375rem;max-width:18em}
+  .cues-grid{grid-template-columns:7fr 5fr;align-items:end;gap:4rem}
+  .cues-pic{margin:0 0 calc(var(--sect) * -1);width:100%;max-width:none;order:2;align-self:end}
+  .cues-pic img{aspect-ratio:1/1.5;-webkit-mask:none;mask:none}
+  .shift-grid{display:grid;grid-template-columns:7fr 5fr;gap:4rem;align-items:start}
+  .mods{grid-template-columns:7fr 5fr;gap:3rem}
+  .prac-grid{display:grid;grid-template-columns:6fr 6fr;gap:3rem;align-items:start}
+  .skills{margin-top:1.25rem}
+  .auth-grid{grid-template-columns:5fr 7fr;gap:4rem;align-items:center}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .offer-grid{display:grid;grid-template-columns:5fr 7fr;gap:4rem;align-items:start}
+  .master{margin-top:0;padding:1.75rem}
+  .faq-grid{display:grid;grid-template-columns:5fr 7fr;gap:4rem}
+  .faq-list{margin-top:0}
+  .final-grid{grid-template-columns:7fr 5fr;align-items:end}
+  .final-copy{padding-bottom:4rem}
+  .final-fig{margin:0 0 0 auto;width:100%}
+  footer{padding-bottom:2.5rem}
+  .sticky-cta{inset:auto 1.5rem 1.5rem auto;padding:0;background:none;transform:translateY(calc(100% + 2rem))}
+  .sticky-cta .btn{width:auto;box-shadow:0 5px 0 #B8931A}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
-
-<!-- ═══ NAVBAR ═══ -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#" class="brand">
-      <div class="brand-mark">В</div>
-      Голос на мільйон
-    </a>
-    <button class="nav-cta" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">
-      Приєднатися →
-    </button>
-  </div>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="deco-orb hero-orb1"></div>
-  <div class="deco-orb hero-orb2"></div>
-  <div class="deco-orb hero-orb3"></div>
-  <div class="deco-ring hero-ring1"></div>
-  <div class="deco-ring hero-ring2"></div>
-
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-eyebrow">
-          <span class="pulse-dot"></span>
-          Старт уже сьогодні · <span id="start-date"></span>
-        </div>
-
-        <h1>Голос на<br><em>мільйон</em></h1>
-        <p class="hero-sub">Комплексний курс по голосу від Наталки Денисенко. 11 модулів. 30 днів практики. Від дихання — до публічних виступів.</p>
-
-        <div class="hero-offer">
-          <div>
-            <div class="hero-price">1 999<span class="cur">₴</span></div>
-          </div>
-        </div>
-
-        <button class="hero-cta" onclick="window.location.href='/pay-pro'">
-          Придбати курс зі знижкою
-          <span>→</span>
-        </button>
-
-        <div class="hero-stats">
-          <div class="hero-stat"><b>11</b><span>модулів</span></div>
-          <div class="hero-stat"><b>30</b><span>днів практики</span></div>
-          <div class="hero-stat"><b>30K+</b><span>випускників</span></div>
-        </div>
-      </div>
-
-      <div class="hero-photo">
-        <div class="hero-photo-img">
-          <img src="natalka-hero.jpg" alt="Наталка Денисенко">
-        </div>
-        <div class="hero-tag t1"><b>30K+</b>учасників</div>
-        <div class="hero-tag t2"><b>15+</b>років озвучки</div>
-        <div class="hero-tag t3">Зіркова актриса</div>
-        <div class="hero-tag t4">Оновлена програма</div>
-      </div>
+<main>
+<section class="hero" data-cta-zone aria-label="Голос на мільйон, комплексний курс">
+  <div class="hero-wave"><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.2V51.8M7.1 48.4V51.6M11.9 47.5V52.5M16.7 48.4V51.6M21.4 47.5V52.5M26.2 47.7V52.3M31.0 48.2V51.8M35.7 47.1V52.9M40.5 48.0V52.0M45.2 46.9V53.1M50.0 47.7V52.3M54.8 47.5V52.5M59.5 46.3V53.7M64.3 44.9V55.1M69.0 46.9V53.1M73.8 46.4V53.6M78.6 44.7V55.3M83.3 43.1V56.9M88.1 44.3V55.7M92.9 44.8V55.2M97.6 41.9V58.1M102.4 45.9V54.1M107.1 41.7V58.3M111.9 44.2V55.8M116.7 44.8V55.2M121.4 44.7V55.3M126.2 43.3V56.7M131.0 39.9V60.1M135.7 43.6V56.4M140.5 40.6V59.4M145.2 39.8V60.2M150.0 41.4V58.6M154.8 39.7V60.3M159.5 43.1V56.9M164.3 42.9V57.1M169.0 41.4V58.6M173.8 37.0V63.0M178.6 38.8V61.2M183.3 39.5V60.5M188.1 36.6V63.4M192.9 37.4V62.6M197.6 38.6V61.4M202.4 33.0V67.0M207.1 33.6V66.4M211.9 38.1V61.9M216.7 34.0V66.0M221.4 34.1V65.9M226.2 29.4V70.6M231.0 30.7V69.3M235.7 35.8V64.2M240.5 26.3V73.7M245.2 37.3V62.7M250.0 32.8V67.2M254.8 27.6V72.4M259.5 35.8V64.2M264.3 30.4V69.6M269.0 36.9V63.1M273.8 26.7V73.3M278.6 24.5V75.5M283.3 27.1V72.9M288.1 21.5V78.5M292.9 30.5V69.5M297.6 23.4V76.6M302.4 24.6V75.4M307.1 24.3V75.7M311.9 26.1V73.9M316.7 18.2V81.8M321.4 15.5V84.5M326.2 24.2V75.8M331.0 19.8V80.2M335.7 31.7V68.3M340.5 17.8V82.2M345.2 18.3V81.7M350.0 10.1V89.9M354.8 13.1V86.9M359.5 24.7V75.3M364.3 21.9V78.1M369.0 14.7V85.3M373.8 29.7V70.3M378.6 18.5V81.5M383.3 25.3V74.7M388.1 26.1V73.9M392.9 27.2V72.8M397.6 8.1V91.9"/></svg></div>
+  <div class="wrap hero-top"><span class="tag rec">Комплексний курс</span><span class="tag" style="--x:0">11 модулів + 30 днів</span></div>
+  <div class="wrap"><h1 aria-label="Голос на мільйон"><span>Голос</span><span class="s">на мільйон</span></h1><p class="hero-sub">Курс Наталки Денисенко: від дихання до публічних виступів</p></div>
+  <figure class="hero-fig"><img src="/home/img/hero.webp" width="1183" height="1885" alt="Наталка Денисенко в білому костюмі, рука на поясі, дивиться в камеру" fetchpriority="high"></figure>
+  <div class="wrap hero-low-w" style="margin-top:auto">
+    <div class="hero-low">
+      <p class="lcd"><span class="now">1 999 грн</span><span class="old">4 890 грн</span></p>
+      <a class="btn" href="/pay-pro" data-cta>Купити курс за 1 999 грн</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ PAIN POINTS ═══ -->
-<section class="pain-section">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="sec-label">Знайома історія?</div>
-      <h2 class="sec-title">Знайоме відчуття, коли вас ніби<br>чують, але не <em>сприймають</em>?</h2>
-    </div>
-
-    <div class="pain-grid stagger reveal">
-      <div class="pain-card">
-        <div class="pain-num">i.</div>
-        <p>Ви говорите, але вас перебивають або не дослуховують до кінця</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-num">ii.</div>
-        <p>Ви губитесь, коли потрібно говорити перед людьми або на камеру</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-num">iii.</div>
-        <p>Є що сказати, але в моменті голос «сідає» або звучить невпевнено</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-num">iv.</div>
-        <p>Ви записуєте відео — і вам не подобається, як ви звучите</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-num">v.</div>
-        <p>Люди не завжди серйозно сприймають те, що ви говорите</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-num">vi.</div>
-        <p>Хочеться проявлятись більше — але щось всередині стопорить</p>
-      </div>
-    </div>
-
-    <div class="pain-conclusion reveal">
-      <p>Ця програма допоможе вам говорити так, щоб вас не просто слухали, а <strong>сприймали, довіряли і запам'ятовували</strong>.</p>
+<section class="sect cues on-light" aria-label="Для кого цей курс">
+  <div class="wrap cues-grid">
+    <figure class="cues-pic reveal"><img src="/home/img/tape.webp" width="799" height="2068" loading="lazy" alt="Наталка, обмотана жовтою стрічкою, прикладає палець до губ"></figure>
+    <div>
+      <span class="tag reveal">Звук вимкнено</span>
+      <h2 class="reveal">Тебе чують, але не сприймають?</h2>
+      <ul class="cue-list">
+        <li class="reveal"><span>Перебивають або не дослуховують до кінця</span><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.1V51.9M7.1 47.9V52.1M11.9 47.9V52.1M16.7 47.7V52.3M21.4 47.9V52.1M26.2 47.7V52.3M31.0 48.9V51.1M35.7 48.3V51.7M40.5 47.7V52.3M45.2 48.1V51.9M50.0 47.7V52.3M54.8 48.8V51.2M59.5 48.3V51.7M64.3 48.6V51.4M69.0 48.2V51.8M73.8 48.2V51.8M78.6 48.9V51.1M83.3 48.6V51.4M88.1 48.6V51.4M92.9 47.7V52.3M97.6 47.9V52.1M102.4 48.7V51.3M107.1 47.9V52.1M111.9 48.7V51.3M116.7 48.1V51.9M121.4 48.8V51.2M126.2 48.9V51.1M131.0 47.8V52.2M135.7 48.6V51.4M140.5 48.6V51.4M145.2 47.6V52.4M150.0 47.8V52.2M154.8 48.5V51.5M159.5 47.7V52.3M164.3 48.2V51.8M169.0 48.0V52.0M173.8 48.6V51.4M178.6 47.7V52.3M183.3 48.0V52.0M188.1 47.6V52.4M192.9 47.7V52.3M197.6 48.5V51.5M202.4 48.4V51.6M207.1 48.7V51.3M211.9 48.7V51.3M216.7 48.8V51.2M221.4 48.5V51.5M226.2 48.1V51.9M231.0 48.9V51.1M235.7 48.0V52.0M240.5 48.5V51.5M245.2 48.5V51.5M250.0 47.8V52.2M254.8 48.3V51.7M259.5 48.5V51.5M264.3 48.3V51.7M269.0 48.0V52.0M273.8 48.8V51.2M278.6 47.6V52.4M283.3 48.9V51.1M288.1 47.9V52.1M292.9 47.8V52.2M297.6 48.9V51.1M302.4 47.9V52.1M307.1 48.4V51.6M311.9 48.2V51.8M316.7 48.9V51.1M321.4 48.9V51.1M326.2 48.7V51.3M331.0 47.7V52.3M335.7 48.7V51.3M340.5 47.9V52.1M345.2 47.7V52.3M350.0 47.7V52.3M354.8 48.5V51.5M359.5 48.5V51.5M364.3 48.2V51.8M369.0 47.9V52.1M373.8 48.8V51.2M378.6 47.9V52.1M383.3 47.9V52.1M388.1 47.8V52.2M392.9 48.9V51.1M397.6 47.7V52.3"/></svg></li>
+        <li class="reveal"><span>Губишся перед людьми чи камерою</span><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.1V51.9M7.1 47.9V52.1M11.9 47.9V52.1M16.7 47.7V52.3M21.4 47.9V52.1M26.2 47.7V52.3M31.0 48.9V51.1M35.7 48.3V51.7M40.5 47.7V52.3M45.2 48.1V51.9M50.0 47.7V52.3M54.8 48.8V51.2M59.5 48.3V51.7M64.3 48.6V51.4M69.0 48.2V51.8M73.8 48.2V51.8M78.6 48.9V51.1M83.3 48.6V51.4M88.1 48.6V51.4M92.9 47.7V52.3M97.6 47.9V52.1M102.4 48.7V51.3M107.1 47.9V52.1M111.9 48.7V51.3M116.7 48.1V51.9M121.4 48.8V51.2M126.2 48.9V51.1M131.0 47.8V52.2M135.7 48.6V51.4M140.5 48.6V51.4M145.2 47.6V52.4M150.0 47.8V52.2M154.8 48.5V51.5M159.5 47.7V52.3M164.3 48.2V51.8M169.0 48.0V52.0M173.8 48.6V51.4M178.6 47.7V52.3M183.3 48.0V52.0M188.1 47.6V52.4M192.9 47.7V52.3M197.6 48.5V51.5M202.4 48.4V51.6M207.1 48.7V51.3M211.9 48.7V51.3M216.7 48.8V51.2M221.4 48.5V51.5M226.2 48.1V51.9M231.0 48.9V51.1M235.7 48.0V52.0M240.5 48.5V51.5M245.2 48.5V51.5M250.0 47.8V52.2M254.8 48.3V51.7M259.5 48.5V51.5M264.3 48.3V51.7M269.0 48.0V52.0M273.8 48.8V51.2M278.6 47.6V52.4M283.3 48.9V51.1M288.1 47.9V52.1M292.9 47.8V52.2M297.6 48.9V51.1M302.4 47.9V52.1M307.1 48.4V51.6M311.9 48.2V51.8M316.7 48.9V51.1M321.4 48.9V51.1M326.2 48.7V51.3M331.0 47.7V52.3M335.7 48.7V51.3M340.5 47.9V52.1M345.2 47.7V52.3M350.0 47.7V52.3M354.8 48.5V51.5M359.5 48.5V51.5M364.3 48.2V51.8M369.0 47.9V52.1M373.8 48.8V51.2M378.6 47.9V52.1M383.3 47.9V52.1M388.1 47.8V52.2M392.9 48.9V51.1M397.6 47.7V52.3"/></svg></li>
+        <li class="reveal"><span>Є що сказати, але голос раптом сідає</span><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.1V51.9M7.1 47.9V52.1M11.9 47.9V52.1M16.7 47.7V52.3M21.4 47.9V52.1M26.2 47.7V52.3M31.0 48.9V51.1M35.7 48.3V51.7M40.5 47.7V52.3M45.2 48.1V51.9M50.0 47.7V52.3M54.8 48.8V51.2M59.5 48.3V51.7M64.3 48.6V51.4M69.0 48.2V51.8M73.8 48.2V51.8M78.6 48.9V51.1M83.3 48.6V51.4M88.1 48.6V51.4M92.9 47.7V52.3M97.6 47.9V52.1M102.4 48.7V51.3M107.1 47.9V52.1M111.9 48.7V51.3M116.7 48.1V51.9M121.4 48.8V51.2M126.2 48.9V51.1M131.0 47.8V52.2M135.7 48.6V51.4M140.5 48.6V51.4M145.2 47.6V52.4M150.0 47.8V52.2M154.8 48.5V51.5M159.5 47.7V52.3M164.3 48.2V51.8M169.0 48.0V52.0M173.8 48.6V51.4M178.6 47.7V52.3M183.3 48.0V52.0M188.1 47.6V52.4M192.9 47.7V52.3M197.6 48.5V51.5M202.4 48.4V51.6M207.1 48.7V51.3M211.9 48.7V51.3M216.7 48.8V51.2M221.4 48.5V51.5M226.2 48.1V51.9M231.0 48.9V51.1M235.7 48.0V52.0M240.5 48.5V51.5M245.2 48.5V51.5M250.0 47.8V52.2M254.8 48.3V51.7M259.5 48.5V51.5M264.3 48.3V51.7M269.0 48.0V52.0M273.8 48.8V51.2M278.6 47.6V52.4M283.3 48.9V51.1M288.1 47.9V52.1M292.9 47.8V52.2M297.6 48.9V51.1M302.4 47.9V52.1M307.1 48.4V51.6M311.9 48.2V51.8M316.7 48.9V51.1M321.4 48.9V51.1M326.2 48.7V51.3M331.0 47.7V52.3M335.7 48.7V51.3M340.5 47.9V52.1M345.2 47.7V52.3M350.0 47.7V52.3M354.8 48.5V51.5M359.5 48.5V51.5M364.3 48.2V51.8M369.0 47.9V52.1M373.8 48.8V51.2M378.6 47.9V52.1M383.3 47.9V52.1M388.1 47.8V52.2M392.9 48.9V51.1M397.6 47.7V52.3"/></svg></li>
+        <li class="reveal"><span>Не подобається, як звучиш на відео</span><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.1V51.9M7.1 47.9V52.1M11.9 47.9V52.1M16.7 47.7V52.3M21.4 47.9V52.1M26.2 47.7V52.3M31.0 48.9V51.1M35.7 48.3V51.7M40.5 47.7V52.3M45.2 48.1V51.9M50.0 47.7V52.3M54.8 48.8V51.2M59.5 48.3V51.7M64.3 48.6V51.4M69.0 48.2V51.8M73.8 48.2V51.8M78.6 48.9V51.1M83.3 48.6V51.4M88.1 48.6V51.4M92.9 47.7V52.3M97.6 47.9V52.1M102.4 48.7V51.3M107.1 47.9V52.1M111.9 48.7V51.3M116.7 48.1V51.9M121.4 48.8V51.2M126.2 48.9V51.1M131.0 47.8V52.2M135.7 48.6V51.4M140.5 48.6V51.4M145.2 47.6V52.4M150.0 47.8V52.2M154.8 48.5V51.5M159.5 47.7V52.3M164.3 48.2V51.8M169.0 48.0V52.0M173.8 48.6V51.4M178.6 47.7V52.3M183.3 48.0V52.0M188.1 47.6V52.4M192.9 47.7V52.3M197.6 48.5V51.5M202.4 48.4V51.6M207.1 48.7V51.3M211.9 48.7V51.3M216.7 48.8V51.2M221.4 48.5V51.5M226.2 48.1V51.9M231.0 48.9V51.1M235.7 48.0V52.0M240.5 48.5V51.5M245.2 48.5V51.5M250.0 47.8V52.2M254.8 48.3V51.7M259.5 48.5V51.5M264.3 48.3V51.7M269.0 48.0V52.0M273.8 48.8V51.2M278.6 47.6V52.4M283.3 48.9V51.1M288.1 47.9V52.1M292.9 47.8V52.2M297.6 48.9V51.1M302.4 47.9V52.1M307.1 48.4V51.6M311.9 48.2V51.8M316.7 48.9V51.1M321.4 48.9V51.1M326.2 48.7V51.3M331.0 47.7V52.3M335.7 48.7V51.3M340.5 47.9V52.1M345.2 47.7V52.3M350.0 47.7V52.3M354.8 48.5V51.5M359.5 48.5V51.5M364.3 48.2V51.8M369.0 47.9V52.1M373.8 48.8V51.2M378.6 47.9V52.1M383.3 47.9V52.1M388.1 47.8V52.2M392.9 48.9V51.1M397.6 47.7V52.3"/></svg></li>
+        <li class="reveal"><span>Твої слова не завжди сприймають серйозно</span><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.1V51.9M7.1 47.9V52.1M11.9 47.9V52.1M16.7 47.7V52.3M21.4 47.9V52.1M26.2 47.7V52.3M31.0 48.9V51.1M35.7 48.3V51.7M40.5 47.7V52.3M45.2 48.1V51.9M50.0 47.7V52.3M54.8 48.8V51.2M59.5 48.3V51.7M64.3 48.6V51.4M69.0 48.2V51.8M73.8 48.2V51.8M78.6 48.9V51.1M83.3 48.6V51.4M88.1 48.6V51.4M92.9 47.7V52.3M97.6 47.9V52.1M102.4 48.7V51.3M107.1 47.9V52.1M111.9 48.7V51.3M116.7 48.1V51.9M121.4 48.8V51.2M126.2 48.9V51.1M131.0 47.8V52.2M135.7 48.6V51.4M140.5 48.6V51.4M145.2 47.6V52.4M150.0 47.8V52.2M154.8 48.5V51.5M159.5 47.7V52.3M164.3 48.2V51.8M169.0 48.0V52.0M173.8 48.6V51.4M178.6 47.7V52.3M183.3 48.0V52.0M188.1 47.6V52.4M192.9 47.7V52.3M197.6 48.5V51.5M202.4 48.4V51.6M207.1 48.7V51.3M211.9 48.7V51.3M216.7 48.8V51.2M221.4 48.5V51.5M226.2 48.1V51.9M231.0 48.9V51.1M235.7 48.0V52.0M240.5 48.5V51.5M245.2 48.5V51.5M250.0 47.8V52.2M254.8 48.3V51.7M259.5 48.5V51.5M264.3 48.3V51.7M269.0 48.0V52.0M273.8 48.8V51.2M278.6 47.6V52.4M283.3 48.9V51.1M288.1 47.9V52.1M292.9 47.8V52.2M297.6 48.9V51.1M302.4 47.9V52.1M307.1 48.4V51.6M311.9 48.2V51.8M316.7 48.9V51.1M321.4 48.9V51.1M326.2 48.7V51.3M331.0 47.7V52.3M335.7 48.7V51.3M340.5 47.9V52.1M345.2 47.7V52.3M350.0 47.7V52.3M354.8 48.5V51.5M359.5 48.5V51.5M364.3 48.2V51.8M369.0 47.9V52.1M373.8 48.8V51.2M378.6 47.9V52.1M383.3 47.9V52.1M388.1 47.8V52.2M392.9 48.9V51.1M397.6 47.7V52.3"/></svg></li>
+        <li class="reveal"><span>Хочеш проявлятись більше, але щось стопорить</span><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.1V51.9M7.1 47.9V52.1M11.9 47.9V52.1M16.7 47.7V52.3M21.4 47.9V52.1M26.2 47.7V52.3M31.0 48.9V51.1M35.7 48.3V51.7M40.5 47.7V52.3M45.2 48.1V51.9M50.0 47.7V52.3M54.8 48.8V51.2M59.5 48.3V51.7M64.3 48.6V51.4M69.0 48.2V51.8M73.8 48.2V51.8M78.6 48.9V51.1M83.3 48.6V51.4M88.1 48.6V51.4M92.9 47.7V52.3M97.6 47.9V52.1M102.4 48.7V51.3M107.1 47.9V52.1M111.9 48.7V51.3M116.7 48.1V51.9M121.4 48.8V51.2M126.2 48.9V51.1M131.0 47.8V52.2M135.7 48.6V51.4M140.5 48.6V51.4M145.2 47.6V52.4M150.0 47.8V52.2M154.8 48.5V51.5M159.5 47.7V52.3M164.3 48.2V51.8M169.0 48.0V52.0M173.8 48.6V51.4M178.6 47.7V52.3M183.3 48.0V52.0M188.1 47.6V52.4M192.9 47.7V52.3M197.6 48.5V51.5M202.4 48.4V51.6M207.1 48.7V51.3M211.9 48.7V51.3M216.7 48.8V51.2M221.4 48.5V51.5M226.2 48.1V51.9M231.0 48.9V51.1M235.7 48.0V52.0M240.5 48.5V51.5M245.2 48.5V51.5M250.0 47.8V52.2M254.8 48.3V51.7M259.5 48.5V51.5M264.3 48.3V51.7M269.0 48.0V52.0M273.8 48.8V51.2M278.6 47.6V52.4M283.3 48.9V51.1M288.1 47.9V52.1M292.9 47.8V52.2M297.6 48.9V51.1M302.4 47.9V52.1M307.1 48.4V51.6M311.9 48.2V51.8M316.7 48.9V51.1M321.4 48.9V51.1M326.2 48.7V51.3M331.0 47.7V52.3M335.7 48.7V51.3M340.5 47.9V52.1M345.2 47.7V52.3M350.0 47.7V52.3M354.8 48.5V51.5M359.5 48.5V51.5M364.3 48.2V51.8M369.0 47.9V52.1M373.8 48.8V51.2M378.6 47.9V52.1M383.3 47.9V52.1M388.1 47.8V52.2M392.9 48.9V51.1M397.6 47.7V52.3"/></svg></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ═══ PROMISE ═══ -->
-<section class="promise-section">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="sec-label">А тепер уявіть</div>
-      <h2 class="sec-title">Як зміниться спілкування, коли ви<br>почнете звучати <em>впевнено</em></h2>
+<section class="sect shift" aria-label="Голос можна натренувати">
+  <div class="wrap shift-grid">
+    <div>
+      <span class="tag reveal">Це не талант</span>
+      <h2 class="reveal">Голос налаштовується</h2>
     </div>
+    <p class="shift-lead reveal"><b>Гарний голос це навичка, а не талант.</b> Чарівної кнопки тут немає: є 15–20 хвилин щодня й акторка, яка показує, що саме робити.</p>
+  </div>
+  <div class="shift-wave reveal"><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 48.2V51.8M7.1 48.4V51.6M11.9 47.5V52.5M16.7 48.4V51.6M21.4 47.5V52.5M26.2 47.7V52.3M31.0 48.2V51.8M35.7 47.1V52.9M40.5 48.0V52.0M45.2 46.9V53.1M50.0 47.7V52.3M54.8 47.5V52.5M59.5 46.3V53.7M64.3 44.9V55.1M69.0 46.9V53.1M73.8 46.4V53.6M78.6 44.7V55.3M83.3 43.1V56.9M88.1 44.3V55.7M92.9 44.8V55.2M97.6 41.9V58.1M102.4 45.9V54.1M107.1 41.7V58.3M111.9 44.2V55.8M116.7 44.8V55.2M121.4 44.7V55.3M126.2 43.3V56.7M131.0 39.9V60.1M135.7 43.6V56.4M140.5 40.6V59.4M145.2 39.8V60.2M150.0 41.4V58.6M154.8 39.7V60.3M159.5 43.1V56.9M164.3 42.9V57.1M169.0 41.4V58.6M173.8 37.0V63.0M178.6 38.8V61.2M183.3 39.5V60.5M188.1 36.6V63.4M192.9 37.4V62.6M197.6 38.6V61.4M202.4 33.0V67.0M207.1 33.6V66.4M211.9 38.1V61.9M216.7 34.0V66.0M221.4 34.1V65.9M226.2 29.4V70.6M231.0 30.7V69.3M235.7 35.8V64.2M240.5 26.3V73.7M245.2 37.3V62.7M250.0 32.8V67.2M254.8 27.6V72.4M259.5 35.8V64.2M264.3 30.4V69.6M269.0 36.9V63.1M273.8 26.7V73.3M278.6 24.5V75.5M283.3 27.1V72.9M288.1 21.5V78.5M292.9 30.5V69.5M297.6 23.4V76.6M302.4 24.6V75.4M307.1 24.3V75.7M311.9 26.1V73.9M316.7 18.2V81.8M321.4 15.5V84.5M326.2 24.2V75.8M331.0 19.8V80.2M335.7 31.7V68.3M340.5 17.8V82.2M345.2 18.3V81.7M350.0 10.1V89.9M354.8 13.1V86.9M359.5 24.7V75.3M364.3 21.9V78.1M369.0 14.7V85.3M373.8 29.7V70.3M378.6 18.5V81.5M383.3 25.3V74.7M388.1 26.1V73.9M392.9 27.2V72.8M397.6 8.1V91.9"/></svg></div>
+  <div class="wrap">
+    <ul class="after">
+      <li class="reveal">Тебе дослуховують до кінця</li>
+      <li class="reveal">Голос чіткий і спокійний, без зажимів</li>
+      <li class="reveal">Записуєш відео й не соромишся себе</li>
+      <li class="reveal">На виступі тримаєш увагу</li>
+    </ul>
+  </div>
+</section>
 
-    <div class="promise-grid stagger reveal">
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Ви говорите — і вас не перебивають, а дослуховують до кінця</p></div>
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Ваш голос звучить чітко і спокійно, без напруги і зажимів</p></div>
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Люди починають краще сприймати те, що ви говорите</p></div>
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Вам не потрібно повторювати або доводити свою думку кілька разів</p></div>
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Ви спокійно записуєте відео і не соромитесь свого голосу</p></div>
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Під час розмов і виступів ви не губитесь і тримаєте увагу</p></div>
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Ви виходите на публіку і знаєте, як побудувати виступ</p></div>
-      <div class="promise-card"><div class="promise-icon">✓</div><p>Ваш голос стає вашим інструментом — у роботі, відео та виступах</p></div>
+<section class="sect prog on-light" aria-label="Програма курсу">
+  <div class="wrap">
+    <span class="tag reveal">Програма</span>
+    <h2 class="reveal">11 модулів. Виводимо голос на повну</h2>
+    <div class="desk" data-desk aria-hidden="true">
+      <div class="desk-h"><span>Фундамент</span><span>PRO</span></div>
+      <ul class="faders"><li class="ch" style="--v:34%;--d:0ms"><span class="trk"><i class="cap"></i></span><b>01</b></li><li class="ch" style="--v:42%;--d:60ms"><span class="trk"><i class="cap"></i></span><b>02</b></li><li class="ch" style="--v:48%;--d:120ms"><span class="trk"><i class="cap"></i></span><b>03</b></li><li class="ch" style="--v:55%;--d:180ms"><span class="trk"><i class="cap"></i></span><b>04</b></li><li class="ch" style="--v:60%;--d:240ms"><span class="trk"><i class="cap"></i></span><b>05</b></li><li class="ch" style="--v:66%;--d:300ms"><span class="trk"><i class="cap"></i></span><b>06</b></li><li class="ch" style="--v:72%;--d:360ms"><span class="trk"><i class="cap"></i></span><b>07</b></li><li class="ch pro" style="--v:78%;--d:420ms"><span class="trk"><i class="cap"></i></span><b>08</b></li><li class="ch pro" style="--v:84%;--d:480ms"><span class="trk"><i class="cap"></i></span><b>09</b></li><li class="ch pro" style="--v:90%;--d:540ms"><span class="trk"><i class="cap"></i></span><b>10</b></li><li class="ch pro" style="--v:96%;--d:600ms"><span class="trk"><i class="cap"></i></span><b>11</b></li></ul>
+    </div>
+    <div class="mods">
+      <div><h3>Фундамент голосу</h3><details open><summary><span class="n">01</span><span class="t">Голос як інструмент впливу</span><i aria-hidden="true"></i></summary><p>Розумієш, як тебе сприймають ще до змісту слів. З’являється відчуття опори й контролю.</p></details><details><summary><span class="n">02</span><span class="t">Дихання і опора</span><i aria-hidden="true"></i></summary><p>Голос стабільний, ти не втомлюєшся під час розмов і виступів. Менше напруги.</p></details><details><summary><span class="n">03</span><span class="t">Тембр і звучання</span><i aria-hidden="true"></i></summary><p>Голос глибший і об’ємніший, замість слабкого звучання з’являється сила.</p></details><details><summary><span class="n">04</span><span class="t">Дикція і чіткість</span><i aria-hidden="true"></i></summary><p>Тебе розуміють з першого разу. Зникає «ковтання» слів.</p></details><details><summary><span class="n">05</span><span class="t">Інтонація й емоційність</span><i aria-hidden="true"></i></summary><p>Перестаєш звучати монотонно, голос тримає увагу.</p></details><details><summary><span class="n">06</span><span class="t">Енергія і посил</span><i aria-hidden="true"></i></summary><p>Голос передає впевненість, тебе сприймають серйозніше.</p></details><details><summary><span class="n">07</span><span class="t">Голос у житті</span><i aria-hidden="true"></i></summary><p>Переносиш новий голос у реальні розмови, відео й виступи.</p></details></div>
+      <div class="p"><h3>PRO: голос у дії</h3><details><summary><span class="n">08</span><span class="t">Голос, який тримає увагу</span><i aria-hidden="true"></i></summary><p>Драматургія голосу: інтонація, темпоритм, паузи та енергія. Один текст може звучати нудно або заворожливо.</p></details><details><summary><span class="n">09</span><span class="t">Сторітелінг голосом</span><i aria-hidden="true"></i></summary><p>Зав’язка, кульмінація, розв’язка. Що таке хук і чому він працює у відео, виступах і розмовах.</p></details><details><summary><span class="n">10</span><span class="t">Голос у відео та соцмережах</span><i aria-hidden="true"></i></summary><p>Як дивитись в об’єктив і не затискатись. Закадровий текст: диктофон, подушка і 15 сантиметрів відстані.</p></details><details><summary><span class="n">11</span><span class="t">Публічні виступи</span><i aria-hidden="true"></i></summary><p>Як зробити хвилювання союзником. Структура виступу, жести, зоровий контакт, інтерактив.</p></details></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PROGRAM ═══ -->
-<section class="program-section">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="sec-label">Програма курсу</div>
-      <h2 class="sec-title">11 модулів, які повертають<br>вам ваш справжній <em>голос</em></h2>
+<section class="sect prac" aria-label="30 днів практики">
+  <div class="wrap prac-grid">
+    <div>
+      <p class="prac-n reveal" aria-hidden="true">30</p>
+      <h2 class="reveal">днів щоденної практики</h2>
+      <p class="prac-lead reveal">Це як спортзал для голосу. <b>15–20 хвилин на день</b>, з телефону, у будь-який зручний час.</p>
+      <div class="days reveal" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i></div>
     </div>
-
-    <div class="program-parts reveal">
-      <div class="program-part-label">Частина 1 · Фундамент голосу</div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>Модуль</span>01</div>
-          <h3 class="module-title">Голос як інструмент впливу</h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Ви починаєте розуміти, як вас сприймають ще до змісту слів</p>
-          <p>Ваш голос перестає «губитися» — з'являється відчуття опори і контролю</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>Модуль</span>02</div>
-          <h3 class="module-title">Дихання і опора голосу</h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Голос стає стабільним, ви не втомлюєтесь під час розмов і виступів</p>
-          <p>Зникає напруга, з якою раніше доводилось «виштовхувати» слова</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>Модуль</span>03</div>
-          <h3 class="module-title">Тембр і звучання голосу</h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Голос стає глибшим і об'ємнішим</p>
-          <p>Замість слабкого звучання — відчуття сили і впевненості</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>Модуль</span>04</div>
-          <h3 class="module-title">Дикція і чіткість мовлення</h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Вашу мову починають розуміти з першого разу</p>
-          <p>Зникає «ковтання» слів — мова стає чіткою і зібраною</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>Модуль</span>05</div>
-          <h3 class="module-title">Інтонація і емоційність</h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Ви перестаєте звучати монотонно</p>
-          <p>Голос починає тримати увагу, а слова — викликати інтерес</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>Модуль</span>06</div>
-          <h3 class="module-title">Енергія голосу і посил</h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Ваш голос починає передавати впевненість</p>
-          <p>Люди починають більше довіряти і серйозніше вас сприймати</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>Модуль</span>07</div>
-          <h3 class="module-title">Голос у житті і комунікації</h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Ви переносите новий голос у реальні ситуації: розмови, відео, виступи</p>
-          <p>З'являється відчуття: «я говорю — і мене чують»</p>
-        </div></div>
-      </div>
-
-      <div class="program-part-label">Частина 2 · PRO — голос у дії</div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>PRO</span>08</div>
-          <h3 class="module-title">Голос, який тримає увагу <span class="pro-badge">PRO</span></h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Драматургія голосу: інтонація, темпоритм, паузи та енергія</p>
-          <p>Як один і той самий текст може звучати нудно або заворожуюче</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>PRO</span>09</div>
-          <h3 class="module-title">Сторітелінг голосом <span class="pro-badge">PRO</span></h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Як будувати історії за конструкцією: зав'язка → кульмінація → розв'язка</p>
-          <p>Що таке «хук» і чому він працює у відео, виступах та розмовах</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>PRO</span>10</div>
-          <h3 class="module-title">Голос у відео та соцмережах <span class="pro-badge">PRO</span></h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Секрети роботи на камеру: як дивитися в об'єктив і не затискатися</p>
-          <p>Закадровий текст: диктофон, подушка і 15 сантиметрів відстані</p>
-        </div></div>
-      </div>
-
-      <div class="module">
-        <div class="module-head" onclick="toggleModule(this)">
-          <div class="module-num"><span>PRO</span>11</div>
-          <h3 class="module-title">Публічні виступи <span class="pro-badge">PRO</span></h3>
-          <div class="module-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-        </div>
-        <div class="module-body"><div class="module-body-inner">
-          <p>Як перетворити хвилювання з ворога на союзника</p>
-          <p>Структура виступу, жести, зоровий контакт, інтерактив з аудиторією</p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- Practice block -->
-    <div class="practice-block reveal">
-      <div class="practice-eyebrow">30 днів щоденної практики</div>
-      <h3>Це як спортзал для голосу. Ви не просто розумієте — ви <em>щодня тренуєте</em>.</h3>
-      <p class="lede">Практика — основа цього курсу. Саме вона дає результат. 15–20 хвилин на день, з телефону, у будь-який зручний час.</p>
-
-      <div class="practice-grid">
-        <div class="practice-cell"><h4>Артикуляція</h4><p>Слова звучать чітко, без «змазування» і ковтання закінчень</p></div>
-        <div class="practice-cell"><h4>Дихання</h4><p>Голос не сідає, ви говорите довго і без напруги</p></div>
-        <div class="practice-cell"><h4>Резонанс і тембр</h4><p>Голос стає глибшим, об'ємнішим і впевненішим</p></div>
-        <div class="practice-cell"><h4>Темп і ритм</h4><p>Вас розуміють з першого разу — не доводиться повторювати</p></div>
-        <div class="practice-cell"><h4>Скоромовки</h4><p>Мова стає швидкою, чіткою і повністю контрольованою</p></div>
-        <div class="practice-cell" style="background:linear-gradient(135deg, rgba(201,152,58,0.15), rgba(201,152,58,0.05));">
-          <h4 style="color:var(--gold-light);">🎁 7-денний тренажер дикції</h4>
-          <p>Інтенсивна щоденна програма для швидкого покращення чіткості мовлення</p>
-        </div>
-      </div>
+    <div>
+      <ul class="skills">
+        <li class="reveal"><b>Артикуляція</b>Слова звучать чітко, без ковтання закінчень</li>
+        <li class="reveal"><b>Дихання</b>Голос не сідає, говориш довго і без напруги</li>
+        <li class="reveal"><b>Резонанс і тембр</b>Голос глибший, об’ємніший, впевненіший</li>
+        <li class="reveal"><b>Темп і ритм</b>Тебе розуміють з першого разу</li>
+        <li class="reveal"><b>Скоромовки</b>Мова швидка, чітка й контрольована</li>
+      </ul>
+      <p class="gift reveal"><b>Бонус: 7-денний тренажер дикції</b>Інтенсивна щоденна програма для чіткості мовлення</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ OBJECTIONS ═══ -->
-<section class="obj-section">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="sec-label">Що зупиняє</div>
-      <h2 class="sec-title">Що вас <em>зупиняє</em>?</h2>
-    </div>
-
-    <div class="obj-grid stagger reveal">
-      <div class="objection"><p class="obj-q">А раптом у мене не вийде?</p><p class="obj-a">Цей курс підходить для кожного, навіть якщо ви ніколи не працювали з голосом. Ми починаємо з простих вправ і поступово йдемо до великих результатів.</p></div>
-      <div class="objection"><p class="obj-q">Мені здається, що в мене немає таланту</p><p class="obj-a">Гарний голос — це не талант, а навичка. Я покажу вам, як зробити свій голос сильним, красивим і впевненим — крок за кроком.</p></div>
-      <div class="objection"><p class="obj-q">У мене мало часу на навчання</p><p class="obj-a">На курсі вам потрібно всього 15 хвилин на день. Ви зможете займатися у будь-який зручний час — з телефону, поки чайник кипить чи дитина спить.</p></div>
-      <div class="objection"><p class="obj-q">Чи справді це допоможе мені?</p><p class="obj-a">Уже понад 30 000 людей пройшли цей курс і змінили своє життя. Перші результати ви помітите вже після кількох уроків.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ABOUT ═══ -->
-<section class="about-section">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-photo reveal-left">
-        <div class="about-photo-glow"></div>
-        <div class="about-photo-glow2"></div>
-        <div class="about-photo-ring"></div>
-        <div class="about-photo-ring2"></div>
-        <div class="about-photo-img">
-          <img src="natalka-about.jpg" alt="Наталка Денисенко">
-        </div>
-        <div class="about-tag">Голос Мавки з мультфільму «Мавка. Лісова пісня»</div>
-        <div class="about-float-stat af1"><b>60+</b><span>фільмів</span></div>
-        <div class="about-float-stat af2"><b>300+</b><span>озвучень</span></div>
-      </div>
-
-      <div class="about-content reveal-right">
-        <div class="sec-label">Ваш тренер</div>
-        <h2 class="sec-title" style="font-size:clamp(30px,4vw,42px);">Зірка українського кіно,<br>театру та <em>дубляжу</em></h2>
-        <p style="font-size:16px;color:var(--slate);line-height:1.7;margin:0 0 8px;">
-          <b style="color:var(--charcoal);">Наталка Денисенко</b> — зірка українського кіно, театру, дубляжу та озвучування. Випускниця університету імені Карпенка-Карого. Куратор та лектор курсу дикторів з майстерності озвучення дубляжу в школі Film UA.
-        </p>
-
-        <div class="stat-row">
-          <div class="about-stat"><b>60+</b><span>кінофільмів</span></div>
-          <div class="about-stat"><b>300+</b><span>озвучень</span></div>
-          <div class="about-stat"><b>30K+</b><span>випускників</span></div>
-        </div>
-      </div>
+<section class="sect auth" aria-label="Наталка Денисенко">
+  <div class="wrap auth-grid">
+    <figure class="auth-pic reveal"><img src="/home/img/author.jpg" width="1100" height="1650" loading="lazy" alt="Наталка Денисенко в білій сукні шепоче біля скульптури в майстерні"><figcaption>Голос Мавки з мультфільму «Мавка. Лісова пісня»</figcaption></figure>
+    <div>
+      <span class="tag reveal">Веде курс</span>
+      <h2 class="reveal">Наталка Денисенко</h2>
+      <p class="reveal">Зірка українського кіно, театру, дубляжу та озвучування. Випускниця університету імені Карпенка-Карого, кураторка й лекторка курсу дикторів у школі Film UA.</p>
+      <ul class="stats">
+        <li class="reveal"><b>60+</b><span>кінофільмів</span></li>
+        <li class="reveal"><b>300+</b><span>озвучень</span></li>
+        <li class="reveal"><b>15+</b><span>років озвучки</span></li>
+        <li class="reveal"><b>30K+</b><span>випускників</span></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ═══ REVIEWS ═══ -->
-<section class="reviews-section">
+<section class="sect rev on-light" aria-label="Відгуки">
   <div class="wrap">
-    <div class="reveal">
-      <div class="sec-label">Відгуки</div>
-      <h2 class="sec-title">Що говорять учасники, які вже<br>пройшли <em>курс</em></h2>
+    <span class="tag reveal">Відгуки</span>
+    <h2 class="reveal">31 відгук учасниць</h2>
+    <div class="rev-nav"><button id="revPrev" type="button" aria-label="Попередній відгук">←</button><button id="revNext" type="button" aria-label="Наступний відгук">→</button><span><span id="revCur">01</span> / 31</span></div>
+    <div class="rev-track" id="revSlider" tabindex="0"><img src="/reviews/review-01.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 1"><img src="/reviews/review-02.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 2"><img src="/reviews/review-03.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 3"><img src="/reviews/review-04.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 4"><img src="/reviews/review-05.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 5"><img src="/reviews/review-06.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 6"><img src="/reviews/review-07.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 7"><img src="/reviews/review-08.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 8"><img src="/reviews/review-09.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 9"><img src="/reviews/review-10.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 10"><img src="/reviews/review-11.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 11"><img src="/reviews/review-12.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 12"><img src="/reviews/review-13.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 13"><img src="/reviews/review-14.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 14"><img src="/reviews/review-15.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 15"><img src="/reviews/review-16.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 16"><img src="/reviews/review-17.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 17"><img src="/reviews/review-18.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 18"><img src="/reviews/review-19.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 19"><img src="/reviews/review-20.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 20"><img src="/reviews/review-21.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 21"><img src="/reviews/review-22.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 22"><img src="/reviews/review-23.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 23"><img src="/reviews/review-24.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 24"><img src="/reviews/review-25.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 25"><img src="/reviews/review-26.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 26"><img src="/reviews/review-27.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 27"><img src="/reviews/review-28.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 28"><img src="/reviews/review-29.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 29"><img src="/reviews/review-30.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 30"><img src="/reviews/review-31.jpeg" loading="lazy" alt="Скріншот відгуку учасниці курсу, 31"></div>
+  </div>
+</section>
+
+<section class="sect offer" id="offer" data-cta-zone aria-label="Вартість курсу">
+  <div class="wrap offer-grid">
+    <div>
+      <span class="tag reveal">Майстер-канал</span>
+      <h2 class="reveal">Усе на одному пульті</h2>
     </div>
+    <article class="master reveal">
+      <p class="master-t"><span>Комплексний курс</span><span>Голос на мільйон</span></p>
+      <ul class="leds">
+        <li>11 модулів<span>7 про голос і 4 PRO: сторітелінг, відео, виступи</span></li>
+        <li>30 днів щоденної практики<span>Артикуляція, дихання, тембр, скоромовки</span></li>
+        <li>Бонуси<span>7-денний тренажер дикції, авторська медитація</span></li>
+        <li>6 місяців доступу<span>Закрита телеграм-група, сертифікат</span></li>
+      </ul>
+      <p class="screen"><span class="now">1 999 <small>грн</small></span><span class="old">4 890 грн</span></p>
+      <a class="btn" href="/pay-pro" data-cta>Купити курс за 1 999 грн</a>
+      <p class="fine">Будь-яка картка світу, крім рф, через plata by mono. Протягом 14 днів можна відмовитись і повернути кошти за вирахуванням уже наданого матеріалу, умови в <a href="https://drive.google.com/file/d/1lfBKxANzT4toTtStBflbZv4gWNFFhoJf/view?usp=sharing" target="_blank" rel="noopener">договорі</a>.</p>
+    </article>
+  </div>
+</section>
 
-    <div class="review-slider-wrap reveal">
-      <div class="review-controls">
-        <div class="review-info"><b id="revCur">01</b> / <span id="revTotal">31</span> · гортайте вправо</div>
-        <div class="review-arrows">
-          <button class="review-arrow" id="revPrev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-          <button class="review-arrow" id="revNext"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-
-      <div class="review-slider" id="revSlider">
-        <div class="review-slide"><img src="reviews/review-01.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-02.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-03.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-04.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-05.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-06.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-07.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-08.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-09.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-10.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-11.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-12.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-13.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-14.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-15.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-16.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-17.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-18.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-19.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-20.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-21.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-22.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-23.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-24.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-25.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-26.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-27.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-28.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-29.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-30.jpeg" alt="Відгук" loading="lazy"></div>
-        <div class="review-slide"><img src="reviews/review-31.jpeg" alt="Відгук" loading="lazy"></div>
-      </div>
+<section class="sect faq on-light" aria-label="Запитання і відповіді">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="tag reveal">Питання</span>
+      <h2 class="reveal">Що зупиняє?</h2>
+      <p class="faq-c reveal">Не знайшла свого запитання?<br><a href="https://t.me/kodvd_communication" target="_blank" rel="noopener">Напиши в Telegram</a></p>
+    </div>
+    <div class="faq-list">
+      <details open><summary>А раптом у мене не вийде?<i aria-hidden="true"></i></summary><p>Курс підходить, навіть якщо ти ніколи не працювала з голосом. Починаємо з простих вправ і поступово йдемо далі.</p></details>
+      <details><summary>У мене немає таланту<i aria-hidden="true"></i></summary><p>Гарний голос це навичка. Наталка показує, як розвивати його крок за кроком.</p></details>
+      <details><summary>У мене мало часу<i aria-hidden="true"></i></summary><p>Потрібно 15–20 хвилин на день, у будь-який зручний час і з телефону.</p></details>
+      <details><summary>Як я отримаю доступ?<i aria-hidden="true"></i></summary><p>Одразу після оплати на пошту прийде лист з інструкціями, як зайти на платформу.</p></details>
+      <details><summary>Чи можна проходити у своєму темпі?<i aria-hidden="true"></i></summary><p>Так. Доступ діє 6 місяців, тож графік адаптуєш під себе.</p></details>
+      <details><summary>Чи можна повернути кошти?<i aria-hidden="true"></i></summary><p>Протягом 14 днів можна відмовитись і повернути кошти за вирахуванням уже наданого матеріалу. Умови в договорі публічної оферти.</p></details>
+      <details><summary>Чим комплексний курс відрізняється від базового?<i aria-hidden="true"></i></summary><p>Тут усе з базового (7 модулів і 30 днів практики), а ще 4 PRO-модулі й довший доступ.</p></details>
+      <details><summary>Чи підійде для співу?<i aria-hidden="true"></i></summary><p>Основний акцент на говорінні й виступах, але багато технік корисні й для співу, бо розвивають голос у цілому.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ═══ FINAL OFFER ═══ -->
-<section class="offer-section" id="offer">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center;margin-bottom:48px;">
-      <div class="sec-label" style="color:var(--gold);justify-content:center;">Час діяти</div>
-      <h2 class="sec-title" style="color:#fff;">Приєднуйтесь до<br>комплексного курсу<br>про <em>голос</em></h2>
+<section class="sect final" data-cta-zone aria-label="Останній заклик">
+  <div class="final-wave"><svg class="wave " viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2.4 16.5V83.5M7.1 13.9V86.1M11.9 4.7V95.3M16.7 16.8V83.2M21.4 16.0V84.0M26.2 14.2V85.8M31.0 24.7V75.3M35.7 16.7V83.3M40.5 14.0V86.0M45.2 10.2V89.8M50.0 27.7V72.3M54.8 22.7V77.3M59.5 28.1V71.9M64.3 11.1V88.9M69.0 14.1V85.9M73.8 29.8V70.2M78.6 8.0V92.0M83.3 8.7V91.3M88.1 16.2V83.8M92.9 17.3V82.7M97.6 28.0V72.0M102.4 31.3V68.7M107.1 20.1V79.9M111.9 30.7V69.3M116.7 28.0V72.0M121.4 27.1V72.9M126.2 31.8V68.2M131.0 22.8V77.2M135.7 23.5V76.5M140.5 15.4V84.6M145.2 22.4V77.6M150.0 20.1V79.9M154.8 23.3V76.7M159.5 20.2V79.8M164.3 24.6V75.4M169.0 28.4V71.6M173.8 14.5V85.5M178.6 14.9V85.1M183.3 18.2V81.8M188.1 21.1V78.9M192.9 28.7V71.3M197.6 30.5V69.5M202.4 29.4V70.6M207.1 33.3V66.7M211.9 20.0V80.0M216.7 26.7V73.3M221.4 17.8V82.2M226.2 26.5V73.5M231.0 15.0V85.0M235.7 16.8V83.2M240.5 33.5V66.5M245.2 29.1V70.9M250.0 14.6V85.4M254.8 23.4V76.6M259.5 12.5V87.5M264.3 24.4V75.6M269.0 31.1V68.9M273.8 19.0V81.0M278.6 15.5V84.5M283.3 26.3V73.7M288.1 30.1V69.9M292.9 24.5V75.5M297.6 10.1V89.9M302.4 14.4V85.6M307.1 28.7V71.3M311.9 25.6V74.4M316.7 28.7V71.3M321.4 29.5V70.5M326.2 12.0V88.0M331.0 26.4V73.6M335.7 17.1V82.9M340.5 19.5V80.5M345.2 25.5V74.5M350.0 12.0V88.0M354.8 26.6V73.4M359.5 13.6V86.4M364.3 26.6V73.4M369.0 18.7V81.3M373.8 23.8V76.2M378.6 22.1V77.9M383.3 3.8V96.2M388.1 7.8V92.2M392.9 20.6V79.4M397.6 5.0V95.0"/></svg></div>
+  <div class="wrap final-grid">
+    <div class="final-copy">
+      <h2 class="reveal">Твій голос на повну</h2>
+      <a class="btn" href="/pay-pro" data-cta>Купити курс за 1 999 грн</a>
     </div>
-
-    <div class="offer-inner">
-      <div class="offer-list reveal-left">
-        <h4>Що ви отримаєте</h4>
-        <ul>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><div><b>11 повноцінних модулів</b> від зірки українського кіно Наталки Денисенко</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><div><b>30 днів щоденної практики</b> — артикуляція, дихання, тембр, скоромовки</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><div><b>4 PRO-модулі:</b> сторітелінг, відео, публічні виступи</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><div><b>🎁 Бонус: 7-денний тренажер дикції</b></div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><div><b>🎁 Бонус: авторська медитація</b> Наталки Денисенко</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><div><b>Доступ 6 місяців</b> + закрита Telegram-група + сертифікат</div></li>
-        </ul>
-      </div>
-
-      <div class="offer-cta-block reveal-right">
-        <div class="offer-timer">
-          <span class="label">До кінця пропозиції</span>
-          <span class="clock" id="timer">02:59:47</span>
-        </div>
-
-        <div class="offer-price">1 999<span class="cur">₴</span></div>
-        <div style="font-size:14px;color:var(--gold);font-weight:600;margin-top:8px;">Придбати зараз зі знижкою</div>
-
-        <button class="offer-buy" onclick="window.location.href='/pay-pro'">
-          Долучитися до курсу →
-        </button>
-
-        <div class="offer-guarantee">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-          Безпечна оплата з будь-якої карти світу через plata by mono
-        </div>
-
-        <p class="offer-disclaimer">
-          14 днів гарантії повернення коштів — якщо курс не підійде, повернемо повну вартість.
-        </p>
-      </div>
-    </div>
+    <figure class="final-fig reveal"><img src="/home/img/final.webp" width="1200" height="1736" loading="lazy" alt="Наталка Денисенко в білому костюмі усміхається"></figure>
   </div>
 </section>
+</main>
 
-<!-- ═══ FAQ ═══ -->
-<section class="faq-section">
+<footer aria-label="Юридична інформація">
   <div class="wrap">
-    <div class="reveal">
-      <div class="sec-label">Питання — відповіді</div>
-      <h2 class="sec-title">Найчастіші <em>запитання</em></h2>
-    </div>
-
-    <div class="faq-list reveal">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Чи потрібні якісь попередні навички?<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><p>Ні, курс підходить як для початківців, так і для тих, хто вже працював із голосом, але хоче його покращити.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Як я отримаю доступ після оплати?<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><p>Відразу після оплати ви отримаєте листа з інструкціями — як зареєструватися та отримати доступ до платформи.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Чи можу я проходити у своєму темпі?<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><p>Так. Доступ до курсу 3 місяці — адаптуйте під свій графік. 15–20 хвилин на день — з телефону.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Чи можна повернути кошти?<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><p>Так, гарантія повернення коштів протягом перших 14 днів після покупки — якщо курс не відповідає вашим очікуванням.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Чим комплексний курс відрізняється від базового?<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><p>Комплексний включає все з базового (7 модулів + 30 днів практики), плюс 4 PRO-модулі (сторітелінг, відео, публічні виступи), плюс 3 місяці доступу замість 2.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Чи підійде для покращення голосу для співу?<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><p>Так. Основний акцент — на говорінні та виступах, але багато технік корисні і для співаків, бо спрямовані на розвиток голосу в цілому.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <div class="wrap">
-    <div class="foot-brand">Голос на мільйон</div>
-    <p>Авторський курс Наталки Денисенко · ФОП Денисенко О.Д. · ЄДРПОУ 1995303258</p>
-    <p style="margin-top:8px;">
-      <a href="https://t.me/kodvd_communication" target="_blank">Підтримка в Telegram</a>
-    </p>
-    <div class="foot-legal">
-      <p>Всі права захищені. Будь-яке копіювання матеріалів дозволяється тільки з погодження правовласників.</p>
-      <p style="margin-top:8px;">
-        <a href="https://drive.google.com/file/d/1Fu1frfMtYF1arBrRhnQZTsgMpJUMng13/view?usp=drive_link" target="_blank" style="color:rgba(197,216,246,0.5);">Політика конфіденційності</a>
-        <span style="color:rgba(197,216,246,0.2);margin:0 8px;">·</span>
-        <a href="https://drive.google.com/file/d/1lfBKxANzT4toTtStBflbZv4gWNFFhoJf/view?usp=sharing" target="_blank" style="color:rgba(197,216,246,0.5);">Договір публічної оферти</a>
-      </p>
-      <p style="margin-top:12px;">© All rights reserved 2026</p>
-    </div>
+    <p>ФОП Денисенко Олександр Дмитрович · РНОКПП 1995303258</p>
+    <p><a href="https://t.me/kodvd_communication" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:golos1million@gmail.com">golos1million@gmail.com</a> · <a href="https://drive.google.com/file/d/1lfBKxANzT4toTtStBflbZv4gWNFFhoJf/view?usp=sharing" target="_blank" rel="noopener">Публічна оферта</a> · <a href="https://drive.google.com/file/d/1Fu1frfMtYF1arBrRhnQZTsgMpJUMng13/view?usp=drive_link" target="_blank" rel="noopener">Політика конфіденційності</a></p>
+    <p>Усі матеріали мають освітню мету. Результат залежить від твоєї практики, і ми не гарантуємо конкретних результатів. © 2026</p>
   </div>
 </footer>
 
-<!-- ═══ STICKY CTA ═══ -->
-<div class="sticky-cta" id="stickyCta">
-  <div class="sticky-cta-text"><b>1 999 ₴</b> Комплексний курс</div>
-  <button class="sticky-cta-btn" onclick="window.location.href='/pay-pro'">Долучитися →</button>
-</div>
+<div class="sticky-cta" data-sticky-cta><a class="btn" href="/pay-pro" data-cta>Купити курс за 1 999 грн</a></div>
 
-<!-- ═══════════ SCRIPTS ═══════════ -->
 <script>
-// ═══ START DATE ═══
-(function() {
-  const months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
-  const t = new Date();
-  document.getElementById('start-date').textContent = `${t.getDate()} ${months[t.getMonth()]}`;
-})();
+(() => {
+  const rev = document.querySelectorAll('.reveal,[data-desk]');
+  const showAll = () => rev.forEach(el => el.classList.add('in'));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px' });
+    rev.forEach(el => io.observe(el));
+    const sticky = document.querySelector('[data-sticky-cta]');
+    const seen = new Set();
+    const zio = new IntersectionObserver(es => {
+      es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
+      sticky.classList.toggle('on', seen.size === 0);
+    });
+    document.querySelectorAll('[data-cta-zone]').forEach(z => zio.observe(z));
+  } else showAll();
 
-// ═══ COUNTDOWN TIMER ═══
-(function() {
-  const el = document.getElementById('timer');
-  let s = 3*60*60 - Math.floor(Math.random()*60);
-  function tick() {
-    if(s<=0)s=3*60*60;
-    const h=String(Math.floor(s/3600)).padStart(2,'0');
-    const m=String(Math.floor((s%3600)/60)).padStart(2,'0');
-    const sc=String(s%60).padStart(2,'0');
-    el.textContent=`${h}:${m}:${sc}`;
-    s--;
-  }
-  tick(); setInterval(tick,1000);
-})();
+  // Відгуки
+  const slider = document.getElementById('revSlider');
+  const step = () => slider.querySelector('img').getBoundingClientRect().width + 12;
+  document.getElementById('revNext').addEventListener('click', () => slider.scrollBy({ left: step(), behavior: 'smooth' }));
+  document.getElementById('revPrev').addEventListener('click', () => slider.scrollBy({ left: -step(), behavior: 'smooth' }));
+  slider.addEventListener('scroll', () => {
+    document.getElementById('revCur').textContent = String(Math.round(slider.scrollLeft / step()) + 1).padStart(2, '0');
+  }, { passive: true });
 
-// ═══ NAV SCROLL ═══
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>30);});
-
-// ═══ STICKY CTA ═══
-const stickyCta=document.getElementById('stickyCta');
-window.addEventListener('scroll',()=>{stickyCta.classList.toggle('visible',window.scrollY>window.innerHeight*0.8);});
-
-// ═══ SCROLL REVEAL ═══
-const revObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting){e.target.classList.add('in');revObserver.unobserve(e.target);}
-  });
-}, {threshold:0.1, rootMargin:'0px 0px -60px 0px'});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger').forEach(el=>revObserver.observe(el));
-
-// ═══ MODULE ACCORDION ═══
-function toggleModule(head) {
-  const m=head.parentElement;
-  const wasOpen=m.classList.contains('open');
-  document.querySelectorAll('.module').forEach(x=>x.classList.remove('open'));
-  if(!wasOpen)m.classList.add('open');
-}
-
-// ═══ FAQ ACCORDION ═══
-function toggleFaq(btn) {
-  const item=btn.parentElement;
-  const wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));
-  if(!wasOpen)item.classList.add('open');
-}
-
-// ═══ REVIEW SLIDER ═══
-(function() {
-  const slider=document.getElementById('revSlider');
-  const prev=document.getElementById('revPrev');
-  const next=document.getElementById('revNext');
-  const curEl=document.getElementById('revCur');
-  const w=300;
-
-  next.addEventListener('click',()=>{slider.scrollBy({left:w,behavior:'smooth'});});
-  prev.addEventListener('click',()=>{slider.scrollBy({left:-w,behavior:'smooth'});});
-
-  slider.addEventListener('scroll',()=>{
-    const idx=Math.round(slider.scrollLeft/w)+1;
-    curEl.textContent=String(idx).padStart(2,'0');
+  // Передаємо UTM-мітки на сторінку оплати
+  const utm = new URLSearchParams(location.search);
+  [...utm.keys()].forEach(k => { if (!/^(utm_|fbclid|gclid)/.test(k)) utm.delete(k); });
+  if ([...utm].length) document.querySelectorAll('a[data-cta]').forEach(a => {
+    const u = new URL(a.href);
+    utm.forEach((v, k) => u.searchParams.set(k, v));
+    a.href = u;
   });
 })();
 </script>
-
 </body>
 </html>
