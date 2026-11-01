@@ -8,9 +8,15 @@
   status = 200
   force = true
  
-# Базовий курс (для реклами)
+# Базовий курс (для реклами): новий лендінг
 [[redirects]]
   from = "/ads"
+  to = "/adsnew/index.html"
+  status = 200
+ 
+# Базовий курс: попередній лендінг
+[[redirects]]
+  from = "/adsold"
   to = "/index.html"
   status = 200
  
